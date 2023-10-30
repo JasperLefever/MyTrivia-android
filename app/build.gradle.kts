@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "icu.repsaj.android.mytrivia"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "icu.repsaj.android.mytrivia"
         minSdk = 31
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
