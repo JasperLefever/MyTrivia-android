@@ -9,6 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import icu.repsaj.android.mytrivia.ui.BottomBar
+import icu.repsaj.android.mytrivia.ui.TopBar
 
 @Composable
 fun TriviaApp() {

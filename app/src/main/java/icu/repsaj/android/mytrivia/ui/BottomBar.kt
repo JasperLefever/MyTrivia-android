@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia
+package icu.repsaj.android.mytrivia.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.BottomAppBar
