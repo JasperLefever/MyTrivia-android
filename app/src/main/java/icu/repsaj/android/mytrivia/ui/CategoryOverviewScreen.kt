@@ -4,6 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun CategoryOverviewScreen(modifier: Modifier) {
+fun CategoryOverviewScreen(modifier: Modifier = Modifier) {
 
 }
