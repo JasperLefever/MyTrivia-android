@@ -23,7 +23,12 @@ public fun TopBar(
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text(stringResource(id = currentScreen.title)) },
+        title = {
+            Text(
+                stringResource(id = currentScreen.title),
+                style = MaterialTheme.typography.displayLarge
+            )
+        },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
