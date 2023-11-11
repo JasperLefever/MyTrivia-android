@@ -48,7 +48,7 @@ fun CategoryCard(
         ) {
         Row(
             modifier = Modifier
-                .padding(16.dp)
+                .padding(MaterialTheme.spacing.medium)
         ) {
             Icon(
                 imageVector = icon,
