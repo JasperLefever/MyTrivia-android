@@ -1,5 +1,8 @@
 package icu.repsaj.android.mytrivia.ui
 
-enum class NavRoutes {
-    Categories
+import androidx.annotation.StringRes
+import icu.repsaj.android.mytrivia.R
+
+enum class NavRoutes(@StringRes val title: Int) {
+    Categories(title = R.string.categories)
 }

@@ -12,20 +12,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import icu.repsaj.android.mytrivia.ui.BottomBar
 import icu.repsaj.android.mytrivia.ui.CategoryOverviewScreen
 import icu.repsaj.android.mytrivia.ui.NavRoutes
 import icu.repsaj.android.mytrivia.ui.TopBar
 
-@Composable
-fun TriviaApp() {
-    TriviaAppPrev()
-}
-
 @Preview(showSystemUi = true, showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TriviaAppPrev(
+fun TriviaApp(
     navController: NavHostController = rememberNavController()
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -34,8 +28,12 @@ fun TriviaAppPrev(
         NavRoutes.valueOf(backStackEntry?.destination?.route ?: NavRoutes.Categories.name)
 
     Scaffold(
-        topBar = { TopBar() },
-        bottomBar = { BottomBar() },
+        topBar = {
+            TopBar(
+                canNavigateBack = navController.previousBackStackEntry != null,
+                currentScreen = currentScreen,
+                navigateUp = { navController.navigateUp() })
+        }
     ) { innerPadding ->
 
         NavHost(

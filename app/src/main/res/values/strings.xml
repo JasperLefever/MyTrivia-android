@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyTrivia</string>
+    <string name="categories">Categories</string>
+    <string name="back_button">Go Back</string>
 </resources>
