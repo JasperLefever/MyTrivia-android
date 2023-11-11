@@ -4,5 +4,6 @@ import androidx.annotation.StringRes
 import icu.repsaj.android.mytrivia.R
 
 enum class NavRoutes(@StringRes val title: Int) {
-    Categories(title = R.string.categories)
+    Categories(title = R.string.categories),
+    Game(title = R.string.game)
 }

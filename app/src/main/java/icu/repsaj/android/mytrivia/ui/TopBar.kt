@@ -26,7 +26,7 @@ public fun TopBar(
         title = {
             Text(
                 stringResource(id = currentScreen.title),
-                style = MaterialTheme.typography.displayLarge
+                style = MaterialTheme.typography.displayLarge,
             )
         },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
