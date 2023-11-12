@@ -5,5 +5,6 @@ import icu.repsaj.android.mytrivia.R
 
 enum class NavRoutes(@StringRes val title: Int) {
     Categories(title = R.string.categories),
-    Game(title = R.string.game)
+    Game(title = R.string.game),
+    History(title = R.string.history)
 }

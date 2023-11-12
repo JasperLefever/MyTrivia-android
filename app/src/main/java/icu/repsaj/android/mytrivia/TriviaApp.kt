@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import icu.repsaj.android.mytrivia.ui.CategoryOverviewScreen
+import icu.repsaj.android.mytrivia.ui.GameHistory
 import icu.repsaj.android.mytrivia.ui.NavRoutes
 import icu.repsaj.android.mytrivia.ui.TopBar
 import icu.repsaj.android.mytrivia.ui.TriviaGameScreen
@@ -39,7 +40,7 @@ fun TriviaApp(
 
         NavHost(
             navController = navController,
-            startDestination = NavRoutes.Game.name,
+            startDestination = NavRoutes.History.name,
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(route = NavRoutes.Categories.name) {
@@ -47,6 +48,9 @@ fun TriviaApp(
             }
             composable(route = NavRoutes.Game.name) {
                 TriviaGameScreen()
+            }
+            composable(route = NavRoutes.History.name) {
+                GameHistory()
             }
         }
     }

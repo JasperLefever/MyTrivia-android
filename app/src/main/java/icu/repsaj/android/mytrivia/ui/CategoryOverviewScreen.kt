@@ -40,7 +40,7 @@ fun CategoryCard(
         modifier = modifier
             .padding(
                 horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.small
+                vertical = MaterialTheme.spacing.extraSmall
             )
             .fillMaxWidth()
             .clickable { /*TODO */ },
