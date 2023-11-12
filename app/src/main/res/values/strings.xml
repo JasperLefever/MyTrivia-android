@@ -11,4 +11,6 @@
     <string name="gamescreen_question_counter">Question %1$s/%2$s</string>
     <string name="gamescreen_score">Score: %1$s</string>
     <string name="next">Next</string>
+    <string name="game_over">Game Finished</string>
+    <string name="final_score">You scored %1$s points!</string>
 </resources>

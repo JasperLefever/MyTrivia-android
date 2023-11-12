@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.AlertDialog
@@ -36,69 +37,39 @@ import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @Composable
 fun TriviaGameScreen(
+    currentCategory: String,
     showQuitDialog: Boolean,
     onQuitConfirmed: () -> Unit,
     onQuitDismissed: () -> Unit,
+    isGameOver: Boolean,
+    score: Int,
+    nextQuestion: () -> Unit,
+    totalQuestions: Int,
+    currentQuestionIndex: Int,
     modifier: Modifier = Modifier
 ) {
-    var selectedAnswer by remember { mutableStateOf<String?>(null) }
-
     Column(
-        verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .padding(MaterialTheme.spacing.medium)
             .fillMaxHeight(),
     ) {
-        ElevatedCard(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                QuestionCounter(1, 10)
-                ScoreCounter(1)
-            }
+        CategoryTitle(currentCategory = currentCategory)
 
-            Column(
-                modifier = Modifier
-                    .padding(MaterialTheme.spacing.medium)
-            ) {
-                Question(question = "What is your favorite food?")
+        GameCard(
+            currentQuestion = currentQuestionIndex + 1,
+            totalQuestions = totalQuestions,
+            score = score
+        )
 
-                Spacer(modifier = Modifier.padding(MaterialTheme.spacing.medium))
-
-                AnswerCard(
-                    answer = "Pasta",
-                    isSelected = selectedAnswer == "Pasta",
-                    isCorrect = false,
-                    onAnswerClick = { selectedAnswer = "Pasta" }
-                )
-
-                AnswerCard(
-                    answer = "Pizza",
-                    isSelected = selectedAnswer == "Pizza",
-                    isCorrect = true,
-                    onAnswerClick = { selectedAnswer = "Pizza" }
-                )
-
-                AnswerCard(
-                    answer = "Broodje",
-                    isSelected = selectedAnswer == "Broodje",
-                    isCorrect = false,
-                    onAnswerClick = { selectedAnswer = "Broodje" }
-                )
-
-            }
-        }
-        Button(
-            onClick = { /*TODO*/ },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(MaterialTheme.spacing.small)
-        ) {
-            Text(text = stringResource(R.string.next))
+        if (isGameOver) {
+            ScoreDialog(
+                onConfirmation = { /*TODO*/ },
+                dialogTitle = stringResource(R.string.game_over),
+                dialogText = stringResource(R.string.final_score, score),
+                icon = Icons.Filled.Check
+            )
+        } else {
+            NextQuestion(nextQuestion = nextQuestion)
         }
 
     }
@@ -111,6 +82,95 @@ fun TriviaGameScreen(
             icon = Icons.Filled.Close
         )
     }
+}
+
+@Composable
+fun ScoreDialog(
+    onConfirmation: () -> Unit,
+    dialogTitle: String,
+    dialogText: String,
+    icon: ImageVector
+) {
+    AlertDialog(
+        icon = {
+            Icon(icon, contentDescription = null)
+        },
+        title = {
+            Text(text = dialogTitle)
+        },
+        text = {
+            Text(text = dialogText)
+        },
+        onDismissRequest = {},
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onConfirmation()
+                }
+            ) {
+                Text(stringResource(R.string.confirm))
+            }
+        },
+    )
+}
+
+@Composable
+private fun NextQuestion(nextQuestion: () -> Unit) {
+    Button(
+        onClick = nextQuestion,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(MaterialTheme.spacing.small)
+    ) {
+        Text(text = stringResource(R.string.next))
+    }
+}
+
+@Composable
+private fun GameCard(currentQuestion: Int, totalQuestions: Int, score: Int) {
+    var selectedAnswer by remember { mutableStateOf<String?>(null) }
+
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            QuestionCounter(currentQuestion = currentQuestion, totalQuestions = totalQuestions)
+            ScoreCounter(score = score)
+        }
+
+        Column(
+            modifier = Modifier
+                .padding(MaterialTheme.spacing.medium)
+        ) {
+            Question(question = "What is your favorite food?")
+
+            Spacer(modifier = Modifier.padding(MaterialTheme.spacing.medium))
+
+            AnswerCard(
+                answer = "Pasta",
+                isSelected = selectedAnswer == "Pasta",
+                isCorrect = false,
+                onAnswerClick = { selectedAnswer = "Pasta" }
+            )
+
+        }
+    }
+}
+
+@Composable
+private fun CategoryTitle(currentCategory: String) {
+    Text(
+        text = currentCategory,
+        style = MaterialTheme.typography.displayLarge,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = MaterialTheme.spacing.medium)
+    )
 }
 
 @Composable

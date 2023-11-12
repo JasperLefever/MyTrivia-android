@@ -49,4 +49,12 @@ class TriviaViewModel : ViewModel() {
             )
         }
     }
+
+    fun nextQuestion() {
+        _uiState.update { currentState ->
+            currentState.copy(
+                currentQuestionIndex = currentState.currentQuestionIndex.inc(),
+            )
+        }
+    }
 }

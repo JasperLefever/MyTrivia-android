@@ -63,12 +63,18 @@ fun TriviaApp(
             }
             composable(route = NavRoutes.Game.name) {
                 TriviaGameScreen(
+                    currentCategory = triviaUiState.currentCategory,
                     showQuitDialog = triviaUiState.showQuitDialog,
                     onQuitConfirmed = {
                         viewModel.reset()
                         navController.navigateUp()
                     },
                     onQuitDismissed = { viewModel.toggleQuitDialog() },
+                    isGameOver = triviaUiState.isGameOver,
+                    score = triviaUiState.score,
+                    nextQuestion = { viewModel.nextQuestion() },
+                    currentQuestionIndex = triviaUiState.currentQuestionIndex,
+                    totalQuestions = triviaUiState.questions.size,
                 )
             }
             composable(route = NavRoutes.History.name) {
