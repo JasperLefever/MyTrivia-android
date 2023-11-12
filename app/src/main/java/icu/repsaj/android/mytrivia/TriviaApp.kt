@@ -34,13 +34,14 @@ fun TriviaApp(
             TopBar(
                 canNavigateBack = navController.previousBackStackEntry != null,
                 currentScreen = currentScreen,
-                navigateUp = { navController.navigateUp() })
+                navigateUp = { navController.navigateUp() },
+                navigateHistory = { navController.navigate(NavRoutes.History.name) })
         }
     ) { innerPadding ->
 
         NavHost(
             navController = navController,
-            startDestination = NavRoutes.History.name,
+            startDestination = NavRoutes.Categories.name,
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(route = NavRoutes.Categories.name) {
