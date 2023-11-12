@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.data
+package icu.repsaj.android.mytrivia.model
 
 import java.util.Date
 
