@@ -16,7 +16,7 @@ import java.util.Date
 
 @Composable
 fun GameHistory() {
-    Column(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
+    Column(modifier = Modifier.padding(vertical = MaterialTheme.spacing.small)) {
         HistoryItemCard(ranking = 1, category = "movies", score = 20, date = Date())
         HistoryItemCard(ranking = 2, category = "movies", score = 20, date = Date())
         HistoryItemCard(ranking = 3, category = "movies", score = 20, date = Date())
