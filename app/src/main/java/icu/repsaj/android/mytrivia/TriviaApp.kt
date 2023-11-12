@@ -4,9 +4,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -17,13 +19,16 @@ import icu.repsaj.android.mytrivia.ui.GameHistory
 import icu.repsaj.android.mytrivia.ui.NavRoutes
 import icu.repsaj.android.mytrivia.ui.TopBar
 import icu.repsaj.android.mytrivia.ui.TriviaGameScreen
+import icu.repsaj.android.mytrivia.ui.TriviaViewModel
 
 @Preview(showSystemUi = true, showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TriviaApp(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    viewModel: TriviaViewModel = viewModel(),
 ) {
+    val triviaUiState by viewModel.uiState.collectAsState()
     val backStackEntry by navController.currentBackStackEntryAsState()
 
     val currentScreen =
@@ -35,7 +40,8 @@ fun TriviaApp(
                 canNavigateBack = navController.previousBackStackEntry != null,
                 currentScreen = currentScreen,
                 navigateUp = { navController.navigateUp() },
-                navigateHistory = { navController.navigate(NavRoutes.History.name) })
+                navigateHistory = { navController.navigate(NavRoutes.History.name) },
+                showQuitDialog = { viewModel.showQuitDialog() })
         }
     ) { innerPadding ->
 
@@ -45,10 +51,22 @@ fun TriviaApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(route = NavRoutes.Categories.name) {
-                CategoryOverviewScreen()
+                CategoryOverviewScreen(
+                    navigateToGame = {
+                        navController.navigate(NavRoutes.Game.name)
+                    },
+                    setCategory = {
+                        viewModel.selectCategory(it)
+                    },
+                    categories = triviaUiState.categories,
+                )
             }
             composable(route = NavRoutes.Game.name) {
-                TriviaGameScreen()
+                TriviaGameScreen(
+                    navigateUp = { navController.navigateUp() },
+                    resetGame = { viewModel.reset() },
+                    showQuitDialog = triviaUiState.showQuitDialog,
+                )
             }
             composable(route = NavRoutes.History.name) {
                 GameHistory()

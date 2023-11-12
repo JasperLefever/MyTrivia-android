@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -18,6 +19,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,15 +28,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @Composable
 fun TriviaGameScreen(
-    /* TODO viewmodel inject,*/
+    navigateUp: () -> Unit,
+    resetGame: () -> Unit,
+    showQuitDialog: Boolean,
     modifier: Modifier = Modifier
 ) {
-    //TODO: add ui state
     var selectedAnswer by remember { mutableStateOf<String?>(null) }
 
     Column(
@@ -95,6 +99,18 @@ fun TriviaGameScreen(
             Text(text = "Next")
         }
 
+    }
+    if (showQuitDialog) {
+        ConfirmQuitDialog(
+            onDismissRequest = { },
+            onConfirmation = {
+                resetGame()
+                navigateUp()
+            },
+            dialogTitle = "Quit Game",
+            dialogText = "Are you sure you want to quit the game?",
+            icon = Icons.Filled.Close
+        )
     }
 }
 
@@ -195,4 +211,49 @@ fun QuestionCounter(
             modifier = Modifier.padding(MaterialTheme.spacing.small)
         )
     }
+}
+
+
+@Composable
+fun ConfirmQuitDialog(
+    onDismissRequest: () -> Unit,
+    onConfirmation: () -> Unit,
+    dialogTitle: String,
+    dialogText: String,
+    icon: ImageVector,
+    modifier: Modifier = Modifier
+) {
+
+    AlertDialog(
+        icon = {
+            Icon(icon, contentDescription = "Example Icon")
+        },
+        title = {
+            Text(text = dialogTitle)
+        },
+        text = {
+            Text(text = dialogText)
+        },
+        onDismissRequest = {
+            onDismissRequest()
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onConfirmation()
+                }
+            ) {
+                Text("Confirm")
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = {
+                    onDismissRequest()
+                }
+            ) {
+                Text("Dismiss")
+            }
+        }
+    )
 }

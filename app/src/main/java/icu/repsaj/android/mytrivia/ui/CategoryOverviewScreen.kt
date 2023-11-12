@@ -1,15 +1,16 @@
 package icu.repsaj.android.mytrivia.ui
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.QuestionMark
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -19,21 +20,31 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @Composable
-fun CategoryOverviewScreen(modifier: Modifier = Modifier) {
-    Column(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
-        CategoryCard(name = "Movies")
-        CategoryCard(name = "Movies")
-        CategoryCard(name = "Movies")
+fun CategoryOverviewScreen(
+    navigateToGame: () -> Unit,
+    setCategory: (Int) -> Unit,
+    categories: List<Category>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
+        items(categories) {
+            CategoryCard(name = it.name, icon = it.image, onClickPlay = {
+                setCategory(it.id)
+                navigateToGame()
+            })
+        }
     }
 }
 
 @Composable
 fun CategoryCard(
     name: String = "",
-    icon: ImageVector = Icons.Filled.Home,
+    icon: ImageVector = Icons.Filled.QuestionMark,
+    onClickPlay: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     ElevatedCard(
@@ -43,7 +54,7 @@ fun CategoryCard(
                 vertical = MaterialTheme.spacing.extraSmall
             )
             .fillMaxWidth()
-            .clickable { /*TODO */ },
+            .clickable { onClickPlay() },
 
         ) {
         Row(
