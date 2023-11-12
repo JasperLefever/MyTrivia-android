@@ -42,10 +42,10 @@ class TriviaViewModel : ViewModel() {
         }
     }
 
-    fun showQuitDialog() {
+    fun toggleQuitDialog() {
         _uiState.update { currentState ->
             currentState.copy(
-                showQuitDialog = true,
+                showQuitDialog = currentState.showQuitDialog.not(),
             )
         }
     }

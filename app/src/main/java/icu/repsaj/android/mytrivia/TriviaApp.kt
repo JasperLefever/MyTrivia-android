@@ -41,7 +41,7 @@ fun TriviaApp(
                 currentScreen = currentScreen,
                 navigateUp = { navController.navigateUp() },
                 navigateHistory = { navController.navigate(NavRoutes.History.name) },
-                showQuitDialog = { viewModel.showQuitDialog() })
+                showQuitDialog = { viewModel.toggleQuitDialog() })
         }
     ) { innerPadding ->
 
@@ -63,9 +63,12 @@ fun TriviaApp(
             }
             composable(route = NavRoutes.Game.name) {
                 TriviaGameScreen(
-                    navigateUp = { navController.navigateUp() },
-                    resetGame = { viewModel.reset() },
                     showQuitDialog = triviaUiState.showQuitDialog,
+                    onQuitConfirmed = {
+                        viewModel.reset()
+                        navController.navigateUp()
+                    },
+                    onQuitDismissed = { viewModel.toggleQuitDialog() },
                 )
             }
             composable(route = NavRoutes.History.name) {

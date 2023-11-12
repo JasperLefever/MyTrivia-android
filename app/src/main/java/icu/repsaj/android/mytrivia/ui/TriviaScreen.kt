@@ -29,14 +29,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @Composable
 fun TriviaGameScreen(
-    navigateUp: () -> Unit,
-    resetGame: () -> Unit,
     showQuitDialog: Boolean,
+    onQuitConfirmed: () -> Unit,
+    onQuitDismissed: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var selectedAnswer by remember { mutableStateOf<String?>(null) }
@@ -96,19 +98,16 @@ fun TriviaGameScreen(
                 .fillMaxWidth()
                 .padding(MaterialTheme.spacing.small)
         ) {
-            Text(text = "Next")
+            Text(text = stringResource(R.string.next))
         }
 
     }
     if (showQuitDialog) {
         ConfirmQuitDialog(
-            onDismissRequest = { },
-            onConfirmation = {
-                resetGame()
-                navigateUp()
-            },
-            dialogTitle = "Quit Game",
-            dialogText = "Are you sure you want to quit the game?",
+            onDismissRequest = onQuitDismissed,
+            onConfirmation = onQuitConfirmed,
+            dialogTitle = stringResource(R.string.quit_game),
+            dialogText = stringResource(R.string.confirm_quit_game),
             icon = Icons.Filled.Close
         )
     }
@@ -189,7 +188,7 @@ fun ScoreCounter(
         modifier = modifier
     ) {
         Text(
-            text = "Score: $score",
+            text = stringResource(R.string.gamescreen_score, score),
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(MaterialTheme.spacing.small)
         )
@@ -206,7 +205,11 @@ fun QuestionCounter(
         modifier = Modifier
     ) {
         Text(
-            text = "Question $currentQuestion/$totalQuestions",
+            text = stringResource(
+                R.string.gamescreen_question_counter,
+                currentQuestion,
+                totalQuestions
+            ),
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(MaterialTheme.spacing.small)
         )
@@ -226,7 +229,7 @@ fun ConfirmQuitDialog(
 
     AlertDialog(
         icon = {
-            Icon(icon, contentDescription = "Example Icon")
+            Icon(icon, contentDescription = null)
         },
         title = {
             Text(text = dialogTitle)
@@ -243,7 +246,7 @@ fun ConfirmQuitDialog(
                     onConfirmation()
                 }
             ) {
-                Text("Confirm")
+                Text(stringResource(R.string.confirm))
             }
         },
         dismissButton = {
@@ -252,7 +255,7 @@ fun ConfirmQuitDialog(
                     onDismissRequest()
                 }
             ) {
-                Text("Dismiss")
+                Text(stringResource(R.string.dismiss))
             }
         }
     )

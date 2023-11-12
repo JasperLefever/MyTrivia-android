@@ -4,4 +4,11 @@
     <string name="back_button">Go Back</string>
     <string name="game">Game</string>
     <string name="history">History</string>
+    <string name="quit_game">Quit Game</string>
+    <string name="confirm_quit_game">Are you sure you want to quit the game?</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="confirm">Confirm</string>
+    <string name="gamescreen_question_counter">Question %1$s/%2$s</string>
+    <string name="gamescreen_score">Score: %1$s</string>
+    <string name="next">Next</string>
 </resources>
