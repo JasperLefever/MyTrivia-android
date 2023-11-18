@@ -19,7 +19,7 @@ import icu.repsaj.android.mytrivia.ui.GameHistory
 import icu.repsaj.android.mytrivia.ui.NavRoutes
 import icu.repsaj.android.mytrivia.ui.TopBar
 import icu.repsaj.android.mytrivia.ui.TriviaGameScreen
-import icu.repsaj.android.mytrivia.ui.TriviaViewModel
+import icu.repsaj.android.mytrivia.viewmodel.TriviaViewModel
 
 @Preview(showSystemUi = true, showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,10 +1,8 @@
-package icu.repsaj.android.mytrivia.ui
+package icu.repsaj.android.mytrivia.state
 
-import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
 
 data class TriviaUIState(
-    val categories: List<Category> = emptyList(),
     val showQuitDialog: Boolean = false,
     val currentCategoryId: Int? = null,
     val currentCategory: String = "",
