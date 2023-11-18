@@ -1,9 +1,10 @@
 package icu.repsaj.android.mytrivia.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
+import java.util.UUID
 
 data class Category(
-    val id: Int,
+    val id: UUID,
     val name: String,
     val image: ImageVector
 )

@@ -1,8 +1,10 @@
 package icu.repsaj.android.mytrivia.model
 
+import java.util.UUID
+
 data class TriviaQuestion(
-    val id: Int,
-    val categoryId: Int,
+    val id: UUID,
+    val categoryId: UUID,
     val question: String,
-    val answers: List<TriviaAnswer>,
+    val answers: List<TriviaAnswer> = listOf()
 )

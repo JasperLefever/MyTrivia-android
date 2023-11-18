@@ -1,7 +1,9 @@
 package icu.repsaj.android.mytrivia.model
 
+import java.util.UUID
+
 data class TriviaAnswer(
-    var questionId: Int = 0,
+    var id: UUID,
     var answer: String = "",
-    var isCorrect: Boolean = false
+    var isCorrect: Boolean
 )

@@ -2,6 +2,8 @@ package icu.repsaj.android.mytrivia.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
@@ -18,10 +20,24 @@ import java.util.Date
 
 @Composable
 fun GameHistory() {
-    Column(modifier = Modifier.padding(vertical = MaterialTheme.spacing.small)) {
+    Column(
+        modifier = Modifier
+            .padding(vertical = MaterialTheme.spacing.small)
+            .verticalScroll(rememberScrollState())
+    ) {
         HistoryItemCard(ranking = 1, category = "movies", score = 20, date = Date())
         HistoryItemCard(ranking = 2, category = "movies", score = 20, date = Date())
         HistoryItemCard(ranking = 3, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
         HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
     }
 }
