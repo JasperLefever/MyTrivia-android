@@ -16,22 +16,29 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import icu.repsaj.android.mytrivia.model.Category
+import androidx.lifecycle.viewmodel.compose.viewModel
 import icu.repsaj.android.mytrivia.ui.theme.spacing
+import icu.repsaj.android.mytrivia.viewmodel.CategoriesViewModel
+import java.util.UUID
 
 @Composable
 fun CategoryOverviewScreen(
     navigateToGame: () -> Unit,
-    setCategory: (Int) -> Unit,
-    categories: List<Category>,
+    setCategory: (UUID) -> Unit,
+    viewModel: CategoriesViewModel = viewModel(),
     modifier: Modifier = Modifier
 ) {
+
+    val uiState by viewModel.uiState.collectAsState()
+
     LazyColumn(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
-        items(categories) {
+        items(uiState.categories) {
             CategoryCard(name = it.name, icon = it.image, onClickPlay = {
                 setCategory(it.id)
                 navigateToGame()

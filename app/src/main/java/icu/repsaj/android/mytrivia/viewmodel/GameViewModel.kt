@@ -1,16 +1,17 @@
 package icu.repsaj.android.mytrivia.viewmodel
 
 import androidx.lifecycle.ViewModel
-import icu.repsaj.android.mytrivia.state.TriviaUIState
+import icu.repsaj.android.mytrivia.state.GameUIState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import java.util.UUID
 
-class TriviaViewModel : ViewModel() {
+class GameViewModel : ViewModel() {
 
-    private val _uiState = MutableStateFlow(TriviaUIState())
-    val uiState: StateFlow<TriviaUIState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(GameUIState())
+    val uiState: StateFlow<GameUIState> = _uiState.asStateFlow()
 
 
     init {
@@ -18,17 +19,17 @@ class TriviaViewModel : ViewModel() {
 
         //set uistate categories to the list of categories
 
-        _uiState.value = TriviaUIState()
+        _uiState.value = GameUIState()
     }
 
     /**
      * Resets the state of the app to its default state
      */
     fun reset() {
-        _uiState.value = TriviaUIState()
+        _uiState.value = GameUIState()
     }
 
-    fun selectCategory(categoryId: Int) {
+    fun selectCategory(categoryId: UUID) {
         _uiState.update { currentState ->
             currentState.copy(
                 currentCategoryId = categoryId,

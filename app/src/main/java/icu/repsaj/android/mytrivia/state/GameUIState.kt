@@ -1,10 +1,11 @@
 package icu.repsaj.android.mytrivia.state
 
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
+import java.util.UUID
 
-data class TriviaUIState(
+data class GameUIState(
     val showQuitDialog: Boolean = false,
-    val currentCategoryId: Int? = null,
+    val currentCategoryId: UUID? = null,
     val currentCategory: String = "",
     val questions: List<TriviaQuestion> = emptyList(),
     val currentQuestionIndex: Int = 0,

@@ -19,14 +19,14 @@ import icu.repsaj.android.mytrivia.ui.GameHistory
 import icu.repsaj.android.mytrivia.ui.NavRoutes
 import icu.repsaj.android.mytrivia.ui.TopBar
 import icu.repsaj.android.mytrivia.ui.TriviaGameScreen
-import icu.repsaj.android.mytrivia.viewmodel.TriviaViewModel
+import icu.repsaj.android.mytrivia.viewmodel.GameViewModel
 
 @Preview(showSystemUi = true, showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TriviaApp(
     navController: NavHostController = rememberNavController(),
-    viewModel: TriviaViewModel = viewModel(),
+    viewModel: GameViewModel = viewModel(),
 ) {
     val triviaUiState by viewModel.uiState.collectAsState()
     val backStackEntry by navController.currentBackStackEntryAsState()
