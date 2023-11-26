@@ -58,7 +58,6 @@ fun TriviaApp(
                     setCategory = {
                         viewModel.selectCategory(it)
                     },
-                    categories = triviaUiState.categories,
                 )
             }
             composable(route = NavRoutes.Game.name) {

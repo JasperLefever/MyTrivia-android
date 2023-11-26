@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.network.Categroy
+package icu.repsaj.android.mytrivia.network.categroy
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import icu.repsaj.android.mytrivia.network.baseUrl
