@@ -6,11 +6,15 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ICategoryApiService {
 
     @GET("categories")
-    suspend fun getCategories(page: Int, perPage: Int): CategoryResponse
+    suspend fun getCategories(
+        @Query(value = "page") page: Int,
+        @Query(value = "perPage") perPage: Int
+    ): CategoryResponse
 }
 
 private var retrofit: Retrofit = Retrofit.Builder()

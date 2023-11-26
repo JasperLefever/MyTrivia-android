@@ -16,13 +16,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import icu.repsaj.android.mytrivia.state.CategoriesUIState
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import icu.repsaj.android.mytrivia.viewmodel.CategoriesViewModel
 import java.util.UUID
@@ -35,16 +34,27 @@ fun CategoryOverviewScreen(
     modifier: Modifier = Modifier
 ) {
 
-    val uiState by viewModel.uiState.collectAsState()
+    when (val categoryUIState = viewModel.categoryUIState) {
+        is CategoriesUIState.Loading -> Text(text = "")
 
-    LazyColumn(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
-        items(uiState.categories) {
-            CategoryCard(name = it.name, icon = it.image, onClickPlay = {
-                setCategory(it.id)
-                navigateToGame()
-            })
+        is CategoriesUIState.Success -> {
+            LazyColumn(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
+                items(categoryUIState.categories) {
+                    CategoryCard(name = it.name, icon = it.image, onClickPlay = {
+                        setCategory(it.id)
+                        navigateToGame()
+                    })
+                }
+            }
         }
+
+        is CategoriesUIState.Error -> Text(text = "")/*ErrorDialog(
+            dialogTitle = "Error",
+            dialogText = "There was a problem loading the categories. Please try again.",
+            onConfirmation = { viewModel.fetchCategories() })*/
     }
+
+
 }
 
 @Composable
