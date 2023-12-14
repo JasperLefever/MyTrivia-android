@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.viewmodel
+package icu.repsaj.android.mytrivia.ui.gameHistory
 
 import androidx.lifecycle.ViewModel
 import icu.repsaj.android.mytrivia.model.HistoryItem

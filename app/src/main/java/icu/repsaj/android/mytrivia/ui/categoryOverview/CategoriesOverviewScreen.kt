@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.ui
+package icu.repsaj.android.mytrivia.ui.categoryOverview
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -23,14 +23,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import icu.repsaj.android.mytrivia.state.CategoriesUIState
 import icu.repsaj.android.mytrivia.ui.theme.spacing
-import icu.repsaj.android.mytrivia.viewmodel.CategoriesViewModel
 import java.util.UUID
 
 @Composable
 fun CategoryOverviewScreen(
     navigateToGame: () -> Unit,
     setCategory: (UUID) -> Unit,
-    viewModel: CategoriesViewModel = viewModel(),
+    viewModel: CategoriesOverviewViewModel = viewModel(),
     modifier: Modifier = Modifier
 ) {
 

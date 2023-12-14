@@ -2,9 +2,9 @@ package icu.repsaj.android.mytrivia.network.question
 
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
-import icu.repsaj.android.mytrivia.network.Metadata
-import icu.repsaj.android.mytrivia.network.UUIDSerializer
 import icu.repsaj.android.mytrivia.network.categroy.ApiCategory
+import icu.repsaj.android.mytrivia.network.dto.Metadata
+import icu.repsaj.android.mytrivia.network.dto.UUIDSerializer
 import kotlinx.serialization.Serializable
 import java.util.UUID
 

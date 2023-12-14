@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.ui
+package icu.repsaj.android.mytrivia.ui.gameHistory
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

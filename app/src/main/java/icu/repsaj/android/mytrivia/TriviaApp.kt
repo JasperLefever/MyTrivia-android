@@ -14,12 +14,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import icu.repsaj.android.mytrivia.ui.CategoryOverviewScreen
-import icu.repsaj.android.mytrivia.ui.GameHistory
-import icu.repsaj.android.mytrivia.ui.NavRoutes
-import icu.repsaj.android.mytrivia.ui.TopBar
-import icu.repsaj.android.mytrivia.ui.TriviaGameScreen
-import icu.repsaj.android.mytrivia.viewmodel.GameViewModel
+import icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen
+import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
+import icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory
+import icu.repsaj.android.mytrivia.ui.layout.TopBar
+import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
 @Preview(showSystemUi = true, showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)

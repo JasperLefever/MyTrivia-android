@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.viewmodel
+package icu.repsaj.android.mytrivia.ui.categoryOverview
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -11,7 +11,7 @@ import icu.repsaj.android.mytrivia.state.CategoriesUIState
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class CategoriesViewModel : ViewModel() {
+class CategoriesOverviewViewModel : ViewModel() {
 
     var categoryUIState: CategoriesUIState by mutableStateOf(CategoriesUIState.Loading)
         private set

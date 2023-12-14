@@ -1,8 +1,8 @@
 package icu.repsaj.android.mytrivia.network.categroy
 
 import icu.repsaj.android.mytrivia.model.Category
-import icu.repsaj.android.mytrivia.network.Metadata
-import icu.repsaj.android.mytrivia.network.UUIDSerializer
+import icu.repsaj.android.mytrivia.network.dto.Metadata
+import icu.repsaj.android.mytrivia.network.dto.UUIDSerializer
 import kotlinx.serialization.Serializable
 import java.util.UUID
 

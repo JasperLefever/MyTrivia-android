@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.ui
+package icu.repsaj.android.mytrivia.ui.layout
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)

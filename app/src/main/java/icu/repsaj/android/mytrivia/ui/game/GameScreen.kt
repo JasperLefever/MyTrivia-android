@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.ui
+package icu.repsaj.android.mytrivia.ui.game
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

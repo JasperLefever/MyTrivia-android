@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.ui
+package icu.repsaj.android.mytrivia.ui.navigation
 
 import androidx.annotation.StringRes
 import icu.repsaj.android.mytrivia.R

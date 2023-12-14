@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.viewmodel
+package icu.repsaj.android.mytrivia.ui.game
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
