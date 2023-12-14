@@ -26,7 +26,6 @@ import icu.repsaj.android.mytrivia.viewmodel.GameViewModel
 @Composable
 fun TriviaApp(
     navController: NavHostController = rememberNavController(),
-    viewModel: GameViewModel = viewModel(),
 ) {
     val triviaUiState by viewModel.uiState.collectAsState()
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -54,9 +53,6 @@ fun TriviaApp(
                 CategoryOverviewScreen(
                     navigateToGame = {
                         navController.navigate(NavRoutes.Game.name)
-                    },
-                    setCategory = {
-                        viewModel.selectCategory(it)
                     },
                 )
             }

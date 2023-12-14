@@ -4,7 +4,6 @@ import java.util.UUID
 
 data class TriviaQuestion(
     val id: UUID,
-    val categoryId: UUID,
     val question: String,
     val answers: List<TriviaAnswer> = listOf()
 )
