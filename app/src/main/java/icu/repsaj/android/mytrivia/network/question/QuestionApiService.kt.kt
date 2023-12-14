@@ -1,7 +1,7 @@
 package icu.repsaj.android.mytrivia.network.question
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import icu.repsaj.android.mytrivia.network.dto.baseUrl
+import icu.repsaj.android.mytrivia.network.baseUrl
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit

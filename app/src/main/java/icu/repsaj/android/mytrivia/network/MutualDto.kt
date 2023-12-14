@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.network.dto
+package icu.repsaj.android.mytrivia.network
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
