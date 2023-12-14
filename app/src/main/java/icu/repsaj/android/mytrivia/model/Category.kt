@@ -15,7 +15,7 @@ import java.util.UUID
 data class Category(
     val id: UUID,
     val name: String,
-    private val icon: String = "",
+    val icon: String = "",
     val image: ImageVector = when (icon) {
         "movieclapper" -> {
             Icons.Filled.Movie

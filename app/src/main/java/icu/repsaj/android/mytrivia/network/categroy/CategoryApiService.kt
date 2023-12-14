@@ -1,10 +1,7 @@
 package icu.repsaj.android.mytrivia.network.categroy
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import icu.repsaj.android.mytrivia.network.dto.baseUrl
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
-import retrofit2.Retrofit
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,20 +9,10 @@ interface ICategoryApiService {
 
     @GET("categories")
     suspend fun getCategories(
-        @Query(value = "page") page: Int,
-        @Query(value = "perPage") perPage: Int
+        @Query(value = "page") page: Int, @Query(value = "perPage") perPage: Int
     ): CategoryResponse
 }
 
-private var retrofit: Retrofit = Retrofit.Builder()
-    .addConverterFactory(
-        Json.asConverterFactory("application/json".toMediaType()),
-    )
-    .baseUrl(baseUrl)
-    .build()
-
-object CategoryApi {
-    val categoryService: ICategoryApiService by lazy {
-        retrofit.create(ICategoryApiService::class.java)
-    }
+fun ICategoryApiService.getCategoriesAsFlow(): Flow<List<ApiCategory>> = flow {
+    emit(getCategories(1, 100).items)
 }

@@ -3,6 +3,7 @@ package icu.repsaj.android.mytrivia
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import icu.repsaj.android.mytrivia.ui.TriviaApp
 import icu.repsaj.android.mytrivia.ui.theme.MyTriviaTheme
 
 class MainActivity : ComponentActivity() {

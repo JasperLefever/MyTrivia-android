@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia
+package icu.repsaj.android.mytrivia.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
