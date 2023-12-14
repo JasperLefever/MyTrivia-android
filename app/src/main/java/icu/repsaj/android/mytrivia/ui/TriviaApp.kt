@@ -10,14 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen
-import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
-import icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory
 import icu.repsaj.android.mytrivia.ui.layout.TopBar
+import icu.repsaj.android.mytrivia.ui.navigation.NavComponent
 import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
 @Preview(showSystemUi = true, showBackground = true)
@@ -42,39 +38,7 @@ fun TriviaApp(
                 showQuitDialog = { viewModel.toggleQuitDialog() })
         }
     ) { innerPadding ->
-
-        NavHost(
-            navController = navController,
-            startDestination = NavRoutes.Categories.name,
-            modifier = Modifier.padding(innerPadding)
-        ) {
-            composable(route = NavRoutes.Categories.name) {
-                CategoryOverviewScreen(
-                    navigateToGame = {
-                        navController.navigate(NavRoutes.Game.name)
-                    },
-                )
-            }
-            composable(route = NavRoutes.Game.name) {
-                TriviaGameScreen(
-                    currentCategory = triviaUiState.currentCategory,
-                    showQuitDialog = triviaUiState.showQuitDialog,
-                    onQuitConfirmed = {
-                        viewModel.reset()
-                        navController.navigateUp()
-                    },
-                    onQuitDismissed = { viewModel.toggleQuitDialog() },
-                    isGameOver = triviaUiState.isGameOver,
-                    score = triviaUiState.score,
-                    nextQuestion = { viewModel.nextQuestion() },
-                    currentQuestionIndex = triviaUiState.currentQuestionIndex,
-                    totalQuestions = triviaUiState.questions.size,
-                )
-            }
-            composable(route = NavRoutes.History.name) {
-                GameHistory()
-            }
-        }
+        NavComponent(navController = navController, modifier = Modifier.padding(innerPadding))
     }
 }
 
