@@ -14,6 +14,7 @@ data class ApiCategory(
     val id: UUID,
     val name: String,
     val icon: String,
+    var questionCount: Int = 0
 )
 
 @Serializable

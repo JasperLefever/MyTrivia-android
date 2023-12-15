@@ -17,6 +17,9 @@ interface CategoryDao {
     @Delete
     suspend fun delete(item: DbCategory)
 
+    @Query("DELETE FROM categories")
+    suspend fun clear()
+
     @Query("SELECT * from categories WHERE id = :id")
     fun getItem(id: UUID): Flow<DbCategory>
 

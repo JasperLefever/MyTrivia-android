@@ -4,12 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import icu.repsaj.android.mytrivia.model.HistoryItem
 import java.util.Date
-import java.util.UUID
 
 @Entity(tableName = "game_history")
 data class DbGameHistoryItem(
     @PrimaryKey(autoGenerate = true)
-    var id: UUID,
+    var id: Int,
     var category: String = "",
     var date: Date,
     var score: Int = 0

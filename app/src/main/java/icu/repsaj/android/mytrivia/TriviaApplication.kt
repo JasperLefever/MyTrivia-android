@@ -5,7 +5,7 @@ import icu.repsaj.android.mytrivia.data.AppContainer
 import icu.repsaj.android.mytrivia.data.DefaultAppContainer
 
 class TriviaApplication : Application() {
-    private lateinit var container: AppContainer
+    lateinit var container: AppContainer
 
     override fun onCreate() {
         super.onCreate()

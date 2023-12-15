@@ -4,16 +4,27 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import icu.repsaj.android.mytrivia.network.categroy.CategoryApi
-import icu.repsaj.android.mytrivia.network.categroy.asDomainObjects
-import icu.repsaj.android.mytrivia.state.CategoriesUIState
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
+import icu.repsaj.android.mytrivia.TriviaApplication
+import icu.repsaj.android.mytrivia.data.CategoryRepo
+import icu.repsaj.android.mytrivia.state.CategoryApiState
+import icu.repsaj.android.mytrivia.state.CategoryListState
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class CategoriesOverviewViewModel : ViewModel() {
+class CategoriesOverviewViewModel(private val categoryRepo: CategoryRepo) :
+    ViewModel() {
 
-    var categoryUIState: CategoriesUIState by mutableStateOf(CategoriesUIState.Loading)
+    lateinit var uiListState: StateFlow<CategoryListState>
+
+    var apiState: CategoryApiState by mutableStateOf(CategoryApiState.Loading)
         private set
 
     init {
@@ -21,15 +32,44 @@ class CategoriesOverviewViewModel : ViewModel() {
     }
 
     fun fetchCategories() {
-        viewModelScope.launch {
-            categoryUIState = try {
-                val result = CategoryApi.categoryService.getCategories(1, 10)
-                CategoriesUIState.Success(result.asDomainObjects())
-            } catch (e: IOException) {
-                CategoriesUIState.Error(e.message ?: "Unknown error")
+        try {
+            viewModelScope.launch { categoryRepo.refresh() }
+
+            uiListState = categoryRepo.getCategories().map { CategoryListState(it) }
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5_000L),
+                    initialValue = CategoryListState(),
+                )
+            apiState = CategoryApiState.Success
+        } catch (e: IOException) {
+            //TODO ERROR HANDLING
+            apiState = CategoryApiState.Error
+        }
+
+    }
+
+    fun refresh() {
+
+        apiState = CategoryApiState.Loading
+
+        fetchCategories()
+
+    }
+
+    companion object {
+        private var Instance: CategoriesOverviewViewModel? = null
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                if (Instance == null) {
+                    val application =
+                        (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TriviaApplication)
+                    val categoryRepo = application.container.categoryRepo
+                    Instance = CategoriesOverviewViewModel(categoryRepo = categoryRepo)
+                }
+                Instance!!
             }
         }
     }
-
 
 }

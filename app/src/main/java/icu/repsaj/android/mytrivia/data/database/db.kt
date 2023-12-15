@@ -4,20 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import icu.repsaj.android.mytrivia.data.database.convertors.DateConverters
 import icu.repsaj.android.mytrivia.data.database.entities.DbCategory
 import icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem
 
 @Database(
-    entities = [DbCategory::class, DbGameHistoryItem::class /*,DbQuestion::class,  DbAnswer::class*/],
-    version = 1,
+    entities = [DbCategory::class, DbGameHistoryItem::class],
+    version = 3,
     exportSchema = false
 )
+@TypeConverters(DateConverters::class)
 abstract class TriviaDb : RoomDatabase() {
 
     abstract fun CategoryDao(): CategoryDao
 
-    //abstract fun QuestionDao(): QuestionDao
-    //abstract fun AnswerDao(): AnswerDao
     abstract fun GameHistoryDao(): GameHistoryDao
 
     companion object {

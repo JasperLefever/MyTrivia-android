@@ -14,4 +14,5 @@
     <string name="game_over">Game Finished</string>
     <string name="final_score">You scored %1$s points!</string>
     <string name="retry">Retry</string>
+    <string name="no_history_items_available">No history items available</string>
 </resources>

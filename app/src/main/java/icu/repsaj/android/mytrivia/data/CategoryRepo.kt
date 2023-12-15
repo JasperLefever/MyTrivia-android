@@ -10,7 +10,6 @@ import icu.repsaj.android.mytrivia.network.categroy.asDomainObjects
 import icu.repsaj.android.mytrivia.network.categroy.getCategoriesAsFlow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
 import java.net.SocketTimeoutException
 import java.util.UUID
 
@@ -33,11 +32,6 @@ class CachingCategoryRepository(
     override fun getCategories(): Flow<List<Category>> {
         return categoryDao.getAll().map {
             it.asDomainObjects()
-        }.onEach {
-            // todo: check when refresh is called (why duplicates??)
-            if (it.isEmpty()) {
-                refresh()
-            }
         }
     }
 
@@ -57,9 +51,10 @@ class CachingCategoryRepository(
 
     override suspend fun refresh() {
         try {
-            categoryApi.getCategoriesAsFlow().asDomainObjects().collect { value ->
-                for (category in value) {
-                    insertCategory(category)
+            categoryApi.getCategoriesAsFlow().asDomainObjects().collect {
+                categoryDao.clear()
+                for (category in it) {
+                    categoryDao.insert(category.asDbEntity())
                 }
             }
         } catch (e: SocketTimeoutException) {

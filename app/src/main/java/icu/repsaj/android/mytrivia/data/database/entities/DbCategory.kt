@@ -11,14 +11,25 @@ data class DbCategory(
     val id: UUID,
     val name: String,
     val icon: String = "",
+    val questionCount: Int = 0
 )
 
 fun DbCategory.asDomainObject(): Category {
-    return Category(id = this.id, name = this.name, icon = this.icon)
+    return Category(
+        id = this.id,
+        name = this.name,
+        icon = this.icon,
+        questionCount = this.questionCount
+    )
 }
 
 fun Category.asDbEntity(): DbCategory {
-    return DbCategory(id = this.id, name = this.name, icon = this.icon)
+    return DbCategory(
+        id = this.id,
+        name = this.name,
+        icon = this.icon,
+        questionCount = this.questionCount
+    )
 }
 
 fun List<DbCategory>.asDomainObjects(): List<Category> {

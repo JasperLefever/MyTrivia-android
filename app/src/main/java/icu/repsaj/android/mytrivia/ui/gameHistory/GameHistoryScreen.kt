@@ -1,49 +1,81 @@
 package icu.repsaj.android.mytrivia.ui.gameHistory
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.lifecycle.viewmodel.compose.viewModel
+import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
+import eu.bambooapps.material3.pullrefresh.pullRefresh
+import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.compontents.formatDateTime
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import java.util.Date
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GameHistory() {
-    Column(
-        modifier = Modifier
-            .padding(vertical = MaterialTheme.spacing.small)
-            .verticalScroll(rememberScrollState())
-    ) {
-        HistoryItemCard(ranking = 1, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 2, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 3, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
-        HistoryItemCard(ranking = 4, category = "movies", score = 20, date = Date())
+fun GameHistory(
+    modifier: Modifier = Modifier,
+    viewModel: HistoryViewModel = viewModel(factory = HistoryViewModel.Factory)
+) {
+    val isRefreshing by remember {
+        mutableStateOf(false)
+    }
+    val UIState by viewModel.uiState.collectAsState()
+    val state = rememberPullRefreshState(
+        refreshing = isRefreshing,
+        onRefresh = {
+            viewModel.fetchHistory()
+        }
+    )
+
+    Box(modifier = modifier) {
+        if (UIState.history.isEmpty()) {
+            Text(
+                text = stringResource(R.string.no_history_items_available),
+                modifier = Modifier.align(Alignment.Center),
+                style = MaterialTheme.typography.bodyLarge
+            )
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .padding(vertical = MaterialTheme.spacing.small)
+                    .pullRefresh(state)
+            ) {
+                items(UIState.history) { historyItem ->
+                    HistoryItemCard(
+                        ranking = historyItem.id,
+                        category = historyItem.category,
+                        score = historyItem.score,
+                        date = historyItem.date
+                    )
+                }
+            }
+        }
+
+        PullRefreshIndicator(
+            refreshing = isRefreshing,
+            state = state,
+            modifier = Modifier.align(Alignment.TopCenter)
+        )
     }
 }
 
-//TODO : fix spacing according material vraag docent
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HistoryItemCard(
     ranking: Int,
@@ -62,12 +94,12 @@ fun HistoryItemCard(
                 textAlign = TextAlign.Center
             )
         },
-        headlineText = {
+        headlineContent = {
             Text(
                 text = category,
                 style = MaterialTheme.typography.headlineLarge,
             )
-        }, supportingText = {
+        }, supportingContent = {
             Text(
                 text = formatDateTime(date),
                 style = MaterialTheme.typography.bodyLarge,

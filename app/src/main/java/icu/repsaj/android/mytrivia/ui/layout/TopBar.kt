@@ -25,7 +25,6 @@ public fun TopBar(
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     navigateHistory: () -> Unit,
-    showQuitDialog: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
@@ -42,7 +41,7 @@ public fun TopBar(
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(
-                    onClick = { if (currentScreen != NavRoutes.Game) navigateUp() else showQuitDialog() }
+                    onClick = navigateUp
                 ) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,

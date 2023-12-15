@@ -1,6 +1,7 @@
 package icu.repsaj.android.mytrivia.ui.categoryOverview
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,42 +13,75 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.QuestionMark
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import icu.repsaj.android.mytrivia.state.CategoriesUIState
+import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
+import eu.bambooapps.material3.pullrefresh.pullRefresh
+import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
+import icu.repsaj.android.mytrivia.state.CategoryApiState
 import icu.repsaj.android.mytrivia.ui.theme.spacing
-import java.util.UUID
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryOverviewScreen(
     navigateToGame: () -> Unit,
-    setCategory: (UUID) -> Unit,
-    viewModel: CategoriesOverviewViewModel = viewModel(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: CategoriesOverviewViewModel = viewModel(factory = CategoriesOverviewViewModel.Factory)
 ) {
 
-    when (val categoryUIState = viewModel.categoryUIState) {
-        is CategoriesUIState.Loading -> Text(text = "")
+    val categoryListState by viewModel.uiListState.collectAsState()
 
-        is CategoriesUIState.Success -> {
-            LazyColumn(modifier = Modifier.padding(top = MaterialTheme.spacing.small)) {
-                items(categoryUIState.categories) {
-                    CategoryCard(name = it.name, icon = it.image, onClickPlay = {
-                        setCategory(it.id)
-                        navigateToGame()
-                    })
+    val apiState = viewModel.apiState
+
+    val isRefreshing by remember {
+        mutableStateOf(false)
+    }
+
+    val state = rememberPullRefreshState(
+        refreshing = isRefreshing,
+        onRefresh = {
+            viewModel.fetchCategories()
+        }
+    )
+
+    when (apiState) {
+        is CategoryApiState.Loading -> Text(text = "Loading")
+
+        is CategoryApiState.Success -> {
+            Box {
+                LazyColumn(
+                    modifier = Modifier
+                        .padding(top = MaterialTheme.spacing.small)
+                        .pullRefresh(state)
+                ) {
+                    items(categoryListState.categoryList) {
+                        CategoryCard(name = it.name, icon = it.image, onClickPlay = {
+                            navigateToGame()
+                        })
+                    }
                 }
+
+                PullRefreshIndicator(
+                    refreshing = isRefreshing,
+                    state = state,
+                    modifier = Modifier.align(Alignment.TopCenter)
+                )
             }
         }
 
-        is CategoriesUIState.Error -> Text(text = "")/*ErrorDialog(
+        is CategoryApiState.Error -> Text(text = "")/*ErrorDialog(
             dialogTitle = "Error",
             dialogText = "There was a problem loading the categories. Please try again.",
             onConfirmation = { viewModel.fetchCategories() })*/

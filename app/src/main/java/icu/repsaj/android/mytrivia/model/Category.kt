@@ -16,6 +16,7 @@ data class Category(
     val id: UUID,
     val name: String,
     val icon: String = "",
+    val questionCount: Int = 0,
     val image: ImageVector = when (icon) {
         "movieclapper" -> {
             Icons.Filled.Movie
