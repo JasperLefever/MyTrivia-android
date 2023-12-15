@@ -22,6 +22,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,52 +37,52 @@ import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @Composable
-fun TriviaGameScreen(
-    currentCategory: String,
-    showQuitDialog: Boolean,
-    onQuitConfirmed: () -> Unit,
-    onQuitDismissed: () -> Unit,
-    isGameOver: Boolean,
-    score: Int,
-    nextQuestion: () -> Unit,
-    totalQuestions: Int,
-    currentQuestionIndex: Int,
+public fun TriviaGameScreen(
+    navigateUp: () -> Unit,
+    viewModel: GameViewModel,
     modifier: Modifier = Modifier
 ) {
+
+
+    val gameUIState by viewModel.uiState.collectAsState()
+    val questionsListState by viewModel.questionsListState.collectAsState()
+
+    val apiState = viewModel.apiState
+
     Column(
         modifier = Modifier
             .padding(MaterialTheme.spacing.medium)
             .fillMaxHeight(),
     ) {
-        CategoryTitle(currentCategory = currentCategory)
+        CategoryTitle(currentCategory = gameUIState.category.name)
 
         GameCard(
-            currentQuestion = currentQuestionIndex + 1,
-            totalQuestions = totalQuestions,
-            score = score
+            currentQuestion = gameUIState.currentQuestionIndex + 1,
+            totalQuestions = questionsListState.questionsList.count(),
+            score = gameUIState.score
         )
 
-        if (isGameOver) {
+        if (gameUIState.isGameOver) {
             ScoreDialog(
                 onConfirmation = { /*TODO*/ },
                 dialogTitle = stringResource(R.string.game_over),
-                dialogText = stringResource(R.string.final_score, score),
+                dialogText = stringResource(R.string.final_score, gameUIState.score),
                 icon = Icons.Filled.Check
             )
         } else {
-            NextQuestion(nextQuestion = nextQuestion)
+            NextQuestion(nextQuestion = { viewModel.nextQuestion() })
         }
 
     }
-    if (showQuitDialog) {
+    /*if (gameUIState.showQuitDialog) {
         ConfirmQuitDialog(
-            onDismissRequest = onQuitDismissed,
-            onConfirmation = onQuitConfirmed,
+            onDismissRequest = gameUIState.onQuitDismissed,
+            onConfirmation = gameUIState.onQuitConfirmed,
             dialogTitle = stringResource(R.string.quit_game),
             dialogText = stringResource(R.string.confirm_quit_game),
             icon = Icons.Filled.Close
         )
-    }
+    }*/
 }
 
 @Composable

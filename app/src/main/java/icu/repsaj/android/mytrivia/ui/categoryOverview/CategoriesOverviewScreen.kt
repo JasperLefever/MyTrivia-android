@@ -30,13 +30,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
-import icu.repsaj.android.mytrivia.state.CategoryApiState
+import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryOverviewScreen(
     navigateToGame: () -> Unit,
+    setCategory: (Category) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: CategoriesOverviewViewModel = viewModel(factory = CategoriesOverviewViewModel.Factory)
 ) {
@@ -68,6 +69,7 @@ fun CategoryOverviewScreen(
                 ) {
                     items(categoryListState.categoryList) {
                         CategoryCard(name = it.name, icon = it.image, onClickPlay = {
+                            setCategory(it)
                             navigateToGame()
                         })
                     }

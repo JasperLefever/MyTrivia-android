@@ -1,17 +1,16 @@
-package icu.repsaj.android.mytrivia.state
+package icu.repsaj.android.mytrivia.ui.game
 
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
 
 
-sealed interface GameApiUIState {
-    data class Success(
-        val questions: List<TriviaQuestion> = emptyList(),
-    ) : GameApiUIState
-
-    object Loading : GameApiUIState
-    data class Error(val message: String) : GameApiUIState
+sealed interface QuestionsApiState {
+    object Success : QuestionsApiState
+    object Error : QuestionsApiState
+    object Loading : QuestionsApiState
 }
+
+data class QuestionsListState(val questionsList: List<TriviaQuestion> = listOf())
 
 
 data class GameUIState(

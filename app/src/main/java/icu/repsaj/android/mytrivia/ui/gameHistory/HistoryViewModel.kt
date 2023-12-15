@@ -8,7 +8,6 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.GameHistoryRepo
 import icu.repsaj.android.mytrivia.model.HistoryItem
-import icu.repsaj.android.mytrivia.state.HistoryUIState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

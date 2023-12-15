@@ -1,4 +1,4 @@
-package icu.repsaj.android.mytrivia.state
+package icu.repsaj.android.mytrivia.ui.gameHistory
 
 import icu.repsaj.android.mytrivia.model.HistoryItem
 

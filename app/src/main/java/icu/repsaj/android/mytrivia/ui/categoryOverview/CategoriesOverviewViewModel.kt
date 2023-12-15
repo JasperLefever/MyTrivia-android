@@ -10,8 +10,6 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.CategoryRepo
-import icu.repsaj.android.mytrivia.state.CategoryApiState
-import icu.repsaj.android.mytrivia.state.CategoryListState
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
