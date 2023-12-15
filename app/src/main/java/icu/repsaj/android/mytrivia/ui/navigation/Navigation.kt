@@ -52,6 +52,7 @@ fun NavComponent(
                 )
             )
         }
+        //TODO fix hardcoded category
         composable(route = NavRoutes.History.name) {
             GameHistory()
         }
