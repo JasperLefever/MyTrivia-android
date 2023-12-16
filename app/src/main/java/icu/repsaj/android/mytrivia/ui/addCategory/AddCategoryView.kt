@@ -28,15 +28,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import icu.repsaj.android.mytrivia.model.getImage
 
 @Composable
-fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel()) {
+fun AddCategoryView(
+    viewModel: AddCategoryViewModel = viewModel(factory = AddCategoryViewModel.Factory),
+    navigateUp: () -> Unit
+) {
     val categoryName = viewModel.categoryName
     val selectedIcon = viewModel.selectedIcon
     val icons = viewModel.icons
     val scrollState = rememberScrollState()
     val isValid = viewModel.isValid()
+    val errors = viewModel.errors
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -74,12 +77,11 @@ fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel()) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                icons.forEach { iconName ->
-                    val androidIcon = getImage(iconName)
+                icons.forEach { icon ->
                     OutlinedButton(
-                        onClick = { viewModel.selectedIcon = androidIcon },
+                        onClick = { viewModel.selectedIcon = icon },
                         shape = RoundedCornerShape(50),
-                        border = if (androidIcon == selectedIcon) {
+                        border = if (icon == selectedIcon) {
                             BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
                         } else null,
                         colors = ButtonDefaults.outlinedButtonColors(
@@ -87,7 +89,7 @@ fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel()) {
                         ),
                         modifier = Modifier.padding(horizontal = 1.dp)
                     ) {
-                        Icon(imageVector = androidIcon, contentDescription = "Select Icon")
+                        Icon(imageVector = icon, contentDescription = "Select Icon")
                     }
                 }
             }
@@ -95,7 +97,9 @@ fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel()) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = { viewModel.addCategory() },
+                onClick = {
+                    viewModel.addCategory(callback = navigateUp)
+                },
                 enabled = isValid,
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
@@ -103,6 +107,18 @@ fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel()) {
                     .height(50.dp)
             ) {
                 Text("Add Category")
+            }
+
+            if (errors.isNotEmpty()) {
+                Column {
+                    errors.forEach { error ->
+                        Text(
+                            text = error,
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                }
             }
         }
     }
@@ -112,5 +128,5 @@ fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel()) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun AddCategoryScreenPreview() {
-    AddCategoryView()
+    AddCategoryView(navigateUp = {})
 }

@@ -5,6 +5,8 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import icu.repsaj.android.mytrivia.data.database.TriviaDb
 import icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService
 import icu.repsaj.android.mytrivia.network.question.IQuestionApiService
+import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
+import icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
@@ -13,6 +15,7 @@ interface AppContainer {
     val categoryRepo: CategoryRepo
     val historyRepo: GameHistoryRepo
     val questionRepo: QuestionRepo
+    val resourceProvider: ResourceProvider
 }
 
 class DefaultAppContainer(private val context: Context) : AppContainer {
@@ -49,5 +52,10 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
     override val questionRepo: QuestionRepo by lazy {
         ApiQuestionRepo(questionApiService)
     }
+
+    override val resourceProvider: ResourceProvider by lazy {
+        ResourceProviderImpl(context)
+    }
+
 
 }

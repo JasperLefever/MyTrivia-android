@@ -1,31 +1,20 @@
 package icu.repsaj.android.mytrivia.ui.categoryOverview
 
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.QuestionMark
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
@@ -33,6 +22,7 @@ import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.ui.theme.spacing
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,16 +32,14 @@ fun CategoryOverviewScreen(
     modifier: Modifier = Modifier,
     viewModel: CategoriesOverviewViewModel = viewModel(factory = CategoriesOverviewViewModel.Factory)
 ) {
-
     val categoryListState by viewModel.uiListState.collectAsState()
-
     val apiState = viewModel.apiState
 
     val isRefreshing by remember {
         mutableStateOf(false)
     }
 
-    val state = rememberPullRefreshState(
+    val refreshState = rememberPullRefreshState(
         refreshing = isRefreshing,
         onRefresh = {
             viewModel.fetchCategories()
@@ -65,29 +53,67 @@ fun CategoryOverviewScreen(
                 LazyColumn(
                     modifier = Modifier
                         .padding(top = MaterialTheme.spacing.small)
-                        .pullRefresh(state)
+                        .pullRefresh(refreshState)
                 ) {
-                    items(categoryListState.categoryList) { category ->
-                        CategoryCard(
+                    items(
+                        categoryListState.categoryList,
+                        key = { category -> category.id }) { category ->
+                        var isVisible by remember { mutableStateOf(false) }
+                        LaunchedEffect(key1 = category) {
+                            delay(100L * categoryListState.categoryList.indexOf(category))
+                            isVisible = true
+                        }
+
+                        AnimatedCategoryCard(
                             name = category.name,
                             icon = category.image,
                             enabled = category.questionCount > 0,
                             onClickPlay = {
                                 setCategory(category)
                                 navigateToGame()
-                            })
+                            },
+                            isVisible = isVisible
+                        )
                     }
                 }
 
                 PullRefreshIndicator(
                     refreshing = isRefreshing,
-                    state = state,
+                    state = refreshState,
                     modifier = Modifier.align(Alignment.TopCenter)
                 )
             }
         }
 
         is CategoryApiState.Error -> Text(text = "Error")
+    }
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun AnimatedCategoryCard(
+    name: String = "",
+    icon: ImageVector = Icons.Filled.QuestionMark,
+    enabled: Boolean,
+    onClickPlay: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    isVisible: Boolean = true
+) {
+    AnimatedVisibility(
+        visible = isVisible,
+        enter = slideIn(
+            // Slide in from left to right
+            initialOffset = { fullSize -> IntOffset(-fullSize.width, 0) },
+            animationSpec = tween(durationMillis = 300)
+        )
+    ) {
+        CategoryCard(
+            name = name,
+            icon = icon,
+            enabled = enabled,
+            onClickPlay = onClickPlay,
+            modifier = modifier
+        )
     }
 }
 
@@ -99,7 +125,6 @@ fun CategoryCard(
     onClickPlay: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    // Determine the color based on the enabled state
     val contentColor = if (enabled) MaterialTheme.colorScheme.onSurface
     else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
 
@@ -123,7 +148,7 @@ fun CategoryCard(
                     .size(50.dp)
                     .padding(end = MaterialTheme.spacing.medium)
                     .align(Alignment.CenterVertically),
-                tint = contentColor // Apply the color here
+                tint = contentColor
             )
 
             Text(
@@ -131,7 +156,7 @@ fun CategoryCard(
                 modifier = Modifier
                     .align(Alignment.CenterVertically),
                 style = MaterialTheme.typography.displayMedium,
-                color = contentColor // Apply the color here
+                color = contentColor
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -139,14 +164,13 @@ fun CategoryCard(
             if (enabled) {
                 Icon(
                     imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = name,
+                    contentDescription = "Play",
                     modifier = Modifier
                         .size(30.dp)
                         .align(Alignment.CenterVertically),
-                    tint = contentColor // Apply the color here
+                    tint = contentColor
                 )
             }
         }
     }
 }
-

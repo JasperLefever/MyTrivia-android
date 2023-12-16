@@ -58,7 +58,11 @@ fun NavComponent(
             GameHistory()
         }
         composable(route = NavRoutes.AddCategory.name) {
-            AddCategoryView()
+            AddCategoryView(
+                navigateUp = {
+                    navController.navigateUp()
+                }
+            )
         }
     }
 }

@@ -23,6 +23,12 @@ data class CategoryResponse(
     val items: List<ApiCategory>
 )
 
+@Serializable
+data class CreateCategory(
+    val name: String,
+    val icon: String
+)
+
 
 fun Flow<List<ApiCategory>>.asDomainObjects(): Flow<List<Category>> {
     return this.map {
