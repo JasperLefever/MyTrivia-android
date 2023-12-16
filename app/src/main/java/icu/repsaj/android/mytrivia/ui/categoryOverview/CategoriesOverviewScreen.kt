@@ -60,7 +60,7 @@ fun CategoryOverviewScreen(
                         key = { category -> category.id }) { category ->
                         var isVisible by remember { mutableStateOf(false) }
                         LaunchedEffect(key1 = category) {
-                            delay(100L * categoryListState.categoryList.indexOf(category))
+                            delay(150L * categoryListState.categoryList.indexOf(category))
                             isVisible = true
                         }
 

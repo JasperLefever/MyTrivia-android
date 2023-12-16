@@ -40,12 +40,7 @@ class GameViewModel(
     }
 
     fun nextQuestion() {
-        if (_uiState.value.currentQuestionIndex == _uiState.value.questions.size - 1) {
-            _uiState.update { currentState ->
-                currentState.copy(
-                    isGameOver = true,
-                )
-            }
+        if (isLastQuestion()) {
             return
         }
         _uiState.update { currentState ->
@@ -54,6 +49,14 @@ class GameViewModel(
                 isAnswered = false,
             )
         }
+    }
+
+    fun showScoreDialog(): Boolean {
+        return _uiState.value.isAnswered && isLastQuestion()
+    }
+
+    fun isLastQuestion(): Boolean {
+        return _uiState.value.currentQuestionIndex == _uiState.value.questions.size - 1
     }
 
     fun checkAnswer(answer: TriviaAnswer) {

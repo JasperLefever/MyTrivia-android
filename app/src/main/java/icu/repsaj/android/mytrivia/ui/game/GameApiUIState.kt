@@ -10,15 +10,11 @@ sealed interface QuestionsApiState {
     object Loading : QuestionsApiState
 }
 
-data class QuestionsListState(val questionsList: List<TriviaQuestion> = listOf())
-
-
 data class GameUIState(
     val questions: List<TriviaQuestion> = listOf(),
     val showQuitDialog: Boolean = false,
     val category: Category,
     val currentQuestionIndex: Int = 0,
     val score: Int = 0,
-    val isGameOver: Boolean = false,
     val isAnswered: Boolean = false,
 )
