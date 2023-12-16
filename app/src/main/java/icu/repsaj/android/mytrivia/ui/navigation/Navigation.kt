@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import icu.repsaj.android.mytrivia.model.Category
+import icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryView
 import icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen
 import icu.repsaj.android.mytrivia.ui.game.GameViewModel
 import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
@@ -55,6 +56,9 @@ fun NavComponent(
         //TODO fix hardcoded category
         composable(route = NavRoutes.History.name) {
             GameHistory()
+        }
+        composable(route = NavRoutes.AddCategory.name) {
+            AddCategoryView()
         }
     }
 }

@@ -17,4 +17,5 @@
     <string name="no_history_items_available">No history items available</string>
     <string name="delete_swipe">delete</string>
     <string name="item_removed">Item removed</string>
+    <string name="add_category">Add Category</string>
 </resources>

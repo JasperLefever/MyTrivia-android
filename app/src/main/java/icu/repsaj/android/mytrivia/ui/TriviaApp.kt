@@ -32,6 +32,7 @@ fun TriviaApp(
                 currentScreen = currentScreen,
                 navigateUp = { navController.navigateUp() },
                 navigateHistory = { navController.navigate(NavRoutes.History.name) },
+                navigateAddCategory = { navController.navigate(NavRoutes.AddCategory.name) },
             )
         }
     ) { innerPadding ->

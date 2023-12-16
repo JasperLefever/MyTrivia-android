@@ -17,7 +17,11 @@ data class Category(
     val name: String,
     val icon: String = "",
     val questionCount: Int,
-    val image: ImageVector = when (icon) {
+    val image: ImageVector = getImage(icon)
+)
+
+fun getImage(icon: String): ImageVector {
+    return when (icon) {
         "movieclapper" -> {
             Icons.Filled.Movie
         }
@@ -50,4 +54,4 @@ data class Category(
             Icons.Filled.Error
         }
     }
-)
+}

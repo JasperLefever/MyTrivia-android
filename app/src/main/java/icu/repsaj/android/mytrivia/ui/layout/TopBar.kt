@@ -2,6 +2,7 @@ package icu.repsaj.android.mytrivia.ui.layout
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +26,7 @@ public fun TopBar(
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     navigateHistory: () -> Unit,
+    navigateAddCategory: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
@@ -60,6 +62,9 @@ public fun TopBar(
                         contentDescription = stringResource(R.string.history),
                         modifier = Modifier.size(24.dp)
                     )
+                }
+                IconButton(onClick = navigateAddCategory) {
+                    Icon(Icons.Filled.Add, contentDescription = "Add Category")
                 }
             }
         }
