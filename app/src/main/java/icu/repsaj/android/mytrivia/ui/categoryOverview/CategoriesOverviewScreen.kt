@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.QuestionMark
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -58,8 +59,7 @@ fun CategoryOverviewScreen(
     )
 
     when (apiState) {
-        is CategoryApiState.Loading -> Text(text = "Loading")
-
+        is CategoryApiState.Loading -> CircularProgressIndicator()
         is CategoryApiState.Success -> {
             Box {
                 LazyColumn(
@@ -67,11 +67,15 @@ fun CategoryOverviewScreen(
                         .padding(top = MaterialTheme.spacing.small)
                         .pullRefresh(state)
                 ) {
-                    items(categoryListState.categoryList) {
-                        CategoryCard(name = it.name, icon = it.image, onClickPlay = {
-                            setCategory(it)
-                            navigateToGame()
-                        })
+                    items(categoryListState.categoryList) { category ->
+                        CategoryCard(
+                            name = category.name,
+                            icon = category.image,
+                            enabled = category.questionCount > 0,
+                            onClickPlay = {
+                                setCategory(category)
+                                navigateToGame()
+                            })
                     }
                 }
 
@@ -83,22 +87,22 @@ fun CategoryOverviewScreen(
             }
         }
 
-        is CategoryApiState.Error -> Text(text = "")/*ErrorDialog(
-            dialogTitle = "Error",
-            dialogText = "There was a problem loading the categories. Please try again.",
-            onConfirmation = { viewModel.fetchCategories() })*/
+        is CategoryApiState.Error -> Text(text = "Error")
     }
-
-
 }
 
 @Composable
 fun CategoryCard(
     name: String = "",
     icon: ImageVector = Icons.Filled.QuestionMark,
+    enabled: Boolean,
     onClickPlay: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    // Determine the color based on the enabled state
+    val contentColor = if (enabled) MaterialTheme.colorScheme.onSurface
+    else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+
     ElevatedCard(
         modifier = modifier
             .padding(
@@ -106,9 +110,8 @@ fun CategoryCard(
                 vertical = MaterialTheme.spacing.extraSmall
             )
             .fillMaxWidth()
-            .clickable { onClickPlay() },
-
-        ) {
+            .clickable(enabled = enabled) { onClickPlay() },
+    ) {
         Row(
             modifier = Modifier
                 .padding(MaterialTheme.spacing.medium)
@@ -119,25 +122,31 @@ fun CategoryCard(
                 modifier = Modifier
                     .size(50.dp)
                     .padding(end = MaterialTheme.spacing.medium)
-                    .align(Alignment.CenterVertically)
+                    .align(Alignment.CenterVertically),
+                tint = contentColor // Apply the color here
             )
 
             Text(
                 text = name,
                 modifier = Modifier
                     .align(Alignment.CenterVertically),
-                style = MaterialTheme.typography.displayMedium
+                style = MaterialTheme.typography.displayMedium,
+                color = contentColor // Apply the color here
             )
 
             Spacer(modifier = Modifier.weight(1f))
 
-            Icon(
-                imageVector = Icons.Filled.PlayArrow,
-                contentDescription = name,
-                modifier = Modifier
-                    .size(30.dp)
-                    .align(Alignment.CenterVertically)
-            )
+            if (enabled) {
+                Icon(
+                    imageVector = Icons.Filled.PlayArrow,
+                    contentDescription = name,
+                    modifier = Modifier
+                        .size(30.dp)
+                        .align(Alignment.CenterVertically),
+                    tint = contentColor // Apply the color here
+                )
+            }
         }
     }
 }
+

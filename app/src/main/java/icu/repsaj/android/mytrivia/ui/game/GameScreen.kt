@@ -2,10 +2,12 @@ package icu.repsaj.android.mytrivia.ui.game
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -16,6 +18,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -34,6 +37,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.model.TriviaAnswer
+import icu.repsaj.android.mytrivia.model.TriviaQuestion
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
 @Composable
@@ -42,11 +47,7 @@ public fun TriviaGameScreen(
     viewModel: GameViewModel,
     modifier: Modifier = Modifier
 ) {
-
-
     val gameUIState by viewModel.uiState.collectAsState()
-    val questionsListState by viewModel.questionsListState.collectAsState()
-
     val apiState = viewModel.apiState
 
     Column(
@@ -54,36 +55,43 @@ public fun TriviaGameScreen(
             .padding(MaterialTheme.spacing.medium)
             .fillMaxHeight(),
     ) {
-        CategoryTitle(currentCategory = gameUIState.category.name)
-
-        GameCard(
-            currentQuestion = gameUIState.currentQuestionIndex + 1,
-            totalQuestions = questionsListState.questionsList.count(),
-            score = gameUIState.score
-        )
-
-        if (gameUIState.isGameOver) {
-            ScoreDialog(
-                onConfirmation = { /*TODO*/ },
-                dialogTitle = stringResource(R.string.game_over),
-                dialogText = stringResource(R.string.final_score, gameUIState.score),
-                icon = Icons.Filled.Check
-            )
+        if (apiState is QuestionsApiState.Loading) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
         } else {
-            NextQuestion(nextQuestion = { viewModel.nextQuestion() })
-        }
+            // Regular UI components
+            CategoryTitle(currentCategory = gameUIState.category.name)
 
+            GameCard(
+                currentQuestion = viewModel.getCurrentQuestion(),
+                currentQuestionIndex = gameUIState.currentQuestionIndex + 1,
+                totalQuestions = viewModel.getAmountOfQuestions(),
+                score = gameUIState.score,
+                checkAnswer = viewModel::checkAnswer,
+                isAnswered = gameUIState.isAnswered
+            )
+
+            if (gameUIState.isGameOver) {
+                ScoreDialog(
+                    onConfirmation = {
+                        viewModel.saveHistoryItem()
+                        navigateUp()
+                    },
+                    dialogTitle = stringResource(R.string.game_over),
+                    dialogText = stringResource(R.string.final_score, gameUIState.score),
+                    icon = Icons.Filled.Check
+                )
+            } else {
+                NextQuestion(
+                    nextQuestion = viewModel::nextQuestion,
+                    isEnabled = gameUIState.isAnswered
+                )
+            }
+        }
     }
-    /*if (gameUIState.showQuitDialog) {
-        ConfirmQuitDialog(
-            onDismissRequest = gameUIState.onQuitDismissed,
-            onConfirmation = gameUIState.onQuitConfirmed,
-            dialogTitle = stringResource(R.string.quit_game),
-            dialogText = stringResource(R.string.confirm_quit_game),
-            icon = Icons.Filled.Close
-        )
-    }*/
 }
+
 
 @Composable
 fun ScoreDialog(
@@ -116,9 +124,10 @@ fun ScoreDialog(
 }
 
 @Composable
-private fun NextQuestion(nextQuestion: () -> Unit) {
+private fun NextQuestion(nextQuestion: () -> Unit, isEnabled: Boolean) {
     Button(
         onClick = nextQuestion,
+        enabled = isEnabled,
         modifier = Modifier
             .fillMaxWidth()
             .padding(MaterialTheme.spacing.small)
@@ -127,8 +136,16 @@ private fun NextQuestion(nextQuestion: () -> Unit) {
     }
 }
 
+
 @Composable
-private fun GameCard(currentQuestion: Int, totalQuestions: Int, score: Int) {
+private fun GameCard(
+    currentQuestion: TriviaQuestion,
+    currentQuestionIndex: Int,
+    totalQuestions: Int,
+    score: Int,
+    checkAnswer: (TriviaAnswer) -> Unit,
+    isAnswered: Boolean
+) {
     var selectedAnswer by remember { mutableStateOf<String?>(null) }
 
     ElevatedCard(
@@ -139,7 +156,7 @@ private fun GameCard(currentQuestion: Int, totalQuestions: Int, score: Int) {
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            QuestionCounter(currentQuestion = currentQuestion, totalQuestions = totalQuestions)
+            QuestionCounter(currentQuestion = currentQuestionIndex, totalQuestions = totalQuestions)
             ScoreCounter(score = score)
         }
 
@@ -147,16 +164,20 @@ private fun GameCard(currentQuestion: Int, totalQuestions: Int, score: Int) {
             modifier = Modifier
                 .padding(MaterialTheme.spacing.medium)
         ) {
-            Question(question = "What is your favorite food?")
+            Question(question = currentQuestion.question)
 
             Spacer(modifier = Modifier.padding(MaterialTheme.spacing.medium))
 
-            AnswerCard(
-                answer = "Pasta",
-                isSelected = selectedAnswer == "Pasta",
-                isCorrect = false,
-                onAnswerClick = { selectedAnswer = "Pasta" }
-            )
+            currentQuestion.answers.forEach { answer ->
+                AnswerCard(
+                    answer = answer.answer,
+                    isCorrect = answer.isCorrect,
+                    onAnswerClick = {
+                        checkAnswer(answer)
+                    },
+                    isAnswered = isAnswered
+                )
+            }
 
         }
     }
@@ -189,28 +210,31 @@ fun Question(
 @Composable
 fun AnswerCard(
     answer: String,
-    isSelected: Boolean,
     isCorrect: Boolean,
     onAnswerClick: () -> Unit,
+    isAnswered: Boolean,
     modifier: Modifier = Modifier
 ) {
-    val backgroundColor = if (isSelected) {
-        if (isSelected && isCorrect) {
-            Color.Green
-        } else {
-            MaterialTheme.colorScheme.error
-        }
-    } else {
-        MaterialTheme.colorScheme.secondaryContainer
+    val backgroundColor = when {
+        isAnswered && isCorrect -> Color.Green
+        isAnswered -> MaterialTheme.colorScheme.error
+        else -> MaterialTheme.colorScheme.secondaryContainer
     }
 
     Card(
         colors = CardDefaults.cardColors(
             containerColor = backgroundColor
-        ), modifier = Modifier
+        ),
+        modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = MaterialTheme.spacing.small)
-            .clickable { onAnswerClick() }
+            .then(modifier)
+            // Disable clicking if an answer is already selected
+            .clickable(enabled = !isAnswered) {
+                if (!isAnswered) {
+                    onAnswerClick()
+                }
+            }
     ) {
         Row(
             modifier = Modifier
@@ -220,7 +244,7 @@ fun AnswerCard(
         ) {
             Text(text = answer, style = MaterialTheme.typography.bodyMedium)
             Spacer(modifier = Modifier.weight(1f))
-            if (isSelected) {
+            if (isAnswered) {
                 if (isCorrect) {
                     Icon(
                         imageVector = Icons.Filled.CheckCircle,

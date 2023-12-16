@@ -1,5 +1,8 @@
 package icu.repsaj.android.mytrivia.ui.gameHistory
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -8,59 +11,58 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.GameHistoryRepo
 import icu.repsaj.android.mytrivia.model.HistoryItem
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class HistoryViewModel(private val historyRepo: GameHistoryRepo) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(HistoryUIState())
-    val uiState: StateFlow<HistoryUIState> = _uiState.asStateFlow()
+    lateinit var uiListState: StateFlow<HistoryListState>
+
+    var repoState: HistoryRepoState by mutableStateOf(HistoryRepoState.Loading)
+        private set
 
     init {
         fetchHistory()
     }
 
     fun fetchHistory() {
-        viewModelScope.launch {
-            historyRepo.getGameHistory().collect { historyItems ->
-                _uiState.update { currentState ->
-                    currentState.copy(history = historyItems)
-                }
-            }
+        try {
+            uiListState = historyRepo.getGameHistory().map { HistoryListState(it) }
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5_000L),
+                    initialValue = HistoryListState(),
+                )
+            repoState = HistoryRepoState.Success
+        } catch (e: IOException) {
+            //TODO ERROR HANDLING
+            repoState = HistoryRepoState.Error(e.message ?: "Unknown error")
         }
     }
 
-    fun addHistoryItem(item: HistoryItem) {
-        viewModelScope.launch {
-            historyRepo.insertHistoryItem(item)
-            fetchHistory()
-        }
-    }
-
-    fun deleteHistoryItem(historyItemId: Int) {
-        viewModelScope.launch {
-            val itemToDelete = _uiState.value.history.find { it.id == historyItemId }
-            itemToDelete?.let {
-                historyRepo.deleteHistoryItem(it)
-                fetchHistory()
+    fun deleteHistoryItem(item: HistoryItem) {
+        try {
+            viewModelScope.launch {
+                historyRepo.deleteHistoryItem(item)
             }
+        } catch (e: IOException) {
+            //TODO ERROR HANDLING
+            repoState = HistoryRepoState.Error(e.message ?: "Unknown error")
         }
+        fetchHistory()
     }
 
     companion object {
-        private var Instance: HistoryViewModel? = null
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                if (Instance == null) {
-                    val application =
-                        (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TriviaApplication)
-                    val historyRepo = application.container.historyRepo
-                    Instance = HistoryViewModel(historyRepo = historyRepo)
-                }
-                Instance!!
+                val application =
+                    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TriviaApplication)
+                val historyRepo = application.container.historyRepo
+                HistoryViewModel(historyRepo = historyRepo)
             }
         }
     }

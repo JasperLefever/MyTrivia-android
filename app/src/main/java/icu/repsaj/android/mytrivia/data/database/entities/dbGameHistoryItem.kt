@@ -8,7 +8,7 @@ import java.util.Date
 @Entity(tableName = "game_history")
 data class DbGameHistoryItem(
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Int = 0,
     var category: String = "",
     var date: Date,
     var score: Int = 0
@@ -25,7 +25,7 @@ fun DbGameHistoryItem.asDomainObject(): HistoryItem {
 
 fun HistoryItem.asDbEntity(): DbGameHistoryItem {
     return DbGameHistoryItem(
-        id = this.id,
+        id = this.id ?: 0,
         category = this.category,
         date = this.date,
         score = this.score

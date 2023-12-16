@@ -35,7 +35,8 @@ fun List<ApiCategory>.asDomainObjects(): List<Category> {
         Category(
             id = it.id,
             name = it.name,
-            icon = it.icon
+            icon = it.icon,
+            questionCount = it.questionCount
         )
     }
 }
