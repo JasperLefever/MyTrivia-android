@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import icu.repsaj.android.mytrivia.ui.layout.BottomBar
 import icu.repsaj.android.mytrivia.ui.layout.TopBar
 import icu.repsaj.android.mytrivia.ui.navigation.NavComponent
 import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
@@ -34,6 +35,15 @@ fun TriviaApp(
                 navigateHistory = { navController.navigate(NavRoutes.History.name) },
                 navigateAddCategory = { navController.navigate(NavRoutes.AddCategory.name) },
             )
+        }, bottomBar = {
+            if (currentScreen != NavRoutes.Game) {
+                BottomBar(
+                    currentScreen = currentScreen,
+                    navigateToCategories = { navController.navigate(NavRoutes.Categories.name) },
+                    navigateToHistory = { navController.navigate(NavRoutes.History.name) },
+                    navigateToAddQuestion = { navController.navigate(NavRoutes.AddQuestion.name) },
+                )
+            }
         }
     ) { innerPadding ->
         NavComponent(navController = navController, modifier = Modifier.padding(innerPadding))

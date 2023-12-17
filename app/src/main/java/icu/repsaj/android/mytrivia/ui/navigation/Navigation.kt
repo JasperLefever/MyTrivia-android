@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryView
+import icu.repsaj.android.mytrivia.ui.addQuestion.AddQuestionView
 import icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen
 import icu.repsaj.android.mytrivia.ui.game.GameViewModel
 import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
@@ -62,6 +63,13 @@ fun NavComponent(
                 navigateUp = {
                     navController.navigateUp()
                 }
+            )
+        }
+        composable(route = NavRoutes.AddQuestion.name) {
+            AddQuestionView(
+                navigateUp = {
+                    navController.navigateUp()
+                },
             )
         }
     }
