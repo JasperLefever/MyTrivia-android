@@ -41,7 +41,7 @@ fun CategoryOverviewScreen(
     val refreshState = rememberPullRefreshState(
         refreshing = isRefreshing,
         onRefresh = {
-            viewModel.fetchCategories()
+            viewModel.refresh()
         }
     )
 

@@ -8,11 +8,9 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import java.util.UUID
 
-//static var baseUrl
-public var baseUrl = "http://10.0.2.2:8080"
 
 @Serializable
-public data class Metadata(
+data class Metadata(
     val page: Int,
     val per: Int,
     val total: Int

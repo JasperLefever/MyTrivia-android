@@ -13,12 +13,12 @@ import androidx.compose.ui.res.stringResource
 import icu.repsaj.android.mytrivia.R
 
 @Composable
-public fun ErrorDialog(
-    icon: ImageVector = Icons.Filled.Error,
+fun ErrorDialog(
     dialogTitle: String,
     dialogText: String,
     onConfirmation: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    icon: ImageVector = Icons.Filled.Error
 ) {
     AlertDialog(
         icon = {
@@ -42,10 +42,6 @@ public fun ErrorDialog(
                 Text(stringResource(R.string.retry))
             }
         },
+        modifier = modifier
     )
-}
-
-@Composable
-public fun LoadingIndicator() {
-    LoadingIndicator()
 }
