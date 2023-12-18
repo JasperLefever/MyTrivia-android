@@ -20,8 +20,6 @@ fun NavComponent(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-
-
     NavHost(
         navController = navController,
         startDestination = NavRoutes.Categories.name,
@@ -30,17 +28,17 @@ fun NavComponent(
         composable(route = NavRoutes.Categories.name) {
             CategoryOverviewScreen(
                 navigateToGame = { categoryId ->
-                    navController.navigate("game/$categoryId")
+                    navController.navigate(NavRoutes.Game.name + "/$categoryId")
                 },
             )
         }
         composable(
-            route = "game/{categoryId}",
+            route = NavRoutes.Game.withArgs("{categoryId}"),
             arguments = listOf(navArgument("categoryId") { type = NavType.StringType })
         ) { backstackEntry ->
             TriviaGameScreen(
                 navigateUp = {
-                    navController.navigateUp()
+                    navController.popBackStack()
                 },
                 viewModel = viewModel(
                     factory = GameViewModel.factory(
@@ -50,7 +48,6 @@ fun NavComponent(
             )
 
         }
-        //TODO fix hardcoded category
         composable(route = NavRoutes.History.name) {
             GameHistory()
         }

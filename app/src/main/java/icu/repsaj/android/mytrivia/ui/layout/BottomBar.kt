@@ -17,12 +17,11 @@ fun BottomBar(
     currentScreen: NavRoutes,
     navigateToCategories: () -> Unit,
     navigateToHistory: () -> Unit,
-    navigateToAddQuestion: () -> Unit,
     modifier: Modifier = Modifier
 
 ) {
     val items: List<NavRoutes> by remember {
-        mutableStateOf(listOf(NavRoutes.Categories, NavRoutes.AddQuestion, NavRoutes.History))
+        mutableStateOf(listOf(NavRoutes.Categories, NavRoutes.History))
     }
 
     NavigationBar {
@@ -42,7 +41,6 @@ fun BottomBar(
                     when (item) {
                         NavRoutes.Categories -> navigateToCategories()
                         NavRoutes.History -> navigateToHistory()
-                        NavRoutes.AddQuestion -> navigateToAddQuestion()
                         else -> {}
                     }
                 }

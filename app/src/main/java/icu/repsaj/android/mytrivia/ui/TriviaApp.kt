@@ -1,7 +1,6 @@
 package icu.repsaj.android.mytrivia.ui
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -16,7 +15,6 @@ import icu.repsaj.android.mytrivia.ui.navigation.NavComponent
 import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
 @Preview(showSystemUi = true, showBackground = true)
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TriviaApp(
     navController: NavHostController = rememberNavController(),
@@ -30,7 +28,7 @@ fun TriviaApp(
             TopBar(
                 canNavigateBack = navController.previousBackStackEntry != null,
                 currentScreen = currentScreen,
-                navigateUp = { navController.navigateUp() },
+                navigateUp = { navController.popBackStack() },
                 navigateHistory = { navController.navigate(NavRoutes.History.name) },
                 navigateAddCategory = { navController.navigate(NavRoutes.AddCategory.name) },
             )
@@ -40,7 +38,6 @@ fun TriviaApp(
                     currentScreen = currentScreen,
                     navigateToCategories = { navController.navigate(NavRoutes.Categories.name) },
                     navigateToHistory = { navController.navigate(NavRoutes.History.name) },
-                    navigateToAddQuestion = { navController.navigate(NavRoutes.AddQuestion.name) },
                 )
             }
         }
