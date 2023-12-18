@@ -11,8 +11,6 @@ import java.util.UUID
 interface QuestionRepo {
     fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>
 
-    suspend fun insertQuestion(category: TriviaQuestion)
-
 }
 
 class ApiQuestionRepo(
@@ -21,9 +19,4 @@ class ApiQuestionRepo(
     override fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>> {
         return questionApiService.getQuestionsAsFlow(categoryId = categoryId).asDomainObjects()
     }
-
-    override suspend fun insertQuestion(category: TriviaQuestion) {
-        TODO("Not yet implemented")
-    }
-
 }
