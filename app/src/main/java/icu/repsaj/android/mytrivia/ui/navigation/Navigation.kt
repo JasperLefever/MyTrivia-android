@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import icu.repsaj.android.mytrivia.model.Category
+import androidx.navigation.navArgument
 import icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryView
-import icu.repsaj.android.mytrivia.ui.addQuestion.AddQuestionView
 import icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen
 import icu.repsaj.android.mytrivia.ui.game.GameViewModel
 import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
@@ -20,7 +20,6 @@ fun NavComponent(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    var category: Category? = null
 
 
     NavHost(
@@ -30,29 +29,26 @@ fun NavComponent(
     ) {
         composable(route = NavRoutes.Categories.name) {
             CategoryOverviewScreen(
-                navigateToGame = {
-                    navController.navigate(NavRoutes.Game.name)
+                navigateToGame = { categoryId ->
+                    navController.navigate("game/$categoryId")
                 },
-                setCategory = {
-                    category = it
-                }
             )
         }
-        composable(route = NavRoutes.Game.name) {
+        composable(
+            route = "game/{categoryId}",
+            arguments = listOf(navArgument("categoryId") { type = NavType.StringType })
+        ) { backstackEntry ->
             TriviaGameScreen(
                 navigateUp = {
                     navController.navigateUp()
                 },
                 viewModel = viewModel(
                     factory = GameViewModel.factory(
-                        Category(
-                            id = UUID.fromString(
-                                "F41796BA-84A1-4F63-85FE-6D0D933C8628"
-                            ), "Test", "https://www.google.com", 10
-                        )
+                        categoryId = UUID.fromString(backstackEntry.arguments?.getString("categoryId"))
                     )
                 )
             )
+
         }
         //TODO fix hardcoded category
         composable(route = NavRoutes.History.name) {
@@ -63,13 +59,6 @@ fun NavComponent(
                 navigateUp = {
                     navController.navigateUp()
                 }
-            )
-        }
-        composable(route = NavRoutes.AddQuestion.name) {
-            AddQuestionView(
-                navigateUp = {
-                    navController.navigateUp()
-                },
             )
         }
     }

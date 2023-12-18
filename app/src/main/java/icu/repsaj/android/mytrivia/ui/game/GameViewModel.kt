@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
+import icu.repsaj.android.mytrivia.data.CategoryRepo
 import icu.repsaj.android.mytrivia.data.GameHistoryRepo
 import icu.repsaj.android.mytrivia.data.QuestionRepo
 import icu.repsaj.android.mytrivia.model.Category
@@ -16,26 +17,35 @@ import icu.repsaj.android.mytrivia.model.HistoryItem
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.Date
+import java.util.UUID
 
 class GameViewModel(
-    val category: Category,
+    val categoryId: UUID,
     private val questionRepo: QuestionRepo,
-    private val historyRepo: GameHistoryRepo
+    private val historyRepo: GameHistoryRepo,
+    private val categoryRepo: CategoryRepo
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(GameUIState(category = category))
+    private val _uiState = MutableStateFlow(GameUIState())
     public val uiState = _uiState.asStateFlow();
+
+    lateinit var uiCategory: StateFlow<Category>
 
     var apiState: QuestionsApiState by mutableStateOf(QuestionsApiState.Loading)
         private set
 
 
     init {
+        getCategory()
         fetchQuestions()
     }
 
@@ -78,50 +88,69 @@ class GameViewModel(
 
     fun saveHistoryItem() {
         viewModelScope.launch {
-            val historyItem = HistoryItem(
-                category = category.name,
-                score = _uiState.value.score,
-                date = Date()
-            )
-            historyRepo.insertHistoryItem(historyItem)
+            val historyItem = _uiState.value.category?.let {
+                HistoryItem(
+                    category = it.name,
+                    score = _uiState.value.score,
+                    date = Date()
+                )
+            }
+            if (historyItem != null) {
+                historyRepo.insertHistoryItem(historyItem)
+            }
         }
     }
 
     private fun fetchQuestions() {
         viewModelScope.launch {
             try {
-                // Fetch and flatten the questions list
-                val questions = questionRepo.getQuestions(category.id).toList().flatten()
+                val questions = questionRepo.getQuestions(categoryId).toList().flatten()
 
-                // Update the UI state with the fetched questions
                 _uiState.update { currentState ->
                     currentState.copy(questions = questions)
                 }
 
-                // Update the API state to success
                 apiState = QuestionsApiState.Success
-            } catch (e: Exception) { // Catch broader exceptions
-                // Log the error or handle it as needed
+            } catch (e: Exception) {
                 e.printStackTrace()
 
-                // Update the API state to indicate an error
                 apiState = QuestionsApiState.Error
+            }
+        }
+    }
+
+    private fun getCategory() {
+        viewModelScope.launch {
+            try {
+
+                uiCategory = categoryRepo.getCategoryById(categoryId)
+                    .map { it }
+                    .stateIn(
+                        scope = viewModelScope,
+                        started = SharingStarted.WhileSubscribed(5_000L),
+                        initialValue = Category(UUID.randomUUID(), "Loading", "loading", 0),
+                    )
+
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
 
 
     companion object {
-        fun factory(category: Category): ViewModelProvider.Factory = viewModelFactory {
+        fun factory(categoryId: UUID): ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application =
                     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TriviaApplication)
                 val questionRepo = application.container.questionRepo
                 val historyRepo = application.container.historyRepo
+                val categoryRepo = application.container.categoryRepo
                 GameViewModel(
-                    category = category,
+                    categoryId = categoryId,
                     questionRepo = questionRepo,
-                    historyRepo = historyRepo
+                    historyRepo = historyRepo,
+                    categoryRepo = categoryRepo
                 )
             }
         }

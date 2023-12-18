@@ -57,7 +57,8 @@ public fun TriviaGameScreen(
     val apiState = viewModel.apiState
 
     var animateQuestionChange by remember { mutableStateOf(false) }
-    val isLastQuestion = gameUIState.currentQuestionIndex == gameUIState.questions.size - 1
+
+    val category by viewModel.uiCategory.collectAsState()
 
     Column(
         modifier = Modifier
@@ -69,7 +70,7 @@ public fun TriviaGameScreen(
                 CircularProgressIndicator()
             }
         } else {
-            CategoryTitle(currentCategory = gameUIState.category.name)
+            CategoryTitle(currentCategory = category.name)
 
             AnimatedGameCard(
                 currentQuestion = viewModel.getCurrentQuestion(),

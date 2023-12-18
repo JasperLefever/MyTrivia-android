@@ -23,8 +23,7 @@ fun TriviaApp(
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
 
-    val currentScreen =
-        NavRoutes.valueOf(backStackEntry?.destination?.route ?: NavRoutes.Categories.name)
+    val currentScreen = NavRoutes.getNavRouteFromRoute(backStackEntry?.destination?.route)
 
     Scaffold(
         topBar = {

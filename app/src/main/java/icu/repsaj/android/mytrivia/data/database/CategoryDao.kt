@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import icu.repsaj.android.mytrivia.data.database.entities.DbCategory
 import kotlinx.coroutines.flow.Flow
+import java.util.UUID
 
 @Dao
 interface CategoryDao {
@@ -21,4 +22,7 @@ interface CategoryDao {
 
     @Query("SELECT * from categories")
     fun getAll(): Flow<List<DbCategory>>
+
+    @Query("SELECT * from categories WHERE id = :id")
+    fun getById(id: UUID): Flow<DbCategory>
 }

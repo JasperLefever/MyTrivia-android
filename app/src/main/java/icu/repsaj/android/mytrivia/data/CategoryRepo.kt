@@ -2,6 +2,7 @@ package icu.repsaj.android.mytrivia.data
 
 import icu.repsaj.android.mytrivia.data.database.CategoryDao
 import icu.repsaj.android.mytrivia.data.database.entities.asDbEntity
+import icu.repsaj.android.mytrivia.data.database.entities.asDomainObject
 import icu.repsaj.android.mytrivia.data.database.entities.asDomainObjects
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.asPostCategory
@@ -11,9 +12,12 @@ import icu.repsaj.android.mytrivia.network.categroy.getCategoriesAsFlow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.net.SocketTimeoutException
+import java.util.UUID
 
 interface CategoryRepo {
     fun getCategories(): Flow<List<Category>>
+
+    fun getCategoryById(id: UUID): Flow<Category>
 
     suspend fun insertCategory(category: Category)
 
@@ -31,6 +35,12 @@ class CachingCategoryRepository(
     override fun getCategories(): Flow<List<Category>> {
         return categoryDao.getAll().map {
             it.asDomainObjects()
+        }
+    }
+
+    override fun getCategoryById(id: UUID): Flow<Category> {
+        return categoryDao.getById(id).map {
+            it.asDomainObject()
         }
     }
 
