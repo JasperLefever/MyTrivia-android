@@ -14,12 +14,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
+import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
@@ -49,13 +51,29 @@ fun CategoryOverviewScreen(
     when (apiState) {
         is CategoryApiState.Loading -> CircularProgressIndicator()
         is CategoryApiState.Success -> {
-            if (categoryListState.categoryList.isNotEmpty()) {
-                Box {
-                    LazyColumn(
-                        modifier = Modifier
-                            .padding(top = MaterialTheme.spacing.small)
-                            .pullRefresh(refreshState)
-                    ) {
+            Box {
+                LazyColumn(
+                    modifier = Modifier
+                        .padding(top = MaterialTheme.spacing.small)
+                        .fillMaxSize()
+                        .pullRefresh(refreshState)
+                ) {
+                    if (categoryListState.categoryList.isEmpty()) {
+                        item {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(200.dp)
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.no_categories_available),
+                                    modifier = Modifier.align(Alignment.Center),
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                            }
+
+                        }
+                    } else {
                         items(
                             items = categoryListState.categoryList,
                             key = { category -> category.id }
@@ -85,23 +103,15 @@ fun CategoryOverviewScreen(
                             )
                         }
                     }
-
-                    PullRefreshIndicator(
-                        refreshing = isRefreshing,
-                        state = refreshState,
-                        modifier = Modifier.align(Alignment.TopCenter)
-                    )
-                }
-            } else {
-                Box(modifier = Modifier.fillMaxSize()) {
-                    Text(
-                        text = "No categories available",
-                        modifier = Modifier.align(Alignment.Center),
-                        style = MaterialTheme.typography.bodyLarge
-                    )
                 }
 
+                PullRefreshIndicator(
+                    refreshing = isRefreshing,
+                    state = refreshState,
+                    modifier = Modifier.align(Alignment.TopCenter)
+                )
             }
+
         }
 
         is CategoryApiState.Error -> Text(text = "Error")

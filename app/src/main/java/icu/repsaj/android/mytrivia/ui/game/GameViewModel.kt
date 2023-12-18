@@ -88,16 +88,12 @@ class GameViewModel(
 
     fun saveHistoryItem() {
         viewModelScope.launch {
-            val historyItem = _uiState.value.category?.let {
-                HistoryItem(
-                    category = it.name,
-                    score = _uiState.value.score,
-                    date = Date()
-                )
-            }
-            if (historyItem != null) {
-                historyRepo.insertHistoryItem(historyItem)
-            }
+            val historyItem = HistoryItem(
+                category = uiCategory.value.name,
+                score = _uiState.value.score,
+                date = Date()
+            )
+            historyRepo.insertHistoryItem(historyItem)
         }
     }
 

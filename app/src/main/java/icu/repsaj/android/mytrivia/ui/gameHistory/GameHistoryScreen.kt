@@ -1,6 +1,8 @@
 package icu.repsaj.android.mytrivia.ui.gameHistory
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -19,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
@@ -65,18 +68,27 @@ fun GameHistory(
             )
 
             is HistoryRepoState.Success -> {
-                if (historyListState.history.isEmpty()) {
-                    Text(
-                        text = stringResource(R.string.no_history_items_available),
-                        modifier = Modifier.align(Alignment.Center),
-                        style = MaterialTheme.typography.bodyLarge
-                    )
-                } else {
-                    LazyColumn(
-                        modifier = Modifier
-                            .padding(vertical = MaterialTheme.spacing.small)
-                            .pullRefresh(state)
-                    ) {
+                LazyColumn(
+                    modifier = Modifier
+                        .padding(vertical = MaterialTheme.spacing.small)
+                        .pullRefresh(state)
+                ) {
+                    if (historyListState.history.isEmpty()) {
+                        item {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(200.dp)
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.no_history_items_available),
+                                    modifier = Modifier.align(Alignment.Center),
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                            }
+
+                        }
+                    } else {
                         itemsIndexed(
                             items = historyListState.history,
                             key = { _, item -> item.id!! }
