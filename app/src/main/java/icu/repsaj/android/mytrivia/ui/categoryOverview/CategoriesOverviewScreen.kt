@@ -20,6 +20,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
+import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
 import java.util.UUID
@@ -48,54 +49,72 @@ fun CategoryOverviewScreen(
     when (apiState) {
         is CategoryApiState.Loading -> CircularProgressIndicator()
         is CategoryApiState.Success -> {
-            Box {
-                LazyColumn(
-                    modifier = Modifier
-                        .padding(top = MaterialTheme.spacing.small)
-                        .pullRefresh(refreshState)
-                ) {
-                    items(
-                        categoryListState.categoryList,
-                        key = { category -> category.id }) { category ->
-                        var isVisible by remember { mutableStateOf(false) }
-                        LaunchedEffect(key1 = category) {
-                            delay(150L * categoryListState.categoryList.indexOf(category))
-                            isVisible = true
-                        }
+            if (categoryListState.categoryList.isNotEmpty()) {
+                Box {
+                    LazyColumn(
+                        modifier = Modifier
+                            .padding(top = MaterialTheme.spacing.small)
+                            .pullRefresh(refreshState)
+                    ) {
+                        items(
+                            items = categoryListState.categoryList,
+                            key = { category -> category.id }
+                        ) { category ->
+                            var isVisible by remember { mutableStateOf(false) }
+                            LaunchedEffect(key1 = category) {
+                                delay(150L * categoryListState.categoryList.indexOf(category))
+                                isVisible = true
+                            }
 
-                        AnimatedCategoryCard(
-                            name = category.name,
-                            icon = category.image,
-                            enabled = category.questionCount > 0,
-                            onClickPlay = {
-                                navigateToGame(category.id)
-                            },
-                            isVisible = isVisible
-                        )
+                            SwipeToDelete(
+                                item = category,
+                                onDismiss = { deletedCategory ->
+                                    viewModel.deleteCategory(deletedCategory)
+                                },
+                                itemContent = { category ->
+                                    AnimatedCategoryCard(
+                                        name = category.name,
+                                        icon = category.image,
+                                        enabled = category.questionCount > 0,
+                                        onClickPlay = {
+                                            navigateToGame(category.id)
+                                        },
+                                        isVisible = isVisible
+                                    )
+                                }
+                            )
+                        }
                     }
+
+                    PullRefreshIndicator(
+                        refreshing = isRefreshing,
+                        state = refreshState,
+                        modifier = Modifier.align(Alignment.TopCenter)
+                    )
+                }
+            } else {
+                Box(modifier = Modifier.fillMaxSize()) {
+                    Text(
+                        text = "No categories available",
+                        modifier = Modifier.align(Alignment.Center),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
                 }
 
-                PullRefreshIndicator(
-                    refreshing = isRefreshing,
-                    state = refreshState,
-                    modifier = Modifier.align(Alignment.TopCenter)
-                )
             }
         }
 
-        //TODO FIX ERROR
         is CategoryApiState.Error -> Text(text = "Error")
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AnimatedCategoryCard(
-    name: String = "",
-    icon: ImageVector = Icons.Filled.QuestionMark,
+    name: String,
     enabled: Boolean,
-    onClickPlay: () -> Unit = {},
+    onClickPlay: () -> Unit,
     modifier: Modifier = Modifier,
+    icon: ImageVector = Icons.Filled.QuestionMark,
     isVisible: Boolean = true
 ) {
     AnimatedVisibility(

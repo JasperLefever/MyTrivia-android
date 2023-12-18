@@ -54,7 +54,8 @@ class CachingCategoryRepository(
     }
 
     override suspend fun deleteCategory(category: Category) {
-        categoryDao.delete(category.asDbEntity())
+        categoryApi.deleteCategory(category.id)
+        refresh()
     }
 
     override suspend fun refresh() {

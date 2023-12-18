@@ -53,7 +53,6 @@ class HistoryViewModel(private val historyRepo: GameHistoryRepo) : ViewModel() {
             //TODO ERROR HANDLING
             repoState = HistoryRepoState.Error(e.message ?: "Unknown error")
         }
-        fetchHistory()
     }
 
     companion object {

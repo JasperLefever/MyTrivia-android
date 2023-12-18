@@ -10,6 +10,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.CategoryRepo
+import icu.repsaj.android.mytrivia.model.Category
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -45,6 +46,17 @@ class CategoriesOverviewViewModel(private val categoryRepo: CategoryRepo) :
             apiState = CategoryApiState.Error
         }
 
+    }
+
+    fun deleteCategory(category: Category) {
+        try {
+            viewModelScope.launch {
+                categoryRepo.deleteCategory(category)
+            }
+        } catch (e: IOException) {
+            //TODO ERROR HANDLING
+            apiState = CategoryApiState.Error
+        }
     }
 
     fun refresh() {
