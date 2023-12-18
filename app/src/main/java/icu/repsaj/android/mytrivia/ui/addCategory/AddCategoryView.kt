@@ -25,9 +25,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import icu.repsaj.android.mytrivia.R
 
 @Composable
 fun AddCategoryView(
@@ -54,11 +56,14 @@ fun AddCategoryView(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text("CATEGORY INFORMATION", style = MaterialTheme.typography.labelMedium)
+            Text(
+                stringResource(R.string.category_information),
+                style = MaterialTheme.typography.labelMedium
+            )
             OutlinedTextField(
                 value = categoryName,
                 onValueChange = { viewModel.categoryName = it },
-                label = { Text("Category Name") },
+                label = { Text(stringResource(R.string.category_name)) },
                 singleLine = true,
                 shape = RoundedCornerShape(8.dp),
                 colors = OutlinedTextFieldDefaults.colors(
@@ -70,7 +75,7 @@ fun AddCategoryView(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            Text("SELECT ICON", style = MaterialTheme.typography.labelMedium)
+            Text(stringResource(R.string.select_icon), style = MaterialTheme.typography.labelMedium)
             Row(
                 modifier = Modifier
                     .horizontalScroll(scrollState)
@@ -89,7 +94,7 @@ fun AddCategoryView(
                         ),
                         modifier = Modifier.padding(horizontal = 1.dp)
                     ) {
-                        Icon(imageVector = icon, contentDescription = "Select Icon")
+                        Icon(imageVector = icon, contentDescription = null)
                     }
                 }
             }

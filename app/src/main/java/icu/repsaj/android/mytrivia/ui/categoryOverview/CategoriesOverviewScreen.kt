@@ -83,6 +83,7 @@ fun CategoryOverviewScreen(
             }
         }
 
+        //TODO FIX ERROR
         is CategoryApiState.Error -> Text(text = "Error")
     }
 }
@@ -162,7 +163,7 @@ fun CategoryCard(
             if (enabled) {
                 Icon(
                     imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = "Play",
+                    contentDescription = null,
                     modifier = Modifier
                         .size(30.dp)
                         .align(Alignment.CenterVertically),
