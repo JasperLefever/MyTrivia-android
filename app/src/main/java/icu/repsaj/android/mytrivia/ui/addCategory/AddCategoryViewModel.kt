@@ -23,9 +23,9 @@ class AddCategoryViewModel(
     private val categoryRepo: CategoryRepo,
     private val resourceProvider: ResourceProvider
 ) : ViewModel() {
-    var categoryName by mutableStateOf("")
-    var selectedIcon by mutableStateOf<ImageVector?>(null)
-    var icons by mutableStateOf(
+    var categoryName = mutableStateOf("")
+    var selectedIcon = mutableStateOf<ImageVector?>(null)
+    var icons = mutableStateOf(
         iconMap.values.toList()
     )
     var errors: List<String> by mutableStateOf(emptyList())
@@ -38,8 +38,8 @@ class AddCategoryViewModel(
             viewModelScope.launch {
                 val category = Category(
                     id = UUID.randomUUID(),
-                    name = categoryName,
-                    icon = getIcon(selectedIcon!!),
+                    name = categoryName.value,
+                    icon = getIcon(selectedIcon.value!!),
                 )
                 categoryRepo.createCategory(category)
             }
@@ -51,14 +51,14 @@ class AddCategoryViewModel(
 
     fun isValid(): Boolean {
         errors = emptyList()
-        if (categoryName.isBlank()) {
+        if (categoryName.value.isBlank()) {
             errors =
                 errors + listOf(resourceProvider.getString(R.string.category_name_cannot_be_empty))
         }
         if (selectedIcon == null) {
             errors = errors + listOf(resourceProvider.getString(R.string.please_select_an_icon))
         }
-        return categoryName.isNotBlank() && selectedIcon != null
+        return categoryName.value.isNotBlank() && selectedIcon != null
     }
 
     companion object {

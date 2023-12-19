@@ -44,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
+import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
 
@@ -59,6 +60,7 @@ public fun TriviaGameScreen(
     var animateQuestionChange by remember { mutableStateOf(false) }
 
     val category by viewModel.uiCategory.collectAsState()
+    RecomposeChecker(viewName = "GameScreen")
 
     Column(
         modifier = Modifier

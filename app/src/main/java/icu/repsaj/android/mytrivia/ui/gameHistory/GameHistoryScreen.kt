@@ -28,6 +28,7 @@ import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.model.HistoryItem
+import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.compontents.formatDateTime
 import icu.repsaj.android.mytrivia.ui.theme.spacing
@@ -52,6 +53,8 @@ fun GameHistory(
             viewModel.fetchHistory()
         }
     )
+
+    RecomposeChecker(viewName = "HistoryScreen")
 
     Box(modifier = modifier) {
         when (repoState) {

@@ -30,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 
 @Composable
 fun AddCategoryView(
@@ -42,6 +43,8 @@ fun AddCategoryView(
     val scrollState = rememberScrollState()
     val isValid = viewModel.isValid()
     val errors = viewModel.errors
+
+    RecomposeChecker(viewName = "AddCategoryView")
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -61,8 +64,8 @@ fun AddCategoryView(
                 style = MaterialTheme.typography.labelMedium
             )
             OutlinedTextField(
-                value = categoryName,
-                onValueChange = { viewModel.categoryName = it },
+                value = categoryName.value,
+                onValueChange = { viewModel.categoryName.value = it },
                 label = { Text(stringResource(R.string.category_name)) },
                 singleLine = true,
                 shape = RoundedCornerShape(8.dp),
@@ -82,11 +85,11 @@ fun AddCategoryView(
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                icons.forEach { icon ->
+                icons.value.forEach { icon ->
                     OutlinedButton(
-                        onClick = { viewModel.selectedIcon = icon },
+                        onClick = { viewModel.selectedIcon.value = icon },
                         shape = RoundedCornerShape(50),
-                        border = if (icon == selectedIcon) {
+                        border = if (icon == selectedIcon.value) {
                             BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
                         } else null,
                         colors = ButtonDefaults.outlinedButtonColors(

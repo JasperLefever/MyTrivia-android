@@ -22,6 +22,7 @@ import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
@@ -47,6 +48,7 @@ fun CategoryOverviewScreen(
             viewModel.refresh()
         }
     )
+    RecomposeChecker(viewName = "CategoryOverviewScreen")
 
     when (apiState) {
         is CategoryApiState.Loading -> CircularProgressIndicator()
@@ -171,7 +173,7 @@ fun CategoryCard(
         ) {
             Icon(
                 imageVector = icon,
-                contentDescription = name,
+                contentDescription = null,
                 modifier = Modifier
                     .size(50.dp)
                     .padding(end = MaterialTheme.spacing.medium)

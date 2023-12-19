@@ -64,7 +64,10 @@ public fun TopBar(
                     )
                 }
                 IconButton(onClick = navigateAddCategory) {
-                    Icon(Icons.Filled.Add, contentDescription = "Add Category")
+                    Icon(
+                        Icons.Filled.Add,
+                        contentDescription = stringResource(id = R.string.add_category)
+                    )
                 }
             }
         }
