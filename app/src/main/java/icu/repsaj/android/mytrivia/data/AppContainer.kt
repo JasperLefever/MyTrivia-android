@@ -38,14 +38,14 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
 
     override val categoryRepo: CategoryRepo by lazy {
         CachingCategoryRepository(
-            TriviaDb.getDatabase(context = context).CategoryDao(),
+            TriviaDb.getDatabase(context = context).categoryDao(),
             categoryApiService
         )
     }
 
     override val historyRepo: GameHistoryRepo by lazy {
         GameHistoryRepository(
-            TriviaDb.getDatabase(context = context).GameHistoryDao()
+            TriviaDb.getDatabase(context = context).gameHistoryDao()
         )
     }
 

@@ -17,9 +17,9 @@ import icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem
 @TypeConverters(DateConverters::class)
 abstract class TriviaDb : RoomDatabase() {
 
-    abstract fun CategoryDao(): CategoryDao
+    abstract fun categoryDao(): CategoryDao
 
-    abstract fun GameHistoryDao(): GameHistoryDao
+    abstract fun gameHistoryDao(): GameHistoryDao
 
     companion object {
         @Volatile
