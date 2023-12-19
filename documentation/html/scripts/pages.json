@@ -1,0 +1,3662 @@
+[
+  {
+    "name": "AddCategory",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.AddCategory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/-add-category/index.html",
+    "searchKeys": [
+      "AddCategory",
+      "AddCategory",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.AddCategory"
+    ]
+  },
+  {
+    "name": "Categories",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Categories",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/-categories/index.html",
+    "searchKeys": [
+      "Categories",
+      "Categories",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Categories"
+    ]
+  },
+  {
+    "name": "Game",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Game",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/-game/index.html",
+    "searchKeys": [
+      "Game",
+      "Game",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Game"
+    ]
+  },
+  {
+    "name": "History",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.History",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/-history/index.html",
+    "searchKeys": [
+      "History",
+      "History",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.History"
+    ]
+  },
+  {
+    "name": "abstract class TriviaDb : RoomDatabase",
+    "description": "icu.repsaj.android.mytrivia.data.database.TriviaDb",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-trivia-db/index.html",
+    "searchKeys": [
+      "TriviaDb",
+      "abstract class TriviaDb : RoomDatabase",
+      "icu.repsaj.android.mytrivia.data.database.TriviaDb"
+    ]
+  },
+  {
+    "name": "abstract fun categoryDao(): CategoryDao",
+    "description": "icu.repsaj.android.mytrivia.data.database.TriviaDb.categoryDao",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-trivia-db/category-dao.html",
+    "searchKeys": [
+      "categoryDao",
+      "abstract fun categoryDao(): CategoryDao",
+      "icu.repsaj.android.mytrivia.data.database.TriviaDb.categoryDao"
+    ]
+  },
+  {
+    "name": "abstract fun gameHistoryDao(): GameHistoryDao",
+    "description": "icu.repsaj.android.mytrivia.data.database.TriviaDb.gameHistoryDao",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-trivia-db/game-history-dao.html",
+    "searchKeys": [
+      "gameHistoryDao",
+      "abstract fun gameHistoryDao(): GameHistoryDao",
+      "icu.repsaj.android.mytrivia.data.database.TriviaDb.gameHistoryDao"
+    ]
+  },
+  {
+    "name": "abstract fun getAll(): Flow<List<DbCategory>>",
+    "description": "icu.repsaj.android.mytrivia.data.database.CategoryDao.getAll",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-category-dao/get-all.html",
+    "searchKeys": [
+      "getAll",
+      "abstract fun getAll(): Flow<List<DbCategory>>",
+      "icu.repsaj.android.mytrivia.data.database.CategoryDao.getAll"
+    ]
+  },
+  {
+    "name": "abstract fun getAll(): Flow<List<DbGameHistoryItem>>",
+    "description": "icu.repsaj.android.mytrivia.data.database.GameHistoryDao.getAll",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-game-history-dao/get-all.html",
+    "searchKeys": [
+      "getAll",
+      "abstract fun getAll(): Flow<List<DbGameHistoryItem>>",
+      "icu.repsaj.android.mytrivia.data.database.GameHistoryDao.getAll"
+    ]
+  },
+  {
+    "name": "abstract fun getById(id: UUID): Flow<DbCategory>",
+    "description": "icu.repsaj.android.mytrivia.data.database.CategoryDao.getById",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-category-dao/get-by-id.html",
+    "searchKeys": [
+      "getById",
+      "abstract fun getById(id: UUID): Flow<DbCategory>",
+      "icu.repsaj.android.mytrivia.data.database.CategoryDao.getById"
+    ]
+  },
+  {
+    "name": "abstract fun getCategories(): Flow<List<Category>>",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.getCategories",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/get-categories.html",
+    "searchKeys": [
+      "getCategories",
+      "abstract fun getCategories(): Flow<List<Category>>",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo.getCategories"
+    ]
+  },
+  {
+    "name": "abstract fun getCategoryById(id: UUID): Flow<Category>",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.getCategoryById",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/get-category-by-id.html",
+    "searchKeys": [
+      "getCategoryById",
+      "abstract fun getCategoryById(id: UUID): Flow<Category>",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo.getCategoryById"
+    ]
+  },
+  {
+    "name": "abstract fun getGameHistory(): Flow<List<HistoryItem>>",
+    "description": "icu.repsaj.android.mytrivia.data.IGameHistoryRepo.getGameHistory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/get-game-history.html",
+    "searchKeys": [
+      "getGameHistory",
+      "abstract fun getGameHistory(): Flow<List<HistoryItem>>",
+      "icu.repsaj.android.mytrivia.data.IGameHistoryRepo.getGameHistory"
+    ]
+  },
+  {
+    "name": "abstract fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>",
+    "description": "icu.repsaj.android.mytrivia.data.IQuestionRepo.getQuestions",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-question-repo/get-questions.html",
+    "searchKeys": [
+      "getQuestions",
+      "abstract fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>",
+      "icu.repsaj.android.mytrivia.data.IQuestionRepo.getQuestions"
+    ]
+  },
+  {
+    "name": "abstract fun getString(id: Int): String",
+    "description": "icu.repsaj.android.mytrivia.ui.providers.ResourceProvider.getString",
+    "location": "app/icu.repsaj.android.mytrivia.ui.providers/-resource-provider/get-string.html",
+    "searchKeys": [
+      "getString",
+      "abstract fun getString(id: Int): String",
+      "icu.repsaj.android.mytrivia.ui.providers.ResourceProvider.getString"
+    ]
+  },
+  {
+    "name": "abstract suspend fun clear()",
+    "description": "icu.repsaj.android.mytrivia.data.database.CategoryDao.clear",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-category-dao/clear.html",
+    "searchKeys": [
+      "clear",
+      "abstract suspend fun clear()",
+      "icu.repsaj.android.mytrivia.data.database.CategoryDao.clear"
+    ]
+  },
+  {
+    "name": "abstract suspend fun createCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.createCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/create-category.html",
+    "searchKeys": [
+      "createCategory",
+      "abstract suspend fun createCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo.createCategory"
+    ]
+  },
+  {
+    "name": "abstract suspend fun createCategory(category: CreateCategory)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService.createCategory",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/create-category.html",
+    "searchKeys": [
+      "createCategory",
+      "abstract suspend fun createCategory(category: CreateCategory)",
+      "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService.createCategory"
+    ]
+  },
+  {
+    "name": "abstract suspend fun delete(item: DbCategory)",
+    "description": "icu.repsaj.android.mytrivia.data.database.CategoryDao.delete",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-category-dao/delete.html",
+    "searchKeys": [
+      "delete",
+      "abstract suspend fun delete(item: DbCategory)",
+      "icu.repsaj.android.mytrivia.data.database.CategoryDao.delete"
+    ]
+  },
+  {
+    "name": "abstract suspend fun delete(item: DbGameHistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.data.database.GameHistoryDao.delete",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-game-history-dao/delete.html",
+    "searchKeys": [
+      "delete",
+      "abstract suspend fun delete(item: DbGameHistoryItem)",
+      "icu.repsaj.android.mytrivia.data.database.GameHistoryDao.delete"
+    ]
+  },
+  {
+    "name": "abstract suspend fun deleteCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.deleteCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/delete-category.html",
+    "searchKeys": [
+      "deleteCategory",
+      "abstract suspend fun deleteCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo.deleteCategory"
+    ]
+  },
+  {
+    "name": "abstract suspend fun deleteCategory(id: UUID): Response<Unit>",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService.deleteCategory",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/delete-category.html",
+    "searchKeys": [
+      "deleteCategory",
+      "abstract suspend fun deleteCategory(id: UUID): Response<Unit>",
+      "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService.deleteCategory"
+    ]
+  },
+  {
+    "name": "abstract suspend fun deleteHistoryItem(item: HistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.data.IGameHistoryRepo.deleteHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/delete-history-item.html",
+    "searchKeys": [
+      "deleteHistoryItem",
+      "abstract suspend fun deleteHistoryItem(item: HistoryItem)",
+      "icu.repsaj.android.mytrivia.data.IGameHistoryRepo.deleteHistoryItem"
+    ]
+  },
+  {
+    "name": "abstract suspend fun getCategories(page: Int, perPage: Int): CategoryResponse",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService.getCategories",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/get-categories.html",
+    "searchKeys": [
+      "getCategories",
+      "abstract suspend fun getCategories(page: Int, perPage: Int): CategoryResponse",
+      "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService.getCategories"
+    ]
+  },
+  {
+    "name": "abstract suspend fun getQuestions(category: UUID, page: Int, perPage: Int): QuestionResponse",
+    "description": "icu.repsaj.android.mytrivia.network.question.IQuestionApiService.getQuestions",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-i-question-api-service/get-questions.html",
+    "searchKeys": [
+      "getQuestions",
+      "abstract suspend fun getQuestions(category: UUID, page: Int, perPage: Int): QuestionResponse",
+      "icu.repsaj.android.mytrivia.network.question.IQuestionApiService.getQuestions"
+    ]
+  },
+  {
+    "name": "abstract suspend fun insert(item: DbCategory)",
+    "description": "icu.repsaj.android.mytrivia.data.database.CategoryDao.insert",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-category-dao/insert.html",
+    "searchKeys": [
+      "insert",
+      "abstract suspend fun insert(item: DbCategory)",
+      "icu.repsaj.android.mytrivia.data.database.CategoryDao.insert"
+    ]
+  },
+  {
+    "name": "abstract suspend fun insert(item: DbGameHistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.data.database.GameHistoryDao.insert",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-game-history-dao/insert.html",
+    "searchKeys": [
+      "insert",
+      "abstract suspend fun insert(item: DbGameHistoryItem)",
+      "icu.repsaj.android.mytrivia.data.database.GameHistoryDao.insert"
+    ]
+  },
+  {
+    "name": "abstract suspend fun insertCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.insertCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/insert-category.html",
+    "searchKeys": [
+      "insertCategory",
+      "abstract suspend fun insertCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo.insertCategory"
+    ]
+  },
+  {
+    "name": "abstract suspend fun insertHistoryItem(item: HistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.data.IGameHistoryRepo.insertHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/insert-history-item.html",
+    "searchKeys": [
+      "insertHistoryItem",
+      "abstract suspend fun insertHistoryItem(item: HistoryItem)",
+      "icu.repsaj.android.mytrivia.data.IGameHistoryRepo.insertHistoryItem"
+    ]
+  },
+  {
+    "name": "abstract suspend fun refresh()",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.refresh",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/refresh.html",
+    "searchKeys": [
+      "refresh",
+      "abstract suspend fun refresh()",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo.refresh"
+    ]
+  },
+  {
+    "name": "abstract val categoryRepo: ICategoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.AppContainer.categoryRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-app-container/category-repo.html",
+    "searchKeys": [
+      "categoryRepo",
+      "abstract val categoryRepo: ICategoryRepo",
+      "icu.repsaj.android.mytrivia.data.AppContainer.categoryRepo"
+    ]
+  },
+  {
+    "name": "abstract val historyRepo: IGameHistoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.AppContainer.historyRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-app-container/history-repo.html",
+    "searchKeys": [
+      "historyRepo",
+      "abstract val historyRepo: IGameHistoryRepo",
+      "icu.repsaj.android.mytrivia.data.AppContainer.historyRepo"
+    ]
+  },
+  {
+    "name": "abstract val questionRepo: IQuestionRepo",
+    "description": "icu.repsaj.android.mytrivia.data.AppContainer.questionRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-app-container/question-repo.html",
+    "searchKeys": [
+      "questionRepo",
+      "abstract val questionRepo: IQuestionRepo",
+      "icu.repsaj.android.mytrivia.data.AppContainer.questionRepo"
+    ]
+  },
+  {
+    "name": "abstract val resourceProvider: ResourceProvider",
+    "description": "icu.repsaj.android.mytrivia.data.AppContainer.resourceProvider",
+    "location": "app/icu.repsaj.android.mytrivia.data/-app-container/resource-provider.html",
+    "searchKeys": [
+      "resourceProvider",
+      "abstract val resourceProvider: ResourceProvider",
+      "icu.repsaj.android.mytrivia.data.AppContainer.resourceProvider"
+    ]
+  },
+  {
+    "name": "class AddCategoryViewModel(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/index.html",
+    "searchKeys": [
+      "AddCategoryViewModel",
+      "class AddCategoryViewModel(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel"
+    ]
+  },
+  {
+    "name": "class ApiQuestionRepo(questionApiService: IQuestionApiService) : IQuestionRepo",
+    "description": "icu.repsaj.android.mytrivia.data.ApiQuestionRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-api-question-repo/index.html",
+    "searchKeys": [
+      "ApiQuestionRepo",
+      "class ApiQuestionRepo(questionApiService: IQuestionApiService) : IQuestionRepo",
+      "icu.repsaj.android.mytrivia.data.ApiQuestionRepo"
+    ]
+  },
+  {
+    "name": "class CachingCategoryRepository(categoryDao: CategoryDao, categoryApi: ICategoryApiService) : ICategoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/index.html",
+    "searchKeys": [
+      "CachingCategoryRepository",
+      "class CachingCategoryRepository(categoryDao: CategoryDao, categoryApi: ICategoryApiService) : ICategoryRepo",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository"
+    ]
+  },
+  {
+    "name": "class CategoriesOverviewViewModel(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/index.html",
+    "searchKeys": [
+      "CategoriesOverviewViewModel",
+      "class CategoriesOverviewViewModel(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel"
+    ]
+  },
+  {
+    "name": "class DateConverters",
+    "description": "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.convertors/-date-converters/index.html",
+    "searchKeys": [
+      "DateConverters",
+      "class DateConverters",
+      "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters"
+    ]
+  },
+  {
+    "name": "class DefaultAppContainer(context: Context) : AppContainer",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/index.html",
+    "searchKeys": [
+      "DefaultAppContainer",
+      "class DefaultAppContainer(context: Context) : AppContainer",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer"
+    ]
+  },
+  {
+    "name": "class GameHistoryRepository(historyDao: GameHistoryDao) : IGameHistoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.GameHistoryRepository",
+    "location": "app/icu.repsaj.android.mytrivia.data/-game-history-repository/index.html",
+    "searchKeys": [
+      "GameHistoryRepository",
+      "class GameHistoryRepository(historyDao: GameHistoryDao) : IGameHistoryRepo",
+      "icu.repsaj.android.mytrivia.data.GameHistoryRepository"
+    ]
+  },
+  {
+    "name": "class GameViewModel(val categoryId: UUID, questionRepo: IQuestionRepo, historyRepo: IGameHistoryRepo, categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/index.html",
+    "searchKeys": [
+      "GameViewModel",
+      "class GameViewModel(val categoryId: UUID, questionRepo: IQuestionRepo, historyRepo: IGameHistoryRepo, categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel"
+    ]
+  },
+  {
+    "name": "class HistoryViewModel(historyRepo: IGameHistoryRepo) : ViewModel",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/index.html",
+    "searchKeys": [
+      "HistoryViewModel",
+      "class HistoryViewModel(historyRepo: IGameHistoryRepo) : ViewModel",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel"
+    ]
+  },
+  {
+    "name": "class MainActivity : ComponentActivity",
+    "description": "icu.repsaj.android.mytrivia.MainActivity",
+    "location": "app/icu.repsaj.android.mytrivia/-main-activity/index.html",
+    "searchKeys": [
+      "MainActivity",
+      "class MainActivity : ComponentActivity",
+      "icu.repsaj.android.mytrivia.MainActivity"
+    ]
+  },
+  {
+    "name": "class ResourceProviderImpl(context: Context) : ResourceProvider",
+    "description": "icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl",
+    "location": "app/icu.repsaj.android.mytrivia.ui.providers/-resource-provider-impl/index.html",
+    "searchKeys": [
+      "ResourceProviderImpl",
+      "class ResourceProviderImpl(context: Context) : ResourceProvider",
+      "icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl"
+    ]
+  },
+  {
+    "name": "class TriviaApplication : Application",
+    "description": "icu.repsaj.android.mytrivia.TriviaApplication",
+    "location": "app/icu.repsaj.android.mytrivia/-trivia-application/index.html",
+    "searchKeys": [
+      "TriviaApplication",
+      "class TriviaApplication : Application",
+      "icu.repsaj.android.mytrivia.TriviaApplication"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "icu.repsaj.android.mytrivia.MainActivity.MainActivity",
+    "location": "app/icu.repsaj.android.mytrivia/-main-activity/-main-activity.html",
+    "searchKeys": [
+      "MainActivity",
+      "constructor()",
+      "icu.repsaj.android.mytrivia.MainActivity.MainActivity"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "icu.repsaj.android.mytrivia.TriviaApplication.TriviaApplication",
+    "location": "app/icu.repsaj.android.mytrivia/-trivia-application/-trivia-application.html",
+    "searchKeys": [
+      "TriviaApplication",
+      "constructor()",
+      "icu.repsaj.android.mytrivia.TriviaApplication.TriviaApplication"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "icu.repsaj.android.mytrivia.data.database.TriviaDb.TriviaDb",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-trivia-db/-trivia-db.html",
+    "searchKeys": [
+      "TriviaDb",
+      "constructor()",
+      "icu.repsaj.android.mytrivia.data.database.TriviaDb.TriviaDb"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters.DateConverters",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.convertors/-date-converters/-date-converters.html",
+    "searchKeys": [
+      "DateConverters",
+      "constructor()",
+      "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters.DateConverters"
+    ]
+  },
+  {
+    "name": "constructor(categoryDao: CategoryDao, categoryApi: ICategoryApiService)",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.CachingCategoryRepository",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/-caching-category-repository.html",
+    "searchKeys": [
+      "CachingCategoryRepository",
+      "constructor(categoryDao: CategoryDao, categoryApi: ICategoryApiService)",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.CachingCategoryRepository"
+    ]
+  },
+  {
+    "name": "constructor(categoryId: UUID, questionRepo: IQuestionRepo, historyRepo: IGameHistoryRepo, categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.GameViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/-game-view-model.html",
+    "searchKeys": [
+      "GameViewModel",
+      "constructor(categoryId: UUID, questionRepo: IQuestionRepo, historyRepo: IGameHistoryRepo, categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider)",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.GameViewModel"
+    ]
+  },
+  {
+    "name": "constructor(categoryList: List<Category> = listOf())",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryListState.CategoryListState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-list-state/-category-list-state.html",
+    "searchKeys": [
+      "CategoryListState",
+      "constructor(categoryList: List<Category> = listOf())",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryListState.CategoryListState"
+    ]
+  },
+  {
+    "name": "constructor(categoryName: String = \"\", selectedIcon: ImageVector? = null, nameError: String = \"\", iconError: String = \"\", isValid: Boolean = false)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.AddCategoryUiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/-add-category-ui-state.html",
+    "searchKeys": [
+      "AddCategoryUiState",
+      "constructor(categoryName: String = \"\", selectedIcon: ImageVector? = null, nameError: String = \"\", iconError: String = \"\", isValid: Boolean = false)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.AddCategoryUiState"
+    ]
+  },
+  {
+    "name": "constructor(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.AddCategoryViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/-add-category-view-model.html",
+    "searchKeys": [
+      "AddCategoryViewModel",
+      "constructor(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.AddCategoryViewModel"
+    ]
+  },
+  {
+    "name": "constructor(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider)",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.CategoriesOverviewViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/-categories-overview-view-model.html",
+    "searchKeys": [
+      "CategoriesOverviewViewModel",
+      "constructor(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider)",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.CategoriesOverviewViewModel"
+    ]
+  },
+  {
+    "name": "constructor(context: Context)",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.DefaultAppContainer",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/-default-app-container.html",
+    "searchKeys": [
+      "DefaultAppContainer",
+      "constructor(context: Context)",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.DefaultAppContainer"
+    ]
+  },
+  {
+    "name": "constructor(context: Context)",
+    "description": "icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl.ResourceProviderImpl",
+    "location": "app/icu.repsaj.android.mytrivia.ui.providers/-resource-provider-impl/-resource-provider-impl.html",
+    "searchKeys": [
+      "ResourceProviderImpl",
+      "constructor(context: Context)",
+      "icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl.ResourceProviderImpl"
+    ]
+  },
+  {
+    "name": "constructor(default: Dp = 0.dp, extraSmall: Dp = 4.dp, small: Dp = 8.dp, medium: Dp = 16.dp, large: Dp = 32.dp, extraLarge: Dp = 64.dp)",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.Spacing",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/-spacing.html",
+    "searchKeys": [
+      "Spacing",
+      "constructor(default: Dp = 0.dp, extraSmall: Dp = 4.dp, small: Dp = 8.dp, medium: Dp = 16.dp, large: Dp = 32.dp, extraLarge: Dp = 64.dp)",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.Spacing"
+    ]
+  },
+  {
+    "name": "constructor(history: List<HistoryItem> = listOf())",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryListState.HistoryListState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-list-state/-history-list-state.html",
+    "searchKeys": [
+      "HistoryListState",
+      "constructor(history: List<HistoryItem> = listOf())",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryListState.HistoryListState"
+    ]
+  },
+  {
+    "name": "constructor(historyDao: GameHistoryDao)",
+    "description": "icu.repsaj.android.mytrivia.data.GameHistoryRepository.GameHistoryRepository",
+    "location": "app/icu.repsaj.android.mytrivia.data/-game-history-repository/-game-history-repository.html",
+    "searchKeys": [
+      "GameHistoryRepository",
+      "constructor(historyDao: GameHistoryDao)",
+      "icu.repsaj.android.mytrivia.data.GameHistoryRepository.GameHistoryRepository"
+    ]
+  },
+  {
+    "name": "constructor(historyRepo: IGameHistoryRepo)",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.HistoryViewModel",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/-history-view-model.html",
+    "searchKeys": [
+      "HistoryViewModel",
+      "constructor(historyRepo: IGameHistoryRepo)",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.HistoryViewModel"
+    ]
+  },
+  {
+    "name": "constructor(id: Int = 0, category: String = \"\", date: Date, score: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.DbGameHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-game-history-item/-db-game-history-item.html",
+    "searchKeys": [
+      "DbGameHistoryItem",
+      "constructor(id: Int = 0, category: String = \"\", date: Date, score: Int = 0)",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.DbGameHistoryItem"
+    ]
+  },
+  {
+    "name": "constructor(id: Int? = null, category: String = \"\", date: Date, score: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.model.HistoryItem.HistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.model/-history-item/-history-item.html",
+    "searchKeys": [
+      "HistoryItem",
+      "constructor(id: Int? = null, category: String = \"\", date: Date, score: Int = 0)",
+      "icu.repsaj.android.mytrivia.model.HistoryItem.HistoryItem"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, answer: String = \"\", isCorrect: Boolean)",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaAnswer.TriviaAnswer",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-answer/-trivia-answer.html",
+    "searchKeys": [
+      "TriviaAnswer",
+      "constructor(id: UUID, answer: String = \"\", isCorrect: Boolean)",
+      "icu.repsaj.android.mytrivia.model.TriviaAnswer.TriviaAnswer"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, answerText: String, isCorrect: Boolean, questionId: UUID)",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiAnswer.ApiAnswer",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-answer/-api-answer.html",
+    "searchKeys": [
+      "ApiAnswer",
+      "constructor(id: UUID, answerText: String, isCorrect: Boolean, questionId: UUID)",
+      "icu.repsaj.android.mytrivia.network.question.ApiAnswer.ApiAnswer"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, name: String, icon: String = \"\", questionCount: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.DbCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-category/-db-category.html",
+    "searchKeys": [
+      "DbCategory",
+      "constructor(id: UUID, name: String, icon: String = \"\", questionCount: Int = 0)",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.DbCategory"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, name: String, icon: String = \"\", questionCount: Int = 0, image: ImageVector = getImage(icon))",
+    "description": "icu.repsaj.android.mytrivia.model.Category.Category",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/-category.html",
+    "searchKeys": [
+      "Category",
+      "constructor(id: UUID, name: String, icon: String = \"\", questionCount: Int = 0, image: ImageVector = getImage(icon))",
+      "icu.repsaj.android.mytrivia.model.Category.Category"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, name: String, icon: String, questionCount: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.ApiCategory",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-api-category/-api-category.html",
+    "searchKeys": [
+      "ApiCategory",
+      "constructor(id: UUID, name: String, icon: String, questionCount: Int = 0)",
+      "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.ApiCategory"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, question: String, answers: List<TriviaAnswer> = listOf())",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaQuestion.TriviaQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-question/-trivia-question.html",
+    "searchKeys": [
+      "TriviaQuestion",
+      "constructor(id: UUID, question: String, answers: List<TriviaAnswer> = listOf())",
+      "icu.repsaj.android.mytrivia.model.TriviaQuestion.TriviaQuestion"
+    ]
+  },
+  {
+    "name": "constructor(id: UUID, questionText: String, answers: List<ApiAnswer> = listOf(), category: ApiCategory)",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiQuestion.ApiQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-question/-api-question.html",
+    "searchKeys": [
+      "ApiQuestion",
+      "constructor(id: UUID, questionText: String, answers: List<ApiAnswer> = listOf(), category: ApiCategory)",
+      "icu.repsaj.android.mytrivia.network.question.ApiQuestion.ApiQuestion"
+    ]
+  },
+  {
+    "name": "constructor(message: String)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Error.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/-error/-error.html",
+    "searchKeys": [
+      "Error",
+      "constructor(message: String)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Error.Error"
+    ]
+  },
+  {
+    "name": "constructor(message: String)",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Error.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/-error/-error.html",
+    "searchKeys": [
+      "Error",
+      "constructor(message: String)",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Error.Error"
+    ]
+  },
+  {
+    "name": "constructor(message: String)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Error.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-questions-api-state/-error/-error.html",
+    "searchKeys": [
+      "Error",
+      "constructor(message: String)",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Error.Error"
+    ]
+  },
+  {
+    "name": "constructor(message: String)",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Error.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-repo-state/-error/-error.html",
+    "searchKeys": [
+      "Error",
+      "constructor(message: String)",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Error.Error"
+    ]
+  },
+  {
+    "name": "constructor(metadata: Metadata, items: List<ApiCategory>)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse.CategoryResponse",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-category-response/-category-response.html",
+    "searchKeys": [
+      "CategoryResponse",
+      "constructor(metadata: Metadata, items: List<ApiCategory>)",
+      "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse.CategoryResponse"
+    ]
+  },
+  {
+    "name": "constructor(metadata: Metadata, items: List<ApiQuestion>)",
+    "description": "icu.repsaj.android.mytrivia.network.question.QuestionResponse.QuestionResponse",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-question-response/-question-response.html",
+    "searchKeys": [
+      "QuestionResponse",
+      "constructor(metadata: Metadata, items: List<ApiQuestion>)",
+      "icu.repsaj.android.mytrivia.network.question.QuestionResponse.QuestionResponse"
+    ]
+  },
+  {
+    "name": "constructor(name: String, icon: String)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CreateCategory.CreateCategory",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-create-category/-create-category.html",
+    "searchKeys": [
+      "CreateCategory",
+      "constructor(name: String, icon: String)",
+      "icu.repsaj.android.mytrivia.network.categroy.CreateCategory.CreateCategory"
+    ]
+  },
+  {
+    "name": "constructor(page: Int, per: Int, total: Int)",
+    "description": "icu.repsaj.android.mytrivia.network.Metadata.Metadata",
+    "location": "app/icu.repsaj.android.mytrivia.network/-metadata/-metadata.html",
+    "searchKeys": [
+      "Metadata",
+      "constructor(page: Int, per: Int, total: Int)",
+      "icu.repsaj.android.mytrivia.network.Metadata.Metadata"
+    ]
+  },
+  {
+    "name": "constructor(questionApiService: IQuestionApiService)",
+    "description": "icu.repsaj.android.mytrivia.data.ApiQuestionRepo.ApiQuestionRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-api-question-repo/-api-question-repo.html",
+    "searchKeys": [
+      "ApiQuestionRepo",
+      "constructor(questionApiService: IQuestionApiService)",
+      "icu.repsaj.android.mytrivia.data.ApiQuestionRepo.ApiQuestionRepo"
+    ]
+  },
+  {
+    "name": "constructor(questions: List<TriviaQuestion> = listOf(), showQuitDialog: Boolean = false, currentQuestionIndex: Int = 0, score: Int = 0, isAnswered: Boolean = false)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState.GameUIState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/-game-u-i-state.html",
+    "searchKeys": [
+      "GameUIState",
+      "constructor(questions: List<TriviaQuestion> = listOf(), showQuitDialog: Boolean = false, currentQuestionIndex: Int = 0, score: Int = 0, isAnswered: Boolean = false)",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState.GameUIState"
+    ]
+  },
+  {
+    "name": "data class AddCategoryUiState(val categoryName: String = \"\", val selectedIcon: ImageVector? = null, val nameError: String = \"\", val iconError: String = \"\", val isValid: Boolean = false)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/index.html",
+    "searchKeys": [
+      "AddCategoryUiState",
+      "data class AddCategoryUiState(val categoryName: String = \"\", val selectedIcon: ImageVector? = null, val nameError: String = \"\", val iconError: String = \"\", val isValid: Boolean = false)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState"
+    ]
+  },
+  {
+    "name": "data class ApiAnswer(val id: UUID, val answerText: String, val isCorrect: Boolean, val questionId: UUID)",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiAnswer",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-answer/index.html",
+    "searchKeys": [
+      "ApiAnswer",
+      "data class ApiAnswer(val id: UUID, val answerText: String, val isCorrect: Boolean, val questionId: UUID)",
+      "icu.repsaj.android.mytrivia.network.question.ApiAnswer"
+    ]
+  },
+  {
+    "name": "data class ApiCategory(val id: UUID, val name: String, val icon: String, var questionCount: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ApiCategory",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-api-category/index.html",
+    "searchKeys": [
+      "ApiCategory",
+      "data class ApiCategory(val id: UUID, val name: String, val icon: String, var questionCount: Int = 0)",
+      "icu.repsaj.android.mytrivia.network.categroy.ApiCategory"
+    ]
+  },
+  {
+    "name": "data class ApiQuestion(val id: UUID, val questionText: String, val answers: List<ApiAnswer> = listOf(), val category: ApiCategory)",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-question/index.html",
+    "searchKeys": [
+      "ApiQuestion",
+      "data class ApiQuestion(val id: UUID, val questionText: String, val answers: List<ApiAnswer> = listOf(), val category: ApiCategory)",
+      "icu.repsaj.android.mytrivia.network.question.ApiQuestion"
+    ]
+  },
+  {
+    "name": "data class Category(val id: UUID, val name: String, val icon: String = \"\", val questionCount: Int = 0, val image: ImageVector = getImage(icon))",
+    "description": "icu.repsaj.android.mytrivia.model.Category",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/index.html",
+    "searchKeys": [
+      "Category",
+      "data class Category(val id: UUID, val name: String, val icon: String = \"\", val questionCount: Int = 0, val image: ImageVector = getImage(icon))",
+      "icu.repsaj.android.mytrivia.model.Category"
+    ]
+  },
+  {
+    "name": "data class CategoryListState(val categoryList: List<Category> = listOf())",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryListState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-list-state/index.html",
+    "searchKeys": [
+      "CategoryListState",
+      "data class CategoryListState(val categoryList: List<Category> = listOf())",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryListState"
+    ]
+  },
+  {
+    "name": "data class CategoryResponse(val metadata: Metadata, val items: List<ApiCategory>)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-category-response/index.html",
+    "searchKeys": [
+      "CategoryResponse",
+      "data class CategoryResponse(val metadata: Metadata, val items: List<ApiCategory>)",
+      "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse"
+    ]
+  },
+  {
+    "name": "data class CreateCategory(val name: String, val icon: String)",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CreateCategory",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-create-category/index.html",
+    "searchKeys": [
+      "CreateCategory",
+      "data class CreateCategory(val name: String, val icon: String)",
+      "icu.repsaj.android.mytrivia.network.categroy.CreateCategory"
+    ]
+  },
+  {
+    "name": "data class DbCategory(val id: UUID, val name: String, val icon: String = \"\", val questionCount: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-category/index.html",
+    "searchKeys": [
+      "DbCategory",
+      "data class DbCategory(val id: UUID, val name: String, val icon: String = \"\", val questionCount: Int = 0)",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbCategory"
+    ]
+  },
+  {
+    "name": "data class DbGameHistoryItem(var id: Int = 0, var category: String = \"\", var date: Date, var score: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-game-history-item/index.html",
+    "searchKeys": [
+      "DbGameHistoryItem",
+      "data class DbGameHistoryItem(var id: Int = 0, var category: String = \"\", var date: Date, var score: Int = 0)",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem"
+    ]
+  },
+  {
+    "name": "data class Error(val message: String) : AddCategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/-error/index.html",
+    "searchKeys": [
+      "Error",
+      "data class Error(val message: String) : AddCategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Error"
+    ]
+  },
+  {
+    "name": "data class Error(val message: String) : CategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/-error/index.html",
+    "searchKeys": [
+      "Error",
+      "data class Error(val message: String) : CategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Error"
+    ]
+  },
+  {
+    "name": "data class Error(val message: String) : HistoryRepoState",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-repo-state/-error/index.html",
+    "searchKeys": [
+      "Error",
+      "data class Error(val message: String) : HistoryRepoState",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Error"
+    ]
+  },
+  {
+    "name": "data class Error(val message: String) : QuestionsApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-questions-api-state/-error/index.html",
+    "searchKeys": [
+      "Error",
+      "data class Error(val message: String) : QuestionsApiState",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Error"
+    ]
+  },
+  {
+    "name": "data class GameUIState(val questions: List<TriviaQuestion> = listOf(), val showQuitDialog: Boolean = false, val currentQuestionIndex: Int = 0, val score: Int = 0, val isAnswered: Boolean = false)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/index.html",
+    "searchKeys": [
+      "GameUIState",
+      "data class GameUIState(val questions: List<TriviaQuestion> = listOf(), val showQuitDialog: Boolean = false, val currentQuestionIndex: Int = 0, val score: Int = 0, val isAnswered: Boolean = false)",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState"
+    ]
+  },
+  {
+    "name": "data class HistoryItem(var id: Int? = null, var category: String = \"\", var date: Date, var score: Int = 0)",
+    "description": "icu.repsaj.android.mytrivia.model.HistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.model/-history-item/index.html",
+    "searchKeys": [
+      "HistoryItem",
+      "data class HistoryItem(var id: Int? = null, var category: String = \"\", var date: Date, var score: Int = 0)",
+      "icu.repsaj.android.mytrivia.model.HistoryItem"
+    ]
+  },
+  {
+    "name": "data class HistoryListState(val history: List<HistoryItem> = listOf())",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryListState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-list-state/index.html",
+    "searchKeys": [
+      "HistoryListState",
+      "data class HistoryListState(val history: List<HistoryItem> = listOf())",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryListState"
+    ]
+  },
+  {
+    "name": "data class Metadata(val page: Int, val per: Int, val total: Int)",
+    "description": "icu.repsaj.android.mytrivia.network.Metadata",
+    "location": "app/icu.repsaj.android.mytrivia.network/-metadata/index.html",
+    "searchKeys": [
+      "Metadata",
+      "data class Metadata(val page: Int, val per: Int, val total: Int)",
+      "icu.repsaj.android.mytrivia.network.Metadata"
+    ]
+  },
+  {
+    "name": "data class QuestionResponse(val metadata: Metadata, val items: List<ApiQuestion>)",
+    "description": "icu.repsaj.android.mytrivia.network.question.QuestionResponse",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-question-response/index.html",
+    "searchKeys": [
+      "QuestionResponse",
+      "data class QuestionResponse(val metadata: Metadata, val items: List<ApiQuestion>)",
+      "icu.repsaj.android.mytrivia.network.question.QuestionResponse"
+    ]
+  },
+  {
+    "name": "data class Spacing(val default: Dp = 0.dp, val extraSmall: Dp = 4.dp, val small: Dp = 8.dp, val medium: Dp = 16.dp, val large: Dp = 32.dp, val extraLarge: Dp = 64.dp)",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/index.html",
+    "searchKeys": [
+      "Spacing",
+      "data class Spacing(val default: Dp = 0.dp, val extraSmall: Dp = 4.dp, val small: Dp = 8.dp, val medium: Dp = 16.dp, val large: Dp = 32.dp, val extraLarge: Dp = 64.dp)",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing"
+    ]
+  },
+  {
+    "name": "data class TriviaAnswer(var id: UUID, var answer: String = \"\", var isCorrect: Boolean)",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaAnswer",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-answer/index.html",
+    "searchKeys": [
+      "TriviaAnswer",
+      "data class TriviaAnswer(var id: UUID, var answer: String = \"\", var isCorrect: Boolean)",
+      "icu.repsaj.android.mytrivia.model.TriviaAnswer"
+    ]
+  },
+  {
+    "name": "data class TriviaQuestion(val id: UUID, val question: String, val answers: List<TriviaAnswer> = listOf())",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-question/index.html",
+    "searchKeys": [
+      "TriviaQuestion",
+      "data class TriviaQuestion(val id: UUID, val question: String, val answers: List<TriviaAnswer> = listOf())",
+      "icu.repsaj.android.mytrivia.model.TriviaQuestion"
+    ]
+  },
+  {
+    "name": "enum NavRoutes : Enum<NavRoutes> ",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/index.html",
+    "searchKeys": [
+      "NavRoutes",
+      "enum NavRoutes : Enum<NavRoutes> ",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes"
+    ]
+  },
+  {
+    "name": "fun <T> SwipeToDelete(item: T, itemContent: (T) -> Unit, onDismiss: (T) -> Unit)",
+    "description": "icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete",
+    "location": "app/icu.repsaj.android.mytrivia.ui.compontents/-swipe-to-delete.html",
+    "searchKeys": [
+      "SwipeToDelete",
+      "fun <T> SwipeToDelete(item: T, itemContent: (T) -> Unit, onDismiss: (T) -> Unit)",
+      "icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete"
+    ]
+  },
+  {
+    "name": "fun AddCategoryScreenPreview()",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryScreenPreview",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-screen-preview.html",
+    "searchKeys": [
+      "AddCategoryScreenPreview",
+      "fun AddCategoryScreenPreview()",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryScreenPreview"
+    ]
+  },
+  {
+    "name": "fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel(factory = AddCategoryViewModel.Factory), navigateUp: () -> Unit)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryView",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view.html",
+    "searchKeys": [
+      "AddCategoryView",
+      "fun AddCategoryView(viewModel: AddCategoryViewModel = viewModel(factory = AddCategoryViewModel.Factory), navigateUp: () -> Unit)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryView"
+    ]
+  },
+  {
+    "name": "fun AnimatedCategoryCard(name: String, enabled: Boolean, onClickPlay: () -> Unit, modifier: Modifier = Modifier, icon: ImageVector = Icons.Filled.QuestionMark)",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.AnimatedCategoryCard",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-animated-category-card.html",
+    "searchKeys": [
+      "AnimatedCategoryCard",
+      "fun AnimatedCategoryCard(name: String, enabled: Boolean, onClickPlay: () -> Unit, modifier: Modifier = Modifier, icon: ImageVector = Icons.Filled.QuestionMark)",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.AnimatedCategoryCard"
+    ]
+  },
+  {
+    "name": "fun AnswerCard(answer: String, isCorrect: Boolean, onAnswerClick: () -> Unit, isAnswered: Boolean, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.AnswerCard",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-answer-card.html",
+    "searchKeys": [
+      "AnswerCard",
+      "fun AnswerCard(answer: String, isCorrect: Boolean, onAnswerClick: () -> Unit, isAnswered: Boolean, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.AnswerCard"
+    ]
+  },
+  {
+    "name": "fun AnswerCardsLandscape(answers: List<TriviaAnswer>, isAnswered: Boolean, checkAnswer: (TriviaAnswer) -> Unit, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.AnswerCardsLandscape",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-answer-cards-landscape.html",
+    "searchKeys": [
+      "AnswerCardsLandscape",
+      "fun AnswerCardsLandscape(answers: List<TriviaAnswer>, isAnswered: Boolean, checkAnswer: (TriviaAnswer) -> Unit, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.AnswerCardsLandscape"
+    ]
+  },
+  {
+    "name": "fun ApiAnswer.asDomainObject(): TriviaAnswer",
+    "description": "icu.repsaj.android.mytrivia.network.question.asDomainObject",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/as-domain-object.html",
+    "searchKeys": [
+      "asDomainObject",
+      "fun ApiAnswer.asDomainObject(): TriviaAnswer",
+      "icu.repsaj.android.mytrivia.network.question.asDomainObject"
+    ]
+  },
+  {
+    "name": "fun ApiCategory.asDomainObject(): Category",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.asDomainObject",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/as-domain-object.html",
+    "searchKeys": [
+      "asDomainObject",
+      "fun ApiCategory.asDomainObject(): Category",
+      "icu.repsaj.android.mytrivia.network.categroy.asDomainObject"
+    ]
+  },
+  {
+    "name": "fun BottomBar(currentScreen: NavRoutes, navigateToCategories: () -> Unit, navigateToHistory: () -> Unit, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.layout.BottomBar",
+    "location": "app/icu.repsaj.android.mytrivia.ui.layout/-bottom-bar.html",
+    "searchKeys": [
+      "BottomBar",
+      "fun BottomBar(currentScreen: NavRoutes, navigateToCategories: () -> Unit, navigateToHistory: () -> Unit, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.layout.BottomBar"
+    ]
+  },
+  {
+    "name": "fun Category.asDbEntity(): DbCategory",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.asDbEntity",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/as-db-entity.html",
+    "searchKeys": [
+      "asDbEntity",
+      "fun Category.asDbEntity(): DbCategory",
+      "icu.repsaj.android.mytrivia.data.database.entities.asDbEntity"
+    ]
+  },
+  {
+    "name": "fun Category.asPostCategory(): CreateCategory",
+    "description": "icu.repsaj.android.mytrivia.model.asPostCategory",
+    "location": "app/icu.repsaj.android.mytrivia.model/as-post-category.html",
+    "searchKeys": [
+      "asPostCategory",
+      "fun Category.asPostCategory(): CreateCategory",
+      "icu.repsaj.android.mytrivia.model.asPostCategory"
+    ]
+  },
+  {
+    "name": "fun CategoryCard(name: String, enabled: Boolean, onClickPlay: () -> Unit, modifier: Modifier = Modifier, icon: ImageVector = Icons.Filled.QuestionMark)",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryCard",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-card.html",
+    "searchKeys": [
+      "CategoryCard",
+      "fun CategoryCard(name: String, enabled: Boolean, onClickPlay: () -> Unit, modifier: Modifier = Modifier, icon: ImageVector = Icons.Filled.QuestionMark)",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryCard"
+    ]
+  },
+  {
+    "name": "fun CategoryOverviewScreen(navigateToGame: (UUID) -> Unit, modifier: Modifier = Modifier, viewModel: CategoriesOverviewViewModel = viewModel(factory = CategoriesOverviewViewModel.Factory))",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-overview-screen.html",
+    "searchKeys": [
+      "CategoryOverviewScreen",
+      "fun CategoryOverviewScreen(navigateToGame: (UUID) -> Unit, modifier: Modifier = Modifier, viewModel: CategoriesOverviewViewModel = viewModel(factory = CategoriesOverviewViewModel.Factory))",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen"
+    ]
+  },
+  {
+    "name": "fun DbCategory.asDomainObject(): Category",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.asDomainObject",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/as-domain-object.html",
+    "searchKeys": [
+      "asDomainObject",
+      "fun DbCategory.asDomainObject(): Category",
+      "icu.repsaj.android.mytrivia.data.database.entities.asDomainObject"
+    ]
+  },
+  {
+    "name": "fun DbGameHistoryItem.asDomainObject(): HistoryItem",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.asDomainObject",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/as-domain-object.html",
+    "searchKeys": [
+      "asDomainObject",
+      "fun DbGameHistoryItem.asDomainObject(): HistoryItem",
+      "icu.repsaj.android.mytrivia.data.database.entities.asDomainObject"
+    ]
+  },
+  {
+    "name": "fun DismissBackground(dismissState: DismissState)",
+    "description": "icu.repsaj.android.mytrivia.ui.compontents.DismissBackground",
+    "location": "app/icu.repsaj.android.mytrivia.ui.compontents/-dismiss-background.html",
+    "searchKeys": [
+      "DismissBackground",
+      "fun DismissBackground(dismissState: DismissState)",
+      "icu.repsaj.android.mytrivia.ui.compontents.DismissBackground"
+    ]
+  },
+  {
+    "name": "fun ErrorDialog(dialogTitle: String, dialogText: String, onConfirmation: () -> Unit, modifier: Modifier = Modifier, icon: ImageVector = Icons.Filled.Error)",
+    "description": "icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog",
+    "location": "app/icu.repsaj.android.mytrivia.ui.compontents/-error-dialog.html",
+    "searchKeys": [
+      "ErrorDialog",
+      "fun ErrorDialog(dialogTitle: String, dialogText: String, onConfirmation: () -> Unit, modifier: Modifier = Modifier, icon: ImageVector = Icons.Filled.Error)",
+      "icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog"
+    ]
+  },
+  {
+    "name": "fun Flow<List<ApiCategory>>.asDomainObjects(): Flow<List<Category>>",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.asDomainObjects",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/as-domain-objects.html",
+    "searchKeys": [
+      "asDomainObjects",
+      "fun Flow<List<ApiCategory>>.asDomainObjects(): Flow<List<Category>>",
+      "icu.repsaj.android.mytrivia.network.categroy.asDomainObjects"
+    ]
+  },
+  {
+    "name": "fun Flow<List<ApiQuestion>>.asDomainObjects(): Flow<List<TriviaQuestion>>",
+    "description": "icu.repsaj.android.mytrivia.network.question.asDomainObjects",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/as-domain-objects.html",
+    "searchKeys": [
+      "asDomainObjects",
+      "fun Flow<List<ApiQuestion>>.asDomainObjects(): Flow<List<TriviaQuestion>>",
+      "icu.repsaj.android.mytrivia.network.question.asDomainObjects"
+    ]
+  },
+  {
+    "name": "fun GameHistory(modifier: Modifier = Modifier, viewModel: HistoryViewModel = viewModel(factory = HistoryViewModel.Factory))",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-game-history.html",
+    "searchKeys": [
+      "GameHistory",
+      "fun GameHistory(modifier: Modifier = Modifier, viewModel: HistoryViewModel = viewModel(factory = HistoryViewModel.Factory))",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory"
+    ]
+  },
+  {
+    "name": "fun HistoryItem(historyItem: HistoryItem, onRemove: (HistoryItem) -> Unit, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-item.html",
+    "searchKeys": [
+      "HistoryItem",
+      "fun HistoryItem(historyItem: HistoryItem, onRemove: (HistoryItem) -> Unit, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryItem"
+    ]
+  },
+  {
+    "name": "fun HistoryItem.asDbEntity(): DbGameHistoryItem",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.asDbEntity",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/as-db-entity.html",
+    "searchKeys": [
+      "asDbEntity",
+      "fun HistoryItem.asDbEntity(): DbGameHistoryItem",
+      "icu.repsaj.android.mytrivia.data.database.entities.asDbEntity"
+    ]
+  },
+  {
+    "name": "fun HistoryItemCard(ranking: Int, category: String, score: Int, date: Date, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryItemCard",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-item-card.html",
+    "searchKeys": [
+      "HistoryItemCard",
+      "fun HistoryItemCard(ranking: Int, category: String, score: Int, date: Date, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryItemCard"
+    ]
+  },
+  {
+    "name": "fun ICategoryApiService.getCategoriesAsFlow(): Flow<List<ApiCategory>>",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.getCategoriesAsFlow",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/get-categories-as-flow.html",
+    "searchKeys": [
+      "getCategoriesAsFlow",
+      "fun ICategoryApiService.getCategoriesAsFlow(): Flow<List<ApiCategory>>",
+      "icu.repsaj.android.mytrivia.network.categroy.getCategoriesAsFlow"
+    ]
+  },
+  {
+    "name": "fun IQuestionApiService.getQuestionsAsFlow(categoryId: UUID, page: Int = 1, perPage: Int = 10): Flow<List<ApiQuestion>>",
+    "description": "icu.repsaj.android.mytrivia.network.question.getQuestionsAsFlow",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/get-questions-as-flow.html",
+    "searchKeys": [
+      "getQuestionsAsFlow",
+      "fun IQuestionApiService.getQuestionsAsFlow(categoryId: UUID, page: Int = 1, perPage: Int = 10): Flow<List<ApiQuestion>>",
+      "icu.repsaj.android.mytrivia.network.question.getQuestionsAsFlow"
+    ]
+  },
+  {
+    "name": "fun List<ApiCategory>.asDomainObjects(): List<Category>",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.asDomainObjects",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/as-domain-objects.html",
+    "searchKeys": [
+      "asDomainObjects",
+      "fun List<ApiCategory>.asDomainObjects(): List<Category>",
+      "icu.repsaj.android.mytrivia.network.categroy.asDomainObjects"
+    ]
+  },
+  {
+    "name": "fun List<ApiQuestion>.asDomainObjects(): List<TriviaQuestion>",
+    "description": "icu.repsaj.android.mytrivia.network.question.asDomainObjects",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/as-domain-objects.html",
+    "searchKeys": [
+      "asDomainObjects",
+      "fun List<ApiQuestion>.asDomainObjects(): List<TriviaQuestion>",
+      "icu.repsaj.android.mytrivia.network.question.asDomainObjects"
+    ]
+  },
+  {
+    "name": "fun List<DbCategory>.asDomainObjects(): List<Category>",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.asDomainObjects",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/as-domain-objects.html",
+    "searchKeys": [
+      "asDomainObjects",
+      "fun List<DbCategory>.asDomainObjects(): List<Category>",
+      "icu.repsaj.android.mytrivia.data.database.entities.asDomainObjects"
+    ]
+  },
+  {
+    "name": "fun List<DbGameHistoryItem>.asDomainObjects(): List<HistoryItem>",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.asDomainObjects",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/as-domain-objects.html",
+    "searchKeys": [
+      "asDomainObjects",
+      "fun List<DbGameHistoryItem>.asDomainObjects(): List<HistoryItem>",
+      "icu.repsaj.android.mytrivia.data.database.entities.asDomainObjects"
+    ]
+  },
+  {
+    "name": "fun MyTriviaTheme(darkTheme: Boolean = isSystemInDarkTheme(), dynamicColor: Boolean = false, content: () -> Unit)",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.MyTriviaTheme",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-my-trivia-theme.html",
+    "searchKeys": [
+      "MyTriviaTheme",
+      "fun MyTriviaTheme(darkTheme: Boolean = isSystemInDarkTheme(), dynamicColor: Boolean = false, content: () -> Unit)",
+      "icu.repsaj.android.mytrivia.ui.theme.MyTriviaTheme"
+    ]
+  },
+  {
+    "name": "fun NavComponent(navController: NavHostController, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavComponent",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-component.html",
+    "searchKeys": [
+      "NavComponent",
+      "fun NavComponent(navController: NavHostController, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavComponent"
+    ]
+  },
+  {
+    "name": "fun Question(question: String, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.Question",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-question.html",
+    "searchKeys": [
+      "Question",
+      "fun Question(question: String, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.Question"
+    ]
+  },
+  {
+    "name": "fun QuestionCounter(currentQuestion: Int, totalQuestions: Int, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionCounter",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-question-counter.html",
+    "searchKeys": [
+      "QuestionCounter",
+      "fun QuestionCounter(currentQuestion: Int, totalQuestions: Int, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionCounter"
+    ]
+  },
+  {
+    "name": "fun RecomposeChecker(viewName: String = \"\")",
+    "description": "icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker",
+    "location": "app/icu.repsaj.android.mytrivia.ui.compontents/-recompose-checker.html",
+    "searchKeys": [
+      "RecomposeChecker",
+      "fun RecomposeChecker(viewName: String = \"\")",
+      "icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker"
+    ]
+  },
+  {
+    "name": "fun ScoreCounter(score: Int, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.ScoreCounter",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-score-counter.html",
+    "searchKeys": [
+      "ScoreCounter",
+      "fun ScoreCounter(score: Int, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.ScoreCounter"
+    ]
+  },
+  {
+    "name": "fun ScoreDialog(onConfirmation: () -> Unit, dialogTitle: String, dialogText: String, icon: ImageVector, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.ScoreDialog",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-score-dialog.html",
+    "searchKeys": [
+      "ScoreDialog",
+      "fun ScoreDialog(onConfirmation: () -> Unit, dialogTitle: String, dialogText: String, icon: ImageVector, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.ScoreDialog"
+    ]
+  },
+  {
+    "name": "fun TopBar(currentScreen: NavRoutes, canNavigateBack: Boolean, navigateUp: () -> Unit, navigateHistory: () -> Unit, navigateAddCategory: () -> Unit, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.layout.TopBar",
+    "location": "app/icu.repsaj.android.mytrivia.ui.layout/-top-bar.html",
+    "searchKeys": [
+      "TopBar",
+      "fun TopBar(currentScreen: NavRoutes, canNavigateBack: Boolean, navigateUp: () -> Unit, navigateHistory: () -> Unit, navigateAddCategory: () -> Unit, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.layout.TopBar"
+    ]
+  },
+  {
+    "name": "fun TriviaApp(navController: NavHostController = rememberNavController())",
+    "description": "icu.repsaj.android.mytrivia.ui.TriviaApp",
+    "location": "app/icu.repsaj.android.mytrivia.ui/-trivia-app.html",
+    "searchKeys": [
+      "TriviaApp",
+      "fun TriviaApp(navController: NavHostController = rememberNavController())",
+      "icu.repsaj.android.mytrivia.ui.TriviaApp"
+    ]
+  },
+  {
+    "name": "fun TriviaGameScreen(navigateUp: () -> Unit, viewModel: GameViewModel, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-trivia-game-screen.html",
+    "searchKeys": [
+      "TriviaGameScreen",
+      "fun TriviaGameScreen(navigateUp: () -> Unit, viewModel: GameViewModel, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen"
+    ]
+  },
+  {
+    "name": "fun TriviaGameScreenLandscape(viewModel: GameViewModel, gameUIState: GameUIState, category: Category, navigateUp: () -> Unit, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.TriviaGameScreenLandscape",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-trivia-game-screen-landscape.html",
+    "searchKeys": [
+      "TriviaGameScreenLandscape",
+      "fun TriviaGameScreenLandscape(viewModel: GameViewModel, gameUIState: GameUIState, category: Category, navigateUp: () -> Unit, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.TriviaGameScreenLandscape"
+    ]
+  },
+  {
+    "name": "fun TriviaGameScreenPortrait(viewModel: GameViewModel, gameUIState: GameUIState, animateQuestionChange: Boolean, setAnimateQuestionChange: (Boolean) -> Unit, category: Category, navigateUp: () -> Unit, modifier: Modifier = Modifier)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.TriviaGameScreenPortrait",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-trivia-game-screen-portrait.html",
+    "searchKeys": [
+      "TriviaGameScreenPortrait",
+      "fun TriviaGameScreenPortrait(viewModel: GameViewModel, gameUIState: GameUIState, animateQuestionChange: Boolean, setAnimateQuestionChange: (Boolean) -> Unit, category: Category, navigateUp: () -> Unit, modifier: Modifier = Modifier)",
+      "icu.repsaj.android.mytrivia.ui.game.TriviaGameScreenPortrait"
+    ]
+  },
+  {
+    "name": "fun addCategory(callback: () -> Unit)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.addCategory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/add-category.html",
+    "searchKeys": [
+      "addCategory",
+      "fun addCategory(callback: () -> Unit)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.addCategory"
+    ]
+  },
+  {
+    "name": "fun checkAnswer(answer: TriviaAnswer)",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.checkAnswer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/check-answer.html",
+    "searchKeys": [
+      "checkAnswer",
+      "fun checkAnswer(answer: TriviaAnswer)",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.checkAnswer"
+    ]
+  },
+  {
+    "name": "fun clear()",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.clear",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/clear.html",
+    "searchKeys": [
+      "clear",
+      "fun clear()",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.clear"
+    ]
+  },
+  {
+    "name": "fun deleteCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.deleteCategory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/delete-category.html",
+    "searchKeys": [
+      "deleteCategory",
+      "fun deleteCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.deleteCategory"
+    ]
+  },
+  {
+    "name": "fun deleteHistoryItem(item: HistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.deleteHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/delete-history-item.html",
+    "searchKeys": [
+      "deleteHistoryItem",
+      "fun deleteHistoryItem(item: HistoryItem)",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.deleteHistoryItem"
+    ]
+  },
+  {
+    "name": "fun factory(categoryId: UUID): ViewModelProvider.Factory",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.Companion.factory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/-companion/factory.html",
+    "searchKeys": [
+      "factory",
+      "fun factory(categoryId: UUID): ViewModelProvider.Factory",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.Companion.factory"
+    ]
+  },
+  {
+    "name": "fun fetchHistory()",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.fetchHistory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/fetch-history.html",
+    "searchKeys": [
+      "fetchHistory",
+      "fun fetchHistory()",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.fetchHistory"
+    ]
+  },
+  {
+    "name": "fun fetchQuestions()",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.fetchQuestions",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/fetch-questions.html",
+    "searchKeys": [
+      "fetchQuestions",
+      "fun fetchQuestions()",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.fetchQuestions"
+    ]
+  },
+  {
+    "name": "fun formatDateTime(date: Date): String",
+    "description": "icu.repsaj.android.mytrivia.ui.compontents.formatDateTime",
+    "location": "app/icu.repsaj.android.mytrivia.ui.compontents/format-date-time.html",
+    "searchKeys": [
+      "formatDateTime",
+      "fun formatDateTime(date: Date): String",
+      "icu.repsaj.android.mytrivia.ui.compontents.formatDateTime"
+    ]
+  },
+  {
+    "name": "fun fromDate(date: Date?): Long?",
+    "description": "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters.fromDate",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.convertors/-date-converters/from-date.html",
+    "searchKeys": [
+      "fromDate",
+      "fun fromDate(date: Date?): Long?",
+      "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters.fromDate"
+    ]
+  },
+  {
+    "name": "fun getAmountOfQuestions(): Int",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.getAmountOfQuestions",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/get-amount-of-questions.html",
+    "searchKeys": [
+      "getAmountOfQuestions",
+      "fun getAmountOfQuestions(): Int",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.getAmountOfQuestions"
+    ]
+  },
+  {
+    "name": "fun getCurrentQuestion(): TriviaQuestion",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.getCurrentQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/get-current-question.html",
+    "searchKeys": [
+      "getCurrentQuestion",
+      "fun getCurrentQuestion(): TriviaQuestion",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.getCurrentQuestion"
+    ]
+  },
+  {
+    "name": "fun getDatabase(context: Context): TriviaDb",
+    "description": "icu.repsaj.android.mytrivia.data.database.TriviaDb.Companion.getDatabase",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-trivia-db/-companion/get-database.html",
+    "searchKeys": [
+      "getDatabase",
+      "fun getDatabase(context: Context): TriviaDb",
+      "icu.repsaj.android.mytrivia.data.database.TriviaDb.Companion.getDatabase"
+    ]
+  },
+  {
+    "name": "fun getIcon(image: ImageVector): String",
+    "description": "icu.repsaj.android.mytrivia.model.getIcon",
+    "location": "app/icu.repsaj.android.mytrivia.model/get-icon.html",
+    "searchKeys": [
+      "getIcon",
+      "fun getIcon(image: ImageVector): String",
+      "icu.repsaj.android.mytrivia.model.getIcon"
+    ]
+  },
+  {
+    "name": "fun getImage(icon: String): ImageVector",
+    "description": "icu.repsaj.android.mytrivia.model.getImage",
+    "location": "app/icu.repsaj.android.mytrivia.model/get-image.html",
+    "searchKeys": [
+      "getImage",
+      "fun getImage(icon: String): ImageVector",
+      "icu.repsaj.android.mytrivia.model.getImage"
+    ]
+  },
+  {
+    "name": "fun getNavRouteFromRoute(route: String?): NavRoutes",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Companion.getNavRouteFromRoute",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/-companion/get-nav-route-from-route.html",
+    "searchKeys": [
+      "getNavRouteFromRoute",
+      "fun getNavRouteFromRoute(route: String?): NavRoutes",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Companion.getNavRouteFromRoute"
+    ]
+  },
+  {
+    "name": "fun isLastQuestion(): Boolean",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.isLastQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/is-last-question.html",
+    "searchKeys": [
+      "isLastQuestion",
+      "fun isLastQuestion(): Boolean",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.isLastQuestion"
+    ]
+  },
+  {
+    "name": "fun nextQuestion()",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.nextQuestion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/next-question.html",
+    "searchKeys": [
+      "nextQuestion",
+      "fun nextQuestion()",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.nextQuestion"
+    ]
+  },
+  {
+    "name": "fun refresh()",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.refresh",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/refresh.html",
+    "searchKeys": [
+      "refresh",
+      "fun refresh()",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.refresh"
+    ]
+  },
+  {
+    "name": "fun saveHistoryItem()",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.saveHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/save-history-item.html",
+    "searchKeys": [
+      "saveHistoryItem",
+      "fun saveHistoryItem()",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.saveHistoryItem"
+    ]
+  },
+  {
+    "name": "fun setCategoryName(name: String)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.setCategoryName",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/set-category-name.html",
+    "searchKeys": [
+      "setCategoryName",
+      "fun setCategoryName(name: String)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.setCategoryName"
+    ]
+  },
+  {
+    "name": "fun setSelectedIcon(icon: ImageVector)",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.setSelectedIcon",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/set-selected-icon.html",
+    "searchKeys": [
+      "setSelectedIcon",
+      "fun setSelectedIcon(icon: ImageVector)",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.setSelectedIcon"
+    ]
+  },
+  {
+    "name": "fun showScoreDialog(): Boolean",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.showScoreDialog",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/show-score-dialog.html",
+    "searchKeys": [
+      "showScoreDialog",
+      "fun showScoreDialog(): Boolean",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.showScoreDialog"
+    ]
+  },
+  {
+    "name": "fun toDate(timestamp: Long?): Date?",
+    "description": "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters.toDate",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.convertors/-date-converters/to-date.html",
+    "searchKeys": [
+      "toDate",
+      "fun toDate(timestamp: Long?): Date?",
+      "icu.repsaj.android.mytrivia.data.database.convertors.DateConverters.toDate"
+    ]
+  },
+  {
+    "name": "fun valueOf(value: String): NavRoutes",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.valueOf",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/value-of.html",
+    "searchKeys": [
+      "valueOf",
+      "fun valueOf(value: String): NavRoutes",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.valueOf"
+    ]
+  },
+  {
+    "name": "fun values(): Array<NavRoutes>",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.values",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/values.html",
+    "searchKeys": [
+      "values",
+      "fun values(): Array<NavRoutes>",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.values"
+    ]
+  },
+  {
+    "name": "fun withArgs(vararg args: String): String",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.withArgs",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/with-args.html",
+    "searchKeys": [
+      "withArgs",
+      "fun withArgs(vararg args: String): String",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.withArgs"
+    ]
+  },
+  {
+    "name": "interface AddCategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/index.html",
+    "searchKeys": [
+      "AddCategoryApiState",
+      "interface AddCategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState"
+    ]
+  },
+  {
+    "name": "interface AppContainer",
+    "description": "icu.repsaj.android.mytrivia.data.AppContainer",
+    "location": "app/icu.repsaj.android.mytrivia.data/-app-container/index.html",
+    "searchKeys": [
+      "AppContainer",
+      "interface AppContainer",
+      "icu.repsaj.android.mytrivia.data.AppContainer"
+    ]
+  },
+  {
+    "name": "interface CategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/index.html",
+    "searchKeys": [
+      "CategoryApiState",
+      "interface CategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState"
+    ]
+  },
+  {
+    "name": "interface CategoryDao",
+    "description": "icu.repsaj.android.mytrivia.data.database.CategoryDao",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-category-dao/index.html",
+    "searchKeys": [
+      "CategoryDao",
+      "interface CategoryDao",
+      "icu.repsaj.android.mytrivia.data.database.CategoryDao"
+    ]
+  },
+  {
+    "name": "interface GameHistoryDao",
+    "description": "icu.repsaj.android.mytrivia.data.database.GameHistoryDao",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-game-history-dao/index.html",
+    "searchKeys": [
+      "GameHistoryDao",
+      "interface GameHistoryDao",
+      "icu.repsaj.android.mytrivia.data.database.GameHistoryDao"
+    ]
+  },
+  {
+    "name": "interface HistoryRepoState",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-repo-state/index.html",
+    "searchKeys": [
+      "HistoryRepoState",
+      "interface HistoryRepoState",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState"
+    ]
+  },
+  {
+    "name": "interface ICategoryApiService",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/index.html",
+    "searchKeys": [
+      "ICategoryApiService",
+      "interface ICategoryApiService",
+      "icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService"
+    ]
+  },
+  {
+    "name": "interface ICategoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/index.html",
+    "searchKeys": [
+      "ICategoryRepo",
+      "interface ICategoryRepo",
+      "icu.repsaj.android.mytrivia.data.ICategoryRepo"
+    ]
+  },
+  {
+    "name": "interface IGameHistoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.IGameHistoryRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/index.html",
+    "searchKeys": [
+      "IGameHistoryRepo",
+      "interface IGameHistoryRepo",
+      "icu.repsaj.android.mytrivia.data.IGameHistoryRepo"
+    ]
+  },
+  {
+    "name": "interface IQuestionApiService",
+    "description": "icu.repsaj.android.mytrivia.network.question.IQuestionApiService",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-i-question-api-service/index.html",
+    "searchKeys": [
+      "IQuestionApiService",
+      "interface IQuestionApiService",
+      "icu.repsaj.android.mytrivia.network.question.IQuestionApiService"
+    ]
+  },
+  {
+    "name": "interface IQuestionRepo",
+    "description": "icu.repsaj.android.mytrivia.data.IQuestionRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-question-repo/index.html",
+    "searchKeys": [
+      "IQuestionRepo",
+      "interface IQuestionRepo",
+      "icu.repsaj.android.mytrivia.data.IQuestionRepo"
+    ]
+  },
+  {
+    "name": "interface QuestionsApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-questions-api-state/index.html",
+    "searchKeys": [
+      "QuestionsApiState",
+      "interface QuestionsApiState",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState"
+    ]
+  },
+  {
+    "name": "interface ResourceProvider",
+    "description": "icu.repsaj.android.mytrivia.ui.providers.ResourceProvider",
+    "location": "app/icu.repsaj.android.mytrivia.ui.providers/-resource-provider/index.html",
+    "searchKeys": [
+      "ResourceProvider",
+      "interface ResourceProvider",
+      "icu.repsaj.android.mytrivia.ui.providers.ResourceProvider"
+    ]
+  },
+  {
+    "name": "lateinit var container: AppContainer",
+    "description": "icu.repsaj.android.mytrivia.TriviaApplication.container",
+    "location": "app/icu.repsaj.android.mytrivia/-trivia-application/container.html",
+    "searchKeys": [
+      "container",
+      "lateinit var container: AppContainer",
+      "icu.repsaj.android.mytrivia.TriviaApplication.container"
+    ]
+  },
+  {
+    "name": "lateinit var uiCategory: StateFlow<Category>",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.uiCategory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/ui-category.html",
+    "searchKeys": [
+      "uiCategory",
+      "lateinit var uiCategory: StateFlow<Category>",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.uiCategory"
+    ]
+  },
+  {
+    "name": "lateinit var uiListState: StateFlow<CategoryListState>",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.uiListState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/ui-list-state.html",
+    "searchKeys": [
+      "uiListState",
+      "lateinit var uiListState: StateFlow<CategoryListState>",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.uiListState"
+    ]
+  },
+  {
+    "name": "lateinit var uiListState: StateFlow<HistoryListState>",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.uiListState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/ui-list-state.html",
+    "searchKeys": [
+      "uiListState",
+      "lateinit var uiListState: StateFlow<HistoryListState>",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.uiListState"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "icu.repsaj.android.mytrivia.data.database.TriviaDb.Companion",
+    "location": "app/icu.repsaj.android.mytrivia.data.database/-trivia-db/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "icu.repsaj.android.mytrivia.data.database.TriviaDb.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.Companion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.Companion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.Companion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.Companion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Companion",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.Companion"
+    ]
+  },
+  {
+    "name": "object Init : AddCategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Init",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/-init/index.html",
+    "searchKeys": [
+      "Init",
+      "object Init : AddCategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Init"
+    ]
+  },
+  {
+    "name": "object Loading : AddCategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Loading",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/-loading/index.html",
+    "searchKeys": [
+      "Loading",
+      "object Loading : AddCategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Loading"
+    ]
+  },
+  {
+    "name": "object Loading : CategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Loading",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/-loading/index.html",
+    "searchKeys": [
+      "Loading",
+      "object Loading : CategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Loading"
+    ]
+  },
+  {
+    "name": "object Loading : HistoryRepoState",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Loading",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-repo-state/-loading/index.html",
+    "searchKeys": [
+      "Loading",
+      "object Loading : HistoryRepoState",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Loading"
+    ]
+  },
+  {
+    "name": "object Loading : QuestionsApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Loading",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-questions-api-state/-loading/index.html",
+    "searchKeys": [
+      "Loading",
+      "object Loading : QuestionsApiState",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Loading"
+    ]
+  },
+  {
+    "name": "object Success : AddCategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Success",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/-success/index.html",
+    "searchKeys": [
+      "Success",
+      "object Success : AddCategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Success"
+    ]
+  },
+  {
+    "name": "object Success : CategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Success",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/-success/index.html",
+    "searchKeys": [
+      "Success",
+      "object Success : CategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Success"
+    ]
+  },
+  {
+    "name": "object Success : HistoryRepoState",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Success",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-repo-state/-success/index.html",
+    "searchKeys": [
+      "Success",
+      "object Success : HistoryRepoState",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Success"
+    ]
+  },
+  {
+    "name": "object Success : QuestionsApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Success",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-questions-api-state/-success/index.html",
+    "searchKeys": [
+      "Success",
+      "object Success : QuestionsApiState",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Success"
+    ]
+  },
+  {
+    "name": "object UUIDSerializer : KSerializer<UUID> ",
+    "description": "icu.repsaj.android.mytrivia.network.UUIDSerializer",
+    "location": "app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/index.html",
+    "searchKeys": [
+      "UUIDSerializer",
+      "object UUIDSerializer : KSerializer<UUID> ",
+      "icu.repsaj.android.mytrivia.network.UUIDSerializer"
+    ]
+  },
+  {
+    "name": "open override fun deserialize(decoder: Decoder): UUID",
+    "description": "icu.repsaj.android.mytrivia.network.UUIDSerializer.deserialize",
+    "location": "app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/deserialize.html",
+    "searchKeys": [
+      "deserialize",
+      "open override fun deserialize(decoder: Decoder): UUID",
+      "icu.repsaj.android.mytrivia.network.UUIDSerializer.deserialize"
+    ]
+  },
+  {
+    "name": "open override fun getCategories(): Flow<List<Category>>",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.getCategories",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/get-categories.html",
+    "searchKeys": [
+      "getCategories",
+      "open override fun getCategories(): Flow<List<Category>>",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.getCategories"
+    ]
+  },
+  {
+    "name": "open override fun getCategoryById(id: UUID): Flow<Category>",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.getCategoryById",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/get-category-by-id.html",
+    "searchKeys": [
+      "getCategoryById",
+      "open override fun getCategoryById(id: UUID): Flow<Category>",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.getCategoryById"
+    ]
+  },
+  {
+    "name": "open override fun getGameHistory(): Flow<List<HistoryItem>>",
+    "description": "icu.repsaj.android.mytrivia.data.GameHistoryRepository.getGameHistory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-game-history-repository/get-game-history.html",
+    "searchKeys": [
+      "getGameHistory",
+      "open override fun getGameHistory(): Flow<List<HistoryItem>>",
+      "icu.repsaj.android.mytrivia.data.GameHistoryRepository.getGameHistory"
+    ]
+  },
+  {
+    "name": "open override fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>",
+    "description": "icu.repsaj.android.mytrivia.data.ApiQuestionRepo.getQuestions",
+    "location": "app/icu.repsaj.android.mytrivia.data/-api-question-repo/get-questions.html",
+    "searchKeys": [
+      "getQuestions",
+      "open override fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>",
+      "icu.repsaj.android.mytrivia.data.ApiQuestionRepo.getQuestions"
+    ]
+  },
+  {
+    "name": "open override fun getString(id: Int): String",
+    "description": "icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl.getString",
+    "location": "app/icu.repsaj.android.mytrivia.ui.providers/-resource-provider-impl/get-string.html",
+    "searchKeys": [
+      "getString",
+      "open override fun getString(id: Int): String",
+      "icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl.getString"
+    ]
+  },
+  {
+    "name": "open override fun onCreate()",
+    "description": "icu.repsaj.android.mytrivia.TriviaApplication.onCreate",
+    "location": "app/icu.repsaj.android.mytrivia/-trivia-application/on-create.html",
+    "searchKeys": [
+      "onCreate",
+      "open override fun onCreate()",
+      "icu.repsaj.android.mytrivia.TriviaApplication.onCreate"
+    ]
+  },
+  {
+    "name": "open override fun serialize(encoder: Encoder, value: UUID)",
+    "description": "icu.repsaj.android.mytrivia.network.UUIDSerializer.serialize",
+    "location": "app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/serialize.html",
+    "searchKeys": [
+      "serialize",
+      "open override fun serialize(encoder: Encoder, value: UUID)",
+      "icu.repsaj.android.mytrivia.network.UUIDSerializer.serialize"
+    ]
+  },
+  {
+    "name": "open override val categoryRepo: ICategoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.categoryRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/category-repo.html",
+    "searchKeys": [
+      "categoryRepo",
+      "open override val categoryRepo: ICategoryRepo",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.categoryRepo"
+    ]
+  },
+  {
+    "name": "open override val descriptor: SerialDescriptor",
+    "description": "icu.repsaj.android.mytrivia.network.UUIDSerializer.descriptor",
+    "location": "app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/descriptor.html",
+    "searchKeys": [
+      "descriptor",
+      "open override val descriptor: SerialDescriptor",
+      "icu.repsaj.android.mytrivia.network.UUIDSerializer.descriptor"
+    ]
+  },
+  {
+    "name": "open override val historyRepo: IGameHistoryRepo",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.historyRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/history-repo.html",
+    "searchKeys": [
+      "historyRepo",
+      "open override val historyRepo: IGameHistoryRepo",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.historyRepo"
+    ]
+  },
+  {
+    "name": "open override val questionRepo: IQuestionRepo",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.questionRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/question-repo.html",
+    "searchKeys": [
+      "questionRepo",
+      "open override val questionRepo: IQuestionRepo",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.questionRepo"
+    ]
+  },
+  {
+    "name": "open override val resourceProvider: ResourceProvider",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.resourceProvider",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/resource-provider.html",
+    "searchKeys": [
+      "resourceProvider",
+      "open override val resourceProvider: ResourceProvider",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.resourceProvider"
+    ]
+  },
+  {
+    "name": "open suspend override fun createCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.createCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/create-category.html",
+    "searchKeys": [
+      "createCategory",
+      "open suspend override fun createCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.createCategory"
+    ]
+  },
+  {
+    "name": "open suspend override fun deleteCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.deleteCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/delete-category.html",
+    "searchKeys": [
+      "deleteCategory",
+      "open suspend override fun deleteCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.deleteCategory"
+    ]
+  },
+  {
+    "name": "open suspend override fun deleteHistoryItem(item: HistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.data.GameHistoryRepository.deleteHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.data/-game-history-repository/delete-history-item.html",
+    "searchKeys": [
+      "deleteHistoryItem",
+      "open suspend override fun deleteHistoryItem(item: HistoryItem)",
+      "icu.repsaj.android.mytrivia.data.GameHistoryRepository.deleteHistoryItem"
+    ]
+  },
+  {
+    "name": "open suspend override fun insertCategory(category: Category)",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.insertCategory",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/insert-category.html",
+    "searchKeys": [
+      "insertCategory",
+      "open suspend override fun insertCategory(category: Category)",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.insertCategory"
+    ]
+  },
+  {
+    "name": "open suspend override fun insertHistoryItem(item: HistoryItem)",
+    "description": "icu.repsaj.android.mytrivia.data.GameHistoryRepository.insertHistoryItem",
+    "location": "app/icu.repsaj.android.mytrivia.data/-game-history-repository/insert-history-item.html",
+    "searchKeys": [
+      "insertHistoryItem",
+      "open suspend override fun insertHistoryItem(item: HistoryItem)",
+      "icu.repsaj.android.mytrivia.data.GameHistoryRepository.insertHistoryItem"
+    ]
+  },
+  {
+    "name": "open suspend override fun refresh()",
+    "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.refresh",
+    "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/refresh.html",
+    "searchKeys": [
+      "refresh",
+      "open suspend override fun refresh()",
+      "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.refresh"
+    ]
+  },
+  {
+    "name": "val Factory: ViewModelProvider.Factory",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.Companion.Factory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/-companion/-factory.html",
+    "searchKeys": [
+      "Factory",
+      "val Factory: ViewModelProvider.Factory",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.Companion.Factory"
+    ]
+  },
+  {
+    "name": "val Factory: ViewModelProvider.Factory",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.Companion.Factory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/-companion/-factory.html",
+    "searchKeys": [
+      "Factory",
+      "val Factory: ViewModelProvider.Factory",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.Companion.Factory"
+    ]
+  },
+  {
+    "name": "val Factory: ViewModelProvider.Factory",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.Companion.Factory",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/-companion/-factory.html",
+    "searchKeys": [
+      "Factory",
+      "val Factory: ViewModelProvider.Factory",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.Companion.Factory"
+    ]
+  },
+  {
+    "name": "val LocalSpacing: ProvidableCompositionLocal<Spacing>",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.LocalSpacing",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-local-spacing.html",
+    "searchKeys": [
+      "LocalSpacing",
+      "val LocalSpacing: ProvidableCompositionLocal<Spacing>",
+      "icu.repsaj.android.mytrivia.ui.theme.LocalSpacing"
+    ]
+  },
+  {
+    "name": "val MaterialTheme.spacing: Spacing",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.spacing",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/spacing.html",
+    "searchKeys": [
+      "spacing",
+      "val MaterialTheme.spacing: Spacing",
+      "icu.repsaj.android.mytrivia.ui.theme.spacing"
+    ]
+  },
+  {
+    "name": "val Typography: Typography",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Typography",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-typography.html",
+    "searchKeys": [
+      "Typography",
+      "val Typography: Typography",
+      "icu.repsaj.android.mytrivia.ui.theme.Typography"
+    ]
+  },
+  {
+    "name": "val answerText: String",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiAnswer.answerText",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-answer/answer-text.html",
+    "searchKeys": [
+      "answerText",
+      "val answerText: String",
+      "icu.repsaj.android.mytrivia.network.question.ApiAnswer.answerText"
+    ]
+  },
+  {
+    "name": "val answers: List<ApiAnswer>",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiQuestion.answers",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-question/answers.html",
+    "searchKeys": [
+      "answers",
+      "val answers: List<ApiAnswer>",
+      "icu.repsaj.android.mytrivia.network.question.ApiQuestion.answers"
+    ]
+  },
+  {
+    "name": "val answers: List<TriviaAnswer>",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaQuestion.answers",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-question/answers.html",
+    "searchKeys": [
+      "answers",
+      "val answers: List<TriviaAnswer>",
+      "icu.repsaj.android.mytrivia.model.TriviaQuestion.answers"
+    ]
+  },
+  {
+    "name": "val category: ApiCategory",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiQuestion.category",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-question/category.html",
+    "searchKeys": [
+      "category",
+      "val category: ApiCategory",
+      "icu.repsaj.android.mytrivia.network.question.ApiQuestion.category"
+    ]
+  },
+  {
+    "name": "val categoryId: UUID",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.categoryId",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/category-id.html",
+    "searchKeys": [
+      "categoryId",
+      "val categoryId: UUID",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.categoryId"
+    ]
+  },
+  {
+    "name": "val categoryList: List<Category>",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryListState.categoryList",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-list-state/category-list.html",
+    "searchKeys": [
+      "categoryList",
+      "val categoryList: List<Category>",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryListState.categoryList"
+    ]
+  },
+  {
+    "name": "val categoryName: String",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.categoryName",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/category-name.html",
+    "searchKeys": [
+      "categoryName",
+      "val categoryName: String",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.categoryName"
+    ]
+  },
+  {
+    "name": "val currentQuestionIndex: Int = 0",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState.currentQuestionIndex",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/current-question-index.html",
+    "searchKeys": [
+      "currentQuestionIndex",
+      "val currentQuestionIndex: Int = 0",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState.currentQuestionIndex"
+    ]
+  },
+  {
+    "name": "val default: Dp",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.default",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/default.html",
+    "searchKeys": [
+      "default",
+      "val default: Dp",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.default"
+    ]
+  },
+  {
+    "name": "val entries: EnumEntries<NavRoutes>",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.entries",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/entries.html",
+    "searchKeys": [
+      "entries",
+      "val entries: EnumEntries<NavRoutes>",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.entries"
+    ]
+  },
+  {
+    "name": "val extraLarge: Dp",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.extraLarge",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/extra-large.html",
+    "searchKeys": [
+      "extraLarge",
+      "val extraLarge: Dp",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.extraLarge"
+    ]
+  },
+  {
+    "name": "val extraSmall: Dp",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.extraSmall",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/extra-small.html",
+    "searchKeys": [
+      "extraSmall",
+      "val extraSmall: Dp",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.extraSmall"
+    ]
+  },
+  {
+    "name": "val history: List<HistoryItem>",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryListState.history",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-list-state/history.html",
+    "searchKeys": [
+      "history",
+      "val history: List<HistoryItem>",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryListState.history"
+    ]
+  },
+  {
+    "name": "val icon: ImageVector",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.icon",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/icon.html",
+    "searchKeys": [
+      "icon",
+      "val icon: ImageVector",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.icon"
+    ]
+  },
+  {
+    "name": "val icon: String",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.icon",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-category/icon.html",
+    "searchKeys": [
+      "icon",
+      "val icon: String",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.icon"
+    ]
+  },
+  {
+    "name": "val icon: String",
+    "description": "icu.repsaj.android.mytrivia.model.Category.icon",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/icon.html",
+    "searchKeys": [
+      "icon",
+      "val icon: String",
+      "icu.repsaj.android.mytrivia.model.Category.icon"
+    ]
+  },
+  {
+    "name": "val icon: String",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.icon",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-api-category/icon.html",
+    "searchKeys": [
+      "icon",
+      "val icon: String",
+      "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.icon"
+    ]
+  },
+  {
+    "name": "val icon: String",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CreateCategory.icon",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-create-category/icon.html",
+    "searchKeys": [
+      "icon",
+      "val icon: String",
+      "icu.repsaj.android.mytrivia.network.categroy.CreateCategory.icon"
+    ]
+  },
+  {
+    "name": "val iconError: String",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.iconError",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/icon-error.html",
+    "searchKeys": [
+      "iconError",
+      "val iconError: String",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.iconError"
+    ]
+  },
+  {
+    "name": "val iconMap: Map<String, ImageVector>",
+    "description": "icu.repsaj.android.mytrivia.model.iconMap",
+    "location": "app/icu.repsaj.android.mytrivia.model/icon-map.html",
+    "searchKeys": [
+      "iconMap",
+      "val iconMap: Map<String, ImageVector>",
+      "icu.repsaj.android.mytrivia.model.iconMap"
+    ]
+  },
+  {
+    "name": "val id: UUID",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.id",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-category/id.html",
+    "searchKeys": [
+      "id",
+      "val id: UUID",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.id"
+    ]
+  },
+  {
+    "name": "val id: UUID",
+    "description": "icu.repsaj.android.mytrivia.model.Category.id",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/id.html",
+    "searchKeys": [
+      "id",
+      "val id: UUID",
+      "icu.repsaj.android.mytrivia.model.Category.id"
+    ]
+  },
+  {
+    "name": "val id: UUID",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaQuestion.id",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-question/id.html",
+    "searchKeys": [
+      "id",
+      "val id: UUID",
+      "icu.repsaj.android.mytrivia.model.TriviaQuestion.id"
+    ]
+  },
+  {
+    "name": "val id: UUID",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.id",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-api-category/id.html",
+    "searchKeys": [
+      "id",
+      "val id: UUID",
+      "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.id"
+    ]
+  },
+  {
+    "name": "val id: UUID",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiAnswer.id",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-answer/id.html",
+    "searchKeys": [
+      "id",
+      "val id: UUID",
+      "icu.repsaj.android.mytrivia.network.question.ApiAnswer.id"
+    ]
+  },
+  {
+    "name": "val id: UUID",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiQuestion.id",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-question/id.html",
+    "searchKeys": [
+      "id",
+      "val id: UUID",
+      "icu.repsaj.android.mytrivia.network.question.ApiQuestion.id"
+    ]
+  },
+  {
+    "name": "val image: ImageVector",
+    "description": "icu.repsaj.android.mytrivia.model.Category.image",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/image.html",
+    "searchKeys": [
+      "image",
+      "val image: ImageVector",
+      "icu.repsaj.android.mytrivia.model.Category.image"
+    ]
+  },
+  {
+    "name": "val isAnswered: Boolean = false",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState.isAnswered",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/is-answered.html",
+    "searchKeys": [
+      "isAnswered",
+      "val isAnswered: Boolean = false",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState.isAnswered"
+    ]
+  },
+  {
+    "name": "val isCorrect: Boolean",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiAnswer.isCorrect",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-answer/is-correct.html",
+    "searchKeys": [
+      "isCorrect",
+      "val isCorrect: Boolean",
+      "icu.repsaj.android.mytrivia.network.question.ApiAnswer.isCorrect"
+    ]
+  },
+  {
+    "name": "val isValid: Boolean = false",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.isValid",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/is-valid.html",
+    "searchKeys": [
+      "isValid",
+      "val isValid: Boolean = false",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.isValid"
+    ]
+  },
+  {
+    "name": "val items: List<ApiCategory>",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse.items",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-category-response/items.html",
+    "searchKeys": [
+      "items",
+      "val items: List<ApiCategory>",
+      "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse.items"
+    ]
+  },
+  {
+    "name": "val items: List<ApiQuestion>",
+    "description": "icu.repsaj.android.mytrivia.network.question.QuestionResponse.items",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-question-response/items.html",
+    "searchKeys": [
+      "items",
+      "val items: List<ApiQuestion>",
+      "icu.repsaj.android.mytrivia.network.question.QuestionResponse.items"
+    ]
+  },
+  {
+    "name": "val large: Dp",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.large",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/large.html",
+    "searchKeys": [
+      "large",
+      "val large: Dp",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.large"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_background: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_background",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_background.html",
+    "searchKeys": [
+      "md_theme_dark_background",
+      "val md_theme_dark_background: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_background"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_error: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_error.html",
+    "searchKeys": [
+      "md_theme_dark_error",
+      "val md_theme_dark_error: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_error"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_errorContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_errorContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_error-container.html",
+    "searchKeys": [
+      "md_theme_dark_errorContainer",
+      "val md_theme_dark_errorContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_errorContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_inverseOnSurface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_inverseOnSurface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_inverse-on-surface.html",
+    "searchKeys": [
+      "md_theme_dark_inverseOnSurface",
+      "val md_theme_dark_inverseOnSurface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_inverseOnSurface"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_inversePrimary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_inversePrimary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_inverse-primary.html",
+    "searchKeys": [
+      "md_theme_dark_inversePrimary",
+      "val md_theme_dark_inversePrimary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_inversePrimary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_inverseSurface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_inverseSurface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_inverse-surface.html",
+    "searchKeys": [
+      "md_theme_dark_inverseSurface",
+      "val md_theme_dark_inverseSurface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_inverseSurface"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onBackground: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onBackground",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-background.html",
+    "searchKeys": [
+      "md_theme_dark_onBackground",
+      "val md_theme_dark_onBackground: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onBackground"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onError: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onError",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-error.html",
+    "searchKeys": [
+      "md_theme_dark_onError",
+      "val md_theme_dark_onError: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onError"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onErrorContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onErrorContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-error-container.html",
+    "searchKeys": [
+      "md_theme_dark_onErrorContainer",
+      "val md_theme_dark_onErrorContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onErrorContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onPrimary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onPrimary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-primary.html",
+    "searchKeys": [
+      "md_theme_dark_onPrimary",
+      "val md_theme_dark_onPrimary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onPrimary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onPrimaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onPrimaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-primary-container.html",
+    "searchKeys": [
+      "md_theme_dark_onPrimaryContainer",
+      "val md_theme_dark_onPrimaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onPrimaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onSecondary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSecondary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-secondary.html",
+    "searchKeys": [
+      "md_theme_dark_onSecondary",
+      "val md_theme_dark_onSecondary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSecondary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onSecondaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSecondaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-secondary-container.html",
+    "searchKeys": [
+      "md_theme_dark_onSecondaryContainer",
+      "val md_theme_dark_onSecondaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSecondaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onSurface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSurface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-surface.html",
+    "searchKeys": [
+      "md_theme_dark_onSurface",
+      "val md_theme_dark_onSurface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSurface"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onSurfaceVariant: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSurfaceVariant",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-surface-variant.html",
+    "searchKeys": [
+      "md_theme_dark_onSurfaceVariant",
+      "val md_theme_dark_onSurfaceVariant: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onSurfaceVariant"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onTertiary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onTertiary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-tertiary.html",
+    "searchKeys": [
+      "md_theme_dark_onTertiary",
+      "val md_theme_dark_onTertiary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onTertiary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_onTertiaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onTertiaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_on-tertiary-container.html",
+    "searchKeys": [
+      "md_theme_dark_onTertiaryContainer",
+      "val md_theme_dark_onTertiaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_onTertiaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_outline: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_outline",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_outline.html",
+    "searchKeys": [
+      "md_theme_dark_outline",
+      "val md_theme_dark_outline: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_outline"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_outlineVariant: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_outlineVariant",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_outline-variant.html",
+    "searchKeys": [
+      "md_theme_dark_outlineVariant",
+      "val md_theme_dark_outlineVariant: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_outlineVariant"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_primary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_primary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_primary.html",
+    "searchKeys": [
+      "md_theme_dark_primary",
+      "val md_theme_dark_primary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_primary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_primaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_primaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_primary-container.html",
+    "searchKeys": [
+      "md_theme_dark_primaryContainer",
+      "val md_theme_dark_primaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_primaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_scrim: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_scrim",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_scrim.html",
+    "searchKeys": [
+      "md_theme_dark_scrim",
+      "val md_theme_dark_scrim: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_scrim"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_secondary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_secondary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_secondary.html",
+    "searchKeys": [
+      "md_theme_dark_secondary",
+      "val md_theme_dark_secondary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_secondary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_secondaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_secondaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_secondary-container.html",
+    "searchKeys": [
+      "md_theme_dark_secondaryContainer",
+      "val md_theme_dark_secondaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_secondaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_surface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_surface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_surface.html",
+    "searchKeys": [
+      "md_theme_dark_surface",
+      "val md_theme_dark_surface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_surface"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_surfaceTint: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_surfaceTint",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_surface-tint.html",
+    "searchKeys": [
+      "md_theme_dark_surfaceTint",
+      "val md_theme_dark_surfaceTint: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_surfaceTint"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_surfaceVariant: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_surfaceVariant",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_surface-variant.html",
+    "searchKeys": [
+      "md_theme_dark_surfaceVariant",
+      "val md_theme_dark_surfaceVariant: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_surfaceVariant"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_tertiary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_tertiary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_tertiary.html",
+    "searchKeys": [
+      "md_theme_dark_tertiary",
+      "val md_theme_dark_tertiary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_tertiary"
+    ]
+  },
+  {
+    "name": "val md_theme_dark_tertiaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_tertiaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_dark_tertiary-container.html",
+    "searchKeys": [
+      "md_theme_dark_tertiaryContainer",
+      "val md_theme_dark_tertiaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_dark_tertiaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_background: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_background",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_background.html",
+    "searchKeys": [
+      "md_theme_light_background",
+      "val md_theme_light_background: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_background"
+    ]
+  },
+  {
+    "name": "val md_theme_light_error: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_error",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_error.html",
+    "searchKeys": [
+      "md_theme_light_error",
+      "val md_theme_light_error: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_error"
+    ]
+  },
+  {
+    "name": "val md_theme_light_errorContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_errorContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_error-container.html",
+    "searchKeys": [
+      "md_theme_light_errorContainer",
+      "val md_theme_light_errorContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_errorContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_inverseOnSurface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_inverseOnSurface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_inverse-on-surface.html",
+    "searchKeys": [
+      "md_theme_light_inverseOnSurface",
+      "val md_theme_light_inverseOnSurface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_inverseOnSurface"
+    ]
+  },
+  {
+    "name": "val md_theme_light_inversePrimary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_inversePrimary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_inverse-primary.html",
+    "searchKeys": [
+      "md_theme_light_inversePrimary",
+      "val md_theme_light_inversePrimary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_inversePrimary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_inverseSurface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_inverseSurface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_inverse-surface.html",
+    "searchKeys": [
+      "md_theme_light_inverseSurface",
+      "val md_theme_light_inverseSurface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_inverseSurface"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onBackground: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onBackground",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-background.html",
+    "searchKeys": [
+      "md_theme_light_onBackground",
+      "val md_theme_light_onBackground: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onBackground"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onError: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onError",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-error.html",
+    "searchKeys": [
+      "md_theme_light_onError",
+      "val md_theme_light_onError: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onError"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onErrorContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onErrorContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-error-container.html",
+    "searchKeys": [
+      "md_theme_light_onErrorContainer",
+      "val md_theme_light_onErrorContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onErrorContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onPrimary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onPrimary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-primary.html",
+    "searchKeys": [
+      "md_theme_light_onPrimary",
+      "val md_theme_light_onPrimary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onPrimary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onPrimaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onPrimaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-primary-container.html",
+    "searchKeys": [
+      "md_theme_light_onPrimaryContainer",
+      "val md_theme_light_onPrimaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onPrimaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onSecondary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSecondary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-secondary.html",
+    "searchKeys": [
+      "md_theme_light_onSecondary",
+      "val md_theme_light_onSecondary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSecondary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onSecondaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSecondaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-secondary-container.html",
+    "searchKeys": [
+      "md_theme_light_onSecondaryContainer",
+      "val md_theme_light_onSecondaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSecondaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onSurface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSurface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-surface.html",
+    "searchKeys": [
+      "md_theme_light_onSurface",
+      "val md_theme_light_onSurface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSurface"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onSurfaceVariant: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSurfaceVariant",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-surface-variant.html",
+    "searchKeys": [
+      "md_theme_light_onSurfaceVariant",
+      "val md_theme_light_onSurfaceVariant: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onSurfaceVariant"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onTertiary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onTertiary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-tertiary.html",
+    "searchKeys": [
+      "md_theme_light_onTertiary",
+      "val md_theme_light_onTertiary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onTertiary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_onTertiaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onTertiaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_on-tertiary-container.html",
+    "searchKeys": [
+      "md_theme_light_onTertiaryContainer",
+      "val md_theme_light_onTertiaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_onTertiaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_outline: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_outline",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_outline.html",
+    "searchKeys": [
+      "md_theme_light_outline",
+      "val md_theme_light_outline: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_outline"
+    ]
+  },
+  {
+    "name": "val md_theme_light_outlineVariant: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_outlineVariant",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_outline-variant.html",
+    "searchKeys": [
+      "md_theme_light_outlineVariant",
+      "val md_theme_light_outlineVariant: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_outlineVariant"
+    ]
+  },
+  {
+    "name": "val md_theme_light_primary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_primary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_primary.html",
+    "searchKeys": [
+      "md_theme_light_primary",
+      "val md_theme_light_primary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_primary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_primaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_primaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_primary-container.html",
+    "searchKeys": [
+      "md_theme_light_primaryContainer",
+      "val md_theme_light_primaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_primaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_scrim: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_scrim",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_scrim.html",
+    "searchKeys": [
+      "md_theme_light_scrim",
+      "val md_theme_light_scrim: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_scrim"
+    ]
+  },
+  {
+    "name": "val md_theme_light_secondary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_secondary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_secondary.html",
+    "searchKeys": [
+      "md_theme_light_secondary",
+      "val md_theme_light_secondary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_secondary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_secondaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_secondaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_secondary-container.html",
+    "searchKeys": [
+      "md_theme_light_secondaryContainer",
+      "val md_theme_light_secondaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_secondaryContainer"
+    ]
+  },
+  {
+    "name": "val md_theme_light_surface: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_surface",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_surface.html",
+    "searchKeys": [
+      "md_theme_light_surface",
+      "val md_theme_light_surface: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_surface"
+    ]
+  },
+  {
+    "name": "val md_theme_light_surfaceTint: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_surfaceTint",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_surface-tint.html",
+    "searchKeys": [
+      "md_theme_light_surfaceTint",
+      "val md_theme_light_surfaceTint: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_surfaceTint"
+    ]
+  },
+  {
+    "name": "val md_theme_light_surfaceVariant: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_surfaceVariant",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_surface-variant.html",
+    "searchKeys": [
+      "md_theme_light_surfaceVariant",
+      "val md_theme_light_surfaceVariant: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_surfaceVariant"
+    ]
+  },
+  {
+    "name": "val md_theme_light_tertiary: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_tertiary",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_tertiary.html",
+    "searchKeys": [
+      "md_theme_light_tertiary",
+      "val md_theme_light_tertiary: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_tertiary"
+    ]
+  },
+  {
+    "name": "val md_theme_light_tertiaryContainer: Color",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_tertiaryContainer",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/md_theme_light_tertiary-container.html",
+    "searchKeys": [
+      "md_theme_light_tertiaryContainer",
+      "val md_theme_light_tertiaryContainer: Color",
+      "icu.repsaj.android.mytrivia.ui.theme.md_theme_light_tertiaryContainer"
+    ]
+  },
+  {
+    "name": "val medium: Dp",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.medium",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/medium.html",
+    "searchKeys": [
+      "medium",
+      "val medium: Dp",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.medium"
+    ]
+  },
+  {
+    "name": "val message: String",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Error.message",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-api-state/-error/message.html",
+    "searchKeys": [
+      "message",
+      "val message: String",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryApiState.Error.message"
+    ]
+  },
+  {
+    "name": "val message: String",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Error.message",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/-error/message.html",
+    "searchKeys": [
+      "message",
+      "val message: String",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryApiState.Error.message"
+    ]
+  },
+  {
+    "name": "val message: String",
+    "description": "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Error.message",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-questions-api-state/-error/message.html",
+    "searchKeys": [
+      "message",
+      "val message: String",
+      "icu.repsaj.android.mytrivia.ui.game.QuestionsApiState.Error.message"
+    ]
+  },
+  {
+    "name": "val message: String",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Error.message",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-repo-state/-error/message.html",
+    "searchKeys": [
+      "message",
+      "val message: String",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryRepoState.Error.message"
+    ]
+  },
+  {
+    "name": "val metadata: Metadata",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse.metadata",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-category-response/metadata.html",
+    "searchKeys": [
+      "metadata",
+      "val metadata: Metadata",
+      "icu.repsaj.android.mytrivia.network.categroy.CategoryResponse.metadata"
+    ]
+  },
+  {
+    "name": "val metadata: Metadata",
+    "description": "icu.repsaj.android.mytrivia.network.question.QuestionResponse.metadata",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-question-response/metadata.html",
+    "searchKeys": [
+      "metadata",
+      "val metadata: Metadata",
+      "icu.repsaj.android.mytrivia.network.question.QuestionResponse.metadata"
+    ]
+  },
+  {
+    "name": "val name: String",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.name",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-category/name.html",
+    "searchKeys": [
+      "name",
+      "val name: String",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.name"
+    ]
+  },
+  {
+    "name": "val name: String",
+    "description": "icu.repsaj.android.mytrivia.model.Category.name",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/name.html",
+    "searchKeys": [
+      "name",
+      "val name: String",
+      "icu.repsaj.android.mytrivia.model.Category.name"
+    ]
+  },
+  {
+    "name": "val name: String",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.name",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-api-category/name.html",
+    "searchKeys": [
+      "name",
+      "val name: String",
+      "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.name"
+    ]
+  },
+  {
+    "name": "val name: String",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.CreateCategory.name",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-create-category/name.html",
+    "searchKeys": [
+      "name",
+      "val name: String",
+      "icu.repsaj.android.mytrivia.network.categroy.CreateCategory.name"
+    ]
+  },
+  {
+    "name": "val nameError: String",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.nameError",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/name-error.html",
+    "searchKeys": [
+      "nameError",
+      "val nameError: String",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.nameError"
+    ]
+  },
+  {
+    "name": "val page: Int",
+    "description": "icu.repsaj.android.mytrivia.network.Metadata.page",
+    "location": "app/icu.repsaj.android.mytrivia.network/-metadata/page.html",
+    "searchKeys": [
+      "page",
+      "val page: Int",
+      "icu.repsaj.android.mytrivia.network.Metadata.page"
+    ]
+  },
+  {
+    "name": "val per: Int",
+    "description": "icu.repsaj.android.mytrivia.network.Metadata.per",
+    "location": "app/icu.repsaj.android.mytrivia.network/-metadata/per.html",
+    "searchKeys": [
+      "per",
+      "val per: Int",
+      "icu.repsaj.android.mytrivia.network.Metadata.per"
+    ]
+  },
+  {
+    "name": "val question: String",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaQuestion.question",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-question/question.html",
+    "searchKeys": [
+      "question",
+      "val question: String",
+      "icu.repsaj.android.mytrivia.model.TriviaQuestion.question"
+    ]
+  },
+  {
+    "name": "val questionCount: Int = 0",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.questionCount",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-category/question-count.html",
+    "searchKeys": [
+      "questionCount",
+      "val questionCount: Int = 0",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbCategory.questionCount"
+    ]
+  },
+  {
+    "name": "val questionCount: Int = 0",
+    "description": "icu.repsaj.android.mytrivia.model.Category.questionCount",
+    "location": "app/icu.repsaj.android.mytrivia.model/-category/question-count.html",
+    "searchKeys": [
+      "questionCount",
+      "val questionCount: Int = 0",
+      "icu.repsaj.android.mytrivia.model.Category.questionCount"
+    ]
+  },
+  {
+    "name": "val questionId: UUID",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiAnswer.questionId",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-answer/question-id.html",
+    "searchKeys": [
+      "questionId",
+      "val questionId: UUID",
+      "icu.repsaj.android.mytrivia.network.question.ApiAnswer.questionId"
+    ]
+  },
+  {
+    "name": "val questionText: String",
+    "description": "icu.repsaj.android.mytrivia.network.question.ApiQuestion.questionText",
+    "location": "app/icu.repsaj.android.mytrivia.network.question/-api-question/question-text.html",
+    "searchKeys": [
+      "questionText",
+      "val questionText: String",
+      "icu.repsaj.android.mytrivia.network.question.ApiQuestion.questionText"
+    ]
+  },
+  {
+    "name": "val questions: List<TriviaQuestion>",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState.questions",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/questions.html",
+    "searchKeys": [
+      "questions",
+      "val questions: List<TriviaQuestion>",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState.questions"
+    ]
+  },
+  {
+    "name": "val robotoFamily: FontFamily",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.robotoFamily",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/roboto-family.html",
+    "searchKeys": [
+      "robotoFamily",
+      "val robotoFamily: FontFamily",
+      "icu.repsaj.android.mytrivia.ui.theme.robotoFamily"
+    ]
+  },
+  {
+    "name": "val score: Int = 0",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState.score",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/score.html",
+    "searchKeys": [
+      "score",
+      "val score: Int = 0",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState.score"
+    ]
+  },
+  {
+    "name": "val selectedIcon: ImageVector? = null",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.selectedIcon",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-ui-state/selected-icon.html",
+    "searchKeys": [
+      "selectedIcon",
+      "val selectedIcon: ImageVector? = null",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.selectedIcon"
+    ]
+  },
+  {
+    "name": "val showQuitDialog: Boolean = false",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameUIState.showQuitDialog",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-u-i-state/show-quit-dialog.html",
+    "searchKeys": [
+      "showQuitDialog",
+      "val showQuitDialog: Boolean = false",
+      "icu.repsaj.android.mytrivia.ui.game.GameUIState.showQuitDialog"
+    ]
+  },
+  {
+    "name": "val small: Dp",
+    "description": "icu.repsaj.android.mytrivia.ui.theme.Spacing.small",
+    "location": "app/icu.repsaj.android.mytrivia.ui.theme/-spacing/small.html",
+    "searchKeys": [
+      "small",
+      "val small: Dp",
+      "icu.repsaj.android.mytrivia.ui.theme.Spacing.small"
+    ]
+  },
+  {
+    "name": "val title: Int",
+    "description": "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.title",
+    "location": "app/icu.repsaj.android.mytrivia.ui.navigation/-nav-routes/title.html",
+    "searchKeys": [
+      "title",
+      "val title: Int",
+      "icu.repsaj.android.mytrivia.ui.navigation.NavRoutes.title"
+    ]
+  },
+  {
+    "name": "val total: Int",
+    "description": "icu.repsaj.android.mytrivia.network.Metadata.total",
+    "location": "app/icu.repsaj.android.mytrivia.network/-metadata/total.html",
+    "searchKeys": [
+      "total",
+      "val total: Int",
+      "icu.repsaj.android.mytrivia.network.Metadata.total"
+    ]
+  },
+  {
+    "name": "val uiState: StateFlow<AddCategoryUiState>",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.uiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/ui-state.html",
+    "searchKeys": [
+      "uiState",
+      "val uiState: StateFlow<AddCategoryUiState>",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.uiState"
+    ]
+  },
+  {
+    "name": "val uiState: StateFlow<GameUIState>",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.uiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/ui-state.html",
+    "searchKeys": [
+      "uiState",
+      "val uiState: StateFlow<GameUIState>",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.uiState"
+    ]
+  },
+  {
+    "name": "var answer: String",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaAnswer.answer",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-answer/answer.html",
+    "searchKeys": [
+      "answer",
+      "var answer: String",
+      "icu.repsaj.android.mytrivia.model.TriviaAnswer.answer"
+    ]
+  },
+  {
+    "name": "var apiState: AddCategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.apiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/api-state.html",
+    "searchKeys": [
+      "apiState",
+      "var apiState: AddCategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.apiState"
+    ]
+  },
+  {
+    "name": "var apiState: CategoryApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.apiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/api-state.html",
+    "searchKeys": [
+      "apiState",
+      "var apiState: CategoryApiState",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.apiState"
+    ]
+  },
+  {
+    "name": "var apiState: QuestionsApiState",
+    "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.apiState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/api-state.html",
+    "searchKeys": [
+      "apiState",
+      "var apiState: QuestionsApiState",
+      "icu.repsaj.android.mytrivia.ui.game.GameViewModel.apiState"
+    ]
+  },
+  {
+    "name": "var category: String",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.category",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-game-history-item/category.html",
+    "searchKeys": [
+      "category",
+      "var category: String",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.category"
+    ]
+  },
+  {
+    "name": "var category: String",
+    "description": "icu.repsaj.android.mytrivia.model.HistoryItem.category",
+    "location": "app/icu.repsaj.android.mytrivia.model/-history-item/category.html",
+    "searchKeys": [
+      "category",
+      "var category: String",
+      "icu.repsaj.android.mytrivia.model.HistoryItem.category"
+    ]
+  },
+  {
+    "name": "var date: Date",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.date",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-game-history-item/date.html",
+    "searchKeys": [
+      "date",
+      "var date: Date",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.date"
+    ]
+  },
+  {
+    "name": "var date: Date",
+    "description": "icu.repsaj.android.mytrivia.model.HistoryItem.date",
+    "location": "app/icu.repsaj.android.mytrivia.model/-history-item/date.html",
+    "searchKeys": [
+      "date",
+      "var date: Date",
+      "icu.repsaj.android.mytrivia.model.HistoryItem.date"
+    ]
+  },
+  {
+    "name": "var id: Int",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.id",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-game-history-item/id.html",
+    "searchKeys": [
+      "id",
+      "var id: Int",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.id"
+    ]
+  },
+  {
+    "name": "var id: Int?",
+    "description": "icu.repsaj.android.mytrivia.model.HistoryItem.id",
+    "location": "app/icu.repsaj.android.mytrivia.model/-history-item/id.html",
+    "searchKeys": [
+      "id",
+      "var id: Int?",
+      "icu.repsaj.android.mytrivia.model.HistoryItem.id"
+    ]
+  },
+  {
+    "name": "var id: UUID",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaAnswer.id",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-answer/id.html",
+    "searchKeys": [
+      "id",
+      "var id: UUID",
+      "icu.repsaj.android.mytrivia.model.TriviaAnswer.id"
+    ]
+  },
+  {
+    "name": "var isCorrect: Boolean",
+    "description": "icu.repsaj.android.mytrivia.model.TriviaAnswer.isCorrect",
+    "location": "app/icu.repsaj.android.mytrivia.model/-trivia-answer/is-correct.html",
+    "searchKeys": [
+      "isCorrect",
+      "var isCorrect: Boolean",
+      "icu.repsaj.android.mytrivia.model.TriviaAnswer.isCorrect"
+    ]
+  },
+  {
+    "name": "var questionCount: Int",
+    "description": "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.questionCount",
+    "location": "app/icu.repsaj.android.mytrivia.network.categroy/-api-category/question-count.html",
+    "searchKeys": [
+      "questionCount",
+      "var questionCount: Int",
+      "icu.repsaj.android.mytrivia.network.categroy.ApiCategory.questionCount"
+    ]
+  },
+  {
+    "name": "var repoState: HistoryRepoState",
+    "description": "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.repoState",
+    "location": "app/icu.repsaj.android.mytrivia.ui.gameHistory/-history-view-model/repo-state.html",
+    "searchKeys": [
+      "repoState",
+      "var repoState: HistoryRepoState",
+      "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.repoState"
+    ]
+  },
+  {
+    "name": "var score: Int",
+    "description": "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.score",
+    "location": "app/icu.repsaj.android.mytrivia.data.database.entities/-db-game-history-item/score.html",
+    "searchKeys": [
+      "score",
+      "var score: Int",
+      "icu.repsaj.android.mytrivia.data.database.entities.DbGameHistoryItem.score"
+    ]
+  },
+  {
+    "name": "var score: Int",
+    "description": "icu.repsaj.android.mytrivia.model.HistoryItem.score",
+    "location": "app/icu.repsaj.android.mytrivia.model/-history-item/score.html",
+    "searchKeys": [
+      "score",
+      "var score: Int",
+      "icu.repsaj.android.mytrivia.model.HistoryItem.score"
+    ]
+  }
+]
