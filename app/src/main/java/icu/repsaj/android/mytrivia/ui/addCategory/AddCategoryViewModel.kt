@@ -33,21 +33,29 @@ class AddCategoryViewModel(
         private set
 
     fun addCategory(callback: () -> Unit) {
-        try {
-            if (_uiState.value.isValid.not()) {
-                return
-            }
-            viewModelScope.launch {
+        if (_uiState.value.isValid.not()) {
+            return
+        }
+        apiState = AddCategoryApiState.Loading
+        viewModelScope.launch {
+            try {
                 val category = Category(
                     id = UUID.randomUUID(),
                     name = _uiState.value.categoryName,
                     icon = getIcon(_uiState.value.selectedIcon!!),
                 )
                 categoryRepo.createCategory(category)
+                apiState = AddCategoryApiState.Success
+                callback()
+            } catch (e: RuntimeException) {
+                apiState = AddCategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
+            } catch (e: Exception) {
+                apiState = AddCategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
             }
-            callback()
-        } catch (e: Exception) {
-            //TODO ERROR HANDLING
         }
     }
 
@@ -101,6 +109,19 @@ class AddCategoryViewModel(
                 isValid = validateCategoryName() && validateIcon()
             )
         }
+    }
+
+    fun clear() {
+        _uiState.update {
+            it.copy(
+                categoryName = "",
+                selectedIcon = null,
+                nameError = "",
+                iconError = "",
+                isValid = false,
+            )
+        }
+        apiState = AddCategoryApiState.Init
     }
 
     companion object {

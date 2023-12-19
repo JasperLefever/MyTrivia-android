@@ -11,7 +11,8 @@ import icu.repsaj.android.mytrivia.network.categroy.asDomainObjects
 import icu.repsaj.android.mytrivia.network.categroy.getCategoriesAsFlow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import java.net.SocketTimeoutException
+import java.io.IOException
+import java.sql.SQLException
 import java.util.UUID
 
 /**
@@ -105,8 +106,22 @@ class CachingCategoryRepository(
      * @param category The [Category] to be created remotely.
      */
     override suspend fun createCategory(category: Category) {
-        categoryApi.createCategory(category.asPostCategory())
-        refresh()
+        try {
+            categoryApi.createCategory(category.asPostCategory())
+            refresh()
+        } catch (e: IOException) {
+            // Handle network errors
+            throw RuntimeException(
+                "Network error occurred while creating category: ${e.message}",
+                e
+            )
+        } catch (e: Exception) {
+            // Handle other unexpected errors
+            throw RuntimeException(
+                "Unexpected error occurred while creating category: ${e.message}",
+                e
+            )
+        }
     }
 
     /**
@@ -115,16 +130,30 @@ class CachingCategoryRepository(
      * @param category The [Category] to be deleted.
      */
     override suspend fun deleteCategory(category: Category) {
-        categoryApi.deleteCategory(category.id)
-        refresh()
+        try {
+            categoryApi.deleteCategory(category.id)
+            refresh()
+        } catch (e: IOException) {
+            // Handle network errors
+            throw RuntimeException(
+                "Network error occurred while deleting category: ${e.message}",
+                e
+            )
+        } catch (e: Exception) {
+            // Handle other unexpected errors
+            throw RuntimeException(
+                "Unexpected error occurred while deleting category: ${e.message}",
+                e
+            )
+        }
     }
 
 
-    //TODO: fix error handling
     /**
      * Refreshes the local category database by fetching the latest data from the API.
      * It clears the current data and repopulates it with the latest data.
      * In case of a network timeout, an appropriate action such as logging can be implemented.
+     *
      */
     override suspend fun refresh() {
         try {
@@ -134,8 +163,15 @@ class CachingCategoryRepository(
                     categoryDao.insert(category.asDbEntity())
                 }
             }
-        } catch (e: SocketTimeoutException) {
-            // Implement logging or error handling here
+        } catch (e: IOException) {
+            // Handle network errors
+            throw RuntimeException("Network error during refresh: ${e.message}", e)
+        } catch (e: SQLException) {
+            // Handle database errors
+            throw RuntimeException("Database error during refresh: ${e.message}", e)
+        } catch (e: Exception) {
+            // Handle other unexpected errors
+            throw RuntimeException("Unexpected error during refresh: ${e.message}", e)
         }
     }
 }
