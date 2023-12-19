@@ -24,9 +24,17 @@ import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
+import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import java.util.UUID
 
+/**
+ * Composable function that displays the UI for the category overview screen.
+ *
+ * @param navigateToGame A function to navigate to the game screen.
+ * @param modifier The modifier to be applied to the screen.
+ * @param viewModel The ViewModel that provides the state and handles logic.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryOverviewScreen(
@@ -76,12 +84,20 @@ fun CategoryOverviewScreen(
                             items = categoryListState.categoryList,
                             key = { category -> category.id }
                         ) { category ->
-                            AnimatedCategoryCard(
-                                name = category.name,
-                                icon = category.image,
-                                enabled = category.questionCount > 0,
-                                onClickPlay = {
-                                    navigateToGame(category.id)
+                            SwipeToDelete(
+                                item = category,
+                                onDismiss = { deletedCategory ->
+                                    viewModel.deleteCategory(deletedCategory)
+                                },
+                                itemContent = { category ->
+                                    AnimatedCategoryCard(
+                                        name = category.name,
+                                        icon = category.image,
+                                        enabled = category.questionCount > 0,
+                                        onClickPlay = {
+                                            navigateToGame(category.id)
+                                        }
+                                    )
                                 }
                             )
                         }
@@ -108,6 +124,9 @@ fun CategoryOverviewScreen(
     }
 }
 
+/**
+ * Composable function that displays a message when no categories are available.
+ */
 @Composable
 private fun NoCategoriesFound() {
     Box(
@@ -123,6 +142,16 @@ private fun NoCategoriesFound() {
     }
 }
 
+/**
+ * A card that displays a category's name and icon.
+ * The card is animated when it is first displayed.
+ *
+ * @param name The name of the category.
+ * @param enabled Whether the card is enabled or not.
+ * @param onClickPlay The callback to be invoked when the card is clicked.
+ * @param modifier The modifier to be applied to the card.
+ * @param icon The icon to be displayed on the card.
+ */
 @Composable
 fun AnimatedCategoryCard(
     name: String,
@@ -155,6 +184,15 @@ fun AnimatedCategoryCard(
 }
 
 
+/**
+ * A card that displays a category's name and icon.
+ *
+ * @param name The name of the category.
+ * @param enabled Whether the card is enabled or not.
+ * @param onClickPlay The callback to be invoked when the card is clicked.
+ * @param modifier The modifier to be applied to the card.
+ * @param icon The icon to be displayed on the card.
+ */
 @Composable
 fun CategoryCard(
     name: String,

@@ -30,6 +30,16 @@ import kotlinx.coroutines.launch
 import java.util.Date
 import java.util.UUID
 
+/**
+ * ViewModel for the Game screen.
+ * Manages the UI state and handles the business logic for the screen.
+ *
+ * @property categoryId The ID of the category to play the game with.
+ * @property questionRepo The repository for question data operations.
+ * @property historyRepo The repository for game history data operations.
+ * @property categoryRepo The repository for category data operations.
+ * @property resourceProvider Provides access to resources, such as strings.
+ */
 class GameViewModel(
     val categoryId: UUID,
     private val questionRepo: IQuestionRepo,
@@ -52,6 +62,9 @@ class GameViewModel(
         fetchQuestions()
     }
 
+    /**
+     * moves the game to the next question.
+     */
     fun nextQuestion() {
         if (isLastQuestion()) {
             return
@@ -64,14 +77,25 @@ class GameViewModel(
         }
     }
 
+    /**
+     * @return True if the score dialog should be shown.
+     */
     fun showScoreDialog(): Boolean {
         return _uiState.value.isAnswered && isLastQuestion()
     }
 
+    /**
+     * @return True if the current question is the last question.
+     */
     fun isLastQuestion(): Boolean {
         return _uiState.value.currentQuestionIndex == _uiState.value.questions.size - 1
     }
 
+    /**
+     * Checks the answer and updates the UI state accordingly.
+     *
+     * @param answer The [TriviaAnswer] to check.
+     */
     fun checkAnswer(answer: TriviaAnswer) {
         _uiState.update { currentState ->
             currentState.copy(
@@ -81,14 +105,23 @@ class GameViewModel(
         }
     }
 
+    /**
+     * @return The current [TriviaQuestion].
+     */
     fun getCurrentQuestion(): TriviaQuestion {
         return _uiState.value.questions[_uiState.value.currentQuestionIndex]
     }
 
+    /**
+     * @return The amount([Int]) of questions in the game.
+     */
     fun getAmountOfQuestions(): Int {
         return _uiState.value.questions.size
     }
 
+    /**
+     * Saves the current game to the history.
+     */
     fun saveHistoryItem() {
         viewModelScope.launch {
             val historyItem = HistoryItem(
@@ -100,6 +133,11 @@ class GameViewModel(
         }
     }
 
+    /**
+     * Fetches the questions from the repository.
+     * If the fetch is successful, the UI state is updated with the new questions.
+     * If the fetch fails, the UI state is updated with an error message.
+     */
     fun fetchQuestions() {
         viewModelScope.launch {
             apiState = try {
@@ -123,6 +161,11 @@ class GameViewModel(
 
     }
 
+    /**
+     * Fetches the category from the repository.
+     * If the fetch is successful, the UI state is updated with the new category.
+     * If the fetch fails, the UI state is updated with an error message.
+     */
     private fun getCategory() {
         viewModelScope.launch {
             try {
@@ -144,6 +187,11 @@ class GameViewModel(
 
 
     companion object {
+        /**
+         * Factory for creating [GameViewModel].
+         *
+         * @param categoryId The ID of the category to play the game with.
+         */
         fun factory(categoryId: UUID): ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application =

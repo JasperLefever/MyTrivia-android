@@ -34,6 +34,12 @@ import icu.repsaj.android.mytrivia.ui.compontents.formatDateTime
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import java.util.Date
 
+/**
+ * Composable function that displays the UI for the game history screen.
+ *
+ * @param modifier The modifier to be applied to the screen.
+ * @param viewModel The ViewModel that provides the state and handles logic.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameHistory(
@@ -116,6 +122,15 @@ fun GameHistory(
     }
 }
 
+/**
+ * A card that displays a history item.
+ *
+ * @param ranking The ranking of the history item. First game is 1, second is 2, etc.
+ * @param category The category of the history item.
+ * @param score The score of the history item.
+ * @param date The date of the history item.
+ * @param modifier The modifier to be applied to the card.
+ */
 @Composable
 fun HistoryItemCard(
     ranking: Int,
@@ -155,6 +170,13 @@ fun HistoryItemCard(
     Divider()
 }
 
+/**
+ * A card that displays a history item.
+ *
+ * @param historyItem The [HistoryItem] to be displayed.
+ * @param onRemove The callback to be invoked when the card is swiped away.
+ * @param modifier The modifier to be applied to the card.
+ */
 @Composable
 fun HistoryItem(
     historyItem: HistoryItem,

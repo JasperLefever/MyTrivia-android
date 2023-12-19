@@ -19,6 +19,13 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel for the Categories Overview screen.
+ * Manages the UI state and handles the business logic for the screen.
+ *
+ * @property categoryRepo The repository for category data operations.
+ * @property resourceProvider Provides access to resources, such as strings.
+ */
 class CategoriesOverviewViewModel(
     private val categoryRepo: ICategoryRepo,
     private val resourceProvider: ResourceProvider
@@ -34,6 +41,11 @@ class CategoriesOverviewViewModel(
         fetchCategories()
     }
 
+    /**
+     * Fetches the categories from the repository.
+     * If the fetch is successful, the UI state is updated with the new categories.
+     * If the fetch fails, the UI state is updated with an error message.
+     */
     private fun fetchCategories() {
         viewModelScope.launch {
             try {
@@ -60,6 +72,13 @@ class CategoriesOverviewViewModel(
 
     }
 
+    /**
+     * Deletes a category from the repository.
+     * If the delete is successful, the UI state is updated with the new categories.
+     * If the delete fails, the UI state is updated with an error message.
+     *
+     * @param category The category to be deleted.
+     */
     fun deleteCategory(category: Category) {
         viewModelScope.launch {
             try {
@@ -77,12 +96,21 @@ class CategoriesOverviewViewModel(
     }
 
 
+    /**
+     * Refreshes the categories from the repository.
+     * If the refresh is successful, the UI state is updated with the new categories.
+     * If the refresh fails, the UI state is updated with an error message.
+     */
     fun refresh() {
         apiState = CategoryApiState.Loading
         fetchCategories()
     }
 
     companion object {
+        /**
+         * Factory for creating the ViewModel.
+         * Provides the CategoryRepo and ResourceProvider dependencies to the ViewModel.
+         */
         private var Instance: CategoriesOverviewViewModel? = null
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {

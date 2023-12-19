@@ -12,6 +12,15 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import icu.repsaj.android.mytrivia.R
 
+/**
+ * Composable function that displays an error dialog.
+ *
+ * @param dialogTitle The title of the dialog.
+ * @param dialogText The text of the dialog.
+ * @param onConfirmation A function to execute when the user confirms the dialog.
+ * @param modifier The modifier to be applied to the dialog.
+ * @param icon The icon to be displayed in the dialog.
+ */
 @Composable
 fun ErrorDialog(
     dialogTitle: String,

@@ -12,6 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
+/**
+ * Composable function that displays the bottom bar.
+ *
+ * @param currentScreen The current screen.
+ * @param navigateToCategories A function to navigate to the categories screen.
+ * @param navigateToHistory A function to navigate to the history screen.
+ * @param modifier The modifier to be applied to the bottom bar.
+ */
 @Composable
 fun BottomBar(
     currentScreen: NavRoutes,

@@ -52,6 +52,13 @@ import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
 
+/**
+ * Composable function that displays the UI for the game screen.
+ *
+ * @param navigateUp A function to navigate up.
+ * @param modifier The modifier to be applied to the screen.
+ * @param viewModel The ViewModel that provides the state and handles logic.
+ */
 @Composable
 fun TriviaGameScreen(
     navigateUp: () -> Unit,
@@ -86,8 +93,6 @@ fun TriviaGameScreen(
                 TriviaGameScreenLandscape(
                     viewModel = viewModel,
                     gameUIState = gameUIState,
-                    animateQuestionChange = animateQuestionChange,
-                    setAnimateQuestionChange = { animateQuestionChange = it },
                     category = category,
                     navigateUp = navigateUp,
                     modifier = modifier
@@ -114,6 +119,17 @@ fun TriviaGameScreen(
     }
 }
 
+/**
+ * Composable function that displays the UI for the game screen in portrait mode.
+ *
+ * @param viewModel The ViewModel that provides the state and handles logic.
+ * @param gameUIState The state of the game.
+ * @param animateQuestionChange A boolean that indicates if the question should be animated.
+ * @param setAnimateQuestionChange A function to set the value of [animateQuestionChange].
+ * @param category The category of the game.
+ * @param navigateUp A function to navigate up.
+ * @param modifier The modifier to be applied to the screen.
+ */
 @Composable
 fun TriviaGameScreenPortrait(
     viewModel: GameViewModel,
@@ -169,12 +185,19 @@ fun TriviaGameScreenPortrait(
     }
 }
 
+/**
+ * Composable function that displays the UI for the game screen in landscape mode.
+ *
+ * @param viewModel The ViewModel that provides the state and handles logic.
+ * @param gameUIState The state of the game.
+ * @param category The category of the game.
+ * @param navigateUp A function to navigate up.
+ * @param modifier The modifier to be applied to the screen.
+ */
 @Composable
 fun TriviaGameScreenLandscape(
     viewModel: GameViewModel,
     gameUIState: GameUIState,
-    animateQuestionChange: Boolean,
-    setAnimateQuestionChange: (Boolean) -> Unit,
     category: Category,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
@@ -240,11 +263,19 @@ fun TriviaGameScreenLandscape(
     }
 }
 
+/**
+ * Composable function that displays the answers in landscape mode.
+ *
+ * @param answers The list of [TriviaAnswer]s to display.
+ * @param isAnswered A boolean that indicates if the question was answered.
+ * @param checkAnswer A function to check the answer.
+ */
 @Composable
 fun AnswerCardsLandscape(
     answers: List<TriviaAnswer>,
     isAnswered: Boolean,
-    checkAnswer: (TriviaAnswer) -> Unit
+    checkAnswer: (TriviaAnswer) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     answers.forEach { answer ->
         AnswerCard(
@@ -253,11 +284,24 @@ fun AnswerCardsLandscape(
             onAnswerClick = {
                 checkAnswer(answer)
             },
-            isAnswered = isAnswered
+            isAnswered = isAnswered,
+            modifier = modifier
         )
     }
 }
 
+/**
+ * Composable function that displays the game card with animation.
+ *
+ * @param currentQuestion The current [TriviaQuestion].
+ * @param currentQuestionIndex The index of the current question.
+ * @param totalQuestions The total amount of questions.
+ * @param score The current score.
+ * @param checkAnswer A function to check the answer.
+ * @param isAnswered A boolean that indicates if the question was answered.
+ * @param animateQuestionChange A boolean that indicates if the question should be animated.
+ * @param onAnimationEnd A function to execute when the animation ends.
+ */
 @Composable
 private fun AnimatedGameCard(
     currentQuestion: TriviaQuestion,
@@ -267,14 +311,16 @@ private fun AnimatedGameCard(
     checkAnswer: (TriviaAnswer) -> Unit,
     isAnswered: Boolean,
     animateQuestionChange: Boolean,
-    onAnimationEnd: () -> Unit
+    onAnimationEnd: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val showQuestion = remember { mutableStateOf(true) }
 
     AnimatedVisibility(
         visible = showQuestion.value,
         enter = slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(150)),
-        exit = slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(150))
+        exit = slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(150)),
+        modifier = modifier
     ) {
         GameCard(
             currentQuestion = currentQuestion,
@@ -296,12 +342,22 @@ private fun AnimatedGameCard(
     }
 }
 
+/**
+ * Composable function that displays the next question button.
+ *
+ * @param nextQuestion A function to execute when the button is clicked.
+ * @param isEnabled A boolean that indicates if the button is enabled.
+ */
 @Composable
-private fun NextQuestion(nextQuestion: () -> Unit, isEnabled: Boolean) {
+private fun NextQuestion(
+    nextQuestion: () -> Unit,
+    isEnabled: Boolean,
+    modifier: Modifier = Modifier
+) {
     Button(
         onClick = nextQuestion,
         enabled = isEnabled,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(MaterialTheme.spacing.small)
     ) {
@@ -309,12 +365,20 @@ private fun NextQuestion(nextQuestion: () -> Unit, isEnabled: Boolean) {
     }
 }
 
+/** Composable function that displays an error dialog.
+ *
+ * @param dialogTitle The title of the dialog.
+ * @param dialogText The text of the dialog.
+ * @param onConfirmation A function to execute when the user confirms the dialog.
+ * @param icon The icon to be displayed in the dialog.
+ */
 @Composable
 fun ScoreDialog(
     onConfirmation: () -> Unit,
     dialogTitle: String,
     dialogText: String,
-    icon: ImageVector
+    icon: ImageVector,
+    modifier: Modifier = Modifier
 ) {
     AlertDialog(
         icon = {
@@ -336,10 +400,22 @@ fun ScoreDialog(
                 Text(stringResource(R.string.confirm))
             }
         },
+        modifier = modifier
     )
 }
 
 
+/**
+ * Composable function that displays the game card.
+ *
+ * @param currentQuestion The current [TriviaQuestion].
+ * @param currentQuestionIndex The index of the current question.
+ * @param totalQuestions The total amount of questions.
+ * @param score The current score.
+ * @param checkAnswer A function to check the answer.
+ * @param isAnswered A boolean that indicates if the question was answered.
+ * @param modifier The modifier to be applied to the card.
+ */
 @Composable
 private fun GameCard(
     currentQuestion: TriviaQuestion,
@@ -347,10 +423,11 @@ private fun GameCard(
     totalQuestions: Int,
     score: Int,
     checkAnswer: (TriviaAnswer) -> Unit,
-    isAnswered: Boolean
+    isAnswered: Boolean,
+    modifier: Modifier = Modifier
 ) {
     ElevatedCard(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
     ) {
         Row(
@@ -384,6 +461,11 @@ private fun GameCard(
     }
 }
 
+/**
+ * Composable function that displays the category title.
+ *
+ * @param currentCategory The current category.
+ */
 @Composable
 private fun CategoryTitle(currentCategory: String) {
     Text(
@@ -396,6 +478,12 @@ private fun CategoryTitle(currentCategory: String) {
     )
 }
 
+/**
+ * Composable function that displays the question.
+ *
+ * @param question The question to display.
+ * @param modifier The modifier to be applied to the question.
+ */
 @Composable
 fun Question(
     question: String,
@@ -409,6 +497,16 @@ fun Question(
     )
 }
 
+
+/**
+ * Composable function that displays an answer card.
+ *
+ * @param answer The answer to display.
+ * @param isCorrect A boolean that indicates if the answer is correct.
+ * @param onAnswerClick A function to execute when the answer is clicked.
+ * @param isAnswered A boolean that indicates if the question was answered.
+ * @param modifier The modifier to be applied to the card.
+ */
 @Composable
 fun AnswerCard(
     answer: String,
@@ -466,6 +564,12 @@ fun AnswerCard(
 }
 
 
+/**
+ * Composable function that displays the score.
+ *
+ * @param score The score to display.
+ * @param modifier The modifier to be applied to the score.
+ */
 @Composable
 fun ScoreCounter(
     score: Int,
@@ -482,6 +586,13 @@ fun ScoreCounter(
     }
 }
 
+/**
+ * Composable function that displays the question counter.
+ *
+ * @param currentQuestion The current question.
+ * @param totalQuestions The total amount of questions.
+ * @param modifier The modifier to be applied to the question counter.
+ */
 @Composable
 fun QuestionCounter(
     currentQuestion: Int,

@@ -29,6 +29,9 @@ class HistoryViewModel(private val historyRepo: IGameHistoryRepo) : ViewModel() 
         fetchHistory()
     }
 
+    /**
+     * Fetches the game history from the database.
+     */
     fun fetchHistory() {
         try {
             uiListState = historyRepo.getGameHistory().map { HistoryListState(it) }
@@ -39,23 +42,31 @@ class HistoryViewModel(private val historyRepo: IGameHistoryRepo) : ViewModel() 
                 )
             repoState = HistoryRepoState.Success
         } catch (e: IOException) {
-            //TODO ERROR HANDLING
             repoState = HistoryRepoState.Error(e.message ?: "Unknown error")
         }
     }
 
+    /**
+     * Deletes a history item from the database.
+     *
+     * @param item The [HistoryItem] to delete.
+     */
     fun deleteHistoryItem(item: HistoryItem) {
         try {
             viewModelScope.launch {
                 historyRepo.deleteHistoryItem(item)
             }
         } catch (e: IOException) {
-            //TODO ERROR HANDLING
             repoState = HistoryRepoState.Error(e.message ?: "Unknown error")
         }
     }
 
     companion object {
+        /**
+         * Factory for creating [HistoryViewModel].
+         *
+         * @property historyRepo The repository for game history data operations.
+         */
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application =

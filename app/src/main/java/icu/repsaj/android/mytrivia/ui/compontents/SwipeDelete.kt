@@ -13,6 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+/**
+ * Composable function that displays a swipe to delete item.
+ *
+ * @param item The item to be displayed.
+ * @param itemContent The content of the item.
+ * @param onDismiss A function to execute when the item is dismissed.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun <T> SwipeToDelete(
@@ -48,6 +55,11 @@ fun <T> SwipeToDelete(
     }
 }
 
+/**
+ * Composable function that displays the background of a swipe to delete item.
+ *
+ * @param dismissState The state of the item.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DismissBackground(dismissState: DismissState) {

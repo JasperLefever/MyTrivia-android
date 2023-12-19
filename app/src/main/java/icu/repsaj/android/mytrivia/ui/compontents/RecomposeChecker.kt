@@ -7,6 +7,11 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
+/**
+ * A composable function that prints the number of times it recomposes.
+ *
+ * @param viewName The name of the view to be printed.
+ */
 @Composable
 fun RecomposeChecker(viewName: String = "") {
     var recomposeCount by remember { mutableIntStateOf(0) }

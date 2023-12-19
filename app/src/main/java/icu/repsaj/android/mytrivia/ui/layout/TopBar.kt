@@ -19,6 +19,16 @@ import androidx.compose.ui.unit.dp
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
+/**
+ * Composable function that displays the top bar.
+ *
+ * @param currentScreen The current screen.
+ * @param canNavigateBack Whether the user can navigate back.
+ * @param navigateUp A function to navigate up.
+ * @param navigateHistory A function to navigate to the history screen.
+ * @param navigateAddCategory A function to navigate to the add category screen.
+ * @param modifier The modifier to be applied to the top bar.
+ */
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun TopBar(

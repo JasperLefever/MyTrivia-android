@@ -15,6 +15,7 @@ import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
 import icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory
 import java.util.UUID
 
+
 @Composable
 fun NavComponent(
     navController: NavHostController,
