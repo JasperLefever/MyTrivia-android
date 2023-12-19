@@ -24,9 +24,7 @@ import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
-import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.theme.spacing
-import kotlinx.coroutines.delay
 import java.util.UUID
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,16 +37,19 @@ fun CategoryOverviewScreen(
     val categoryListState by viewModel.uiListState.collectAsState()
     val apiState = viewModel.apiState
 
+    //everything to keep the refresh state
     val isRefreshing by remember {
         mutableStateOf(false)
     }
-
     val refreshState = rememberPullRefreshState(
         refreshing = isRefreshing,
         onRefresh = {
             viewModel.refresh()
         }
     )
+    //end of refresh state
+
+    //Check recomposition
     RecomposeChecker(viewName = "CategoryOverviewScreen")
 
     when (apiState) {
@@ -68,45 +69,19 @@ fun CategoryOverviewScreen(
                 ) {
                     if (categoryListState.categoryList.isEmpty()) {
                         item {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(200.dp)
-                            ) {
-                                Text(
-                                    text = stringResource(R.string.no_categories_available),
-                                    modifier = Modifier.align(Alignment.Center),
-                                    style = MaterialTheme.typography.bodyLarge
-                                )
-                            }
-
+                            NoCategoriesFound()
                         }
                     } else {
                         items(
                             items = categoryListState.categoryList,
                             key = { category -> category.id }
                         ) { category ->
-                            var isVisible by remember { mutableStateOf(false) }
-                            LaunchedEffect(key1 = category) {
-                                delay(150L * categoryListState.categoryList.indexOf(category))
-                                isVisible = true
-                            }
-
-                            SwipeToDelete(
-                                item = category,
-                                onDismiss = { deletedCategory ->
-                                    viewModel.deleteCategory(deletedCategory)
-                                },
-                                itemContent = { category ->
-                                    AnimatedCategoryCard(
-                                        name = category.name,
-                                        icon = category.image,
-                                        enabled = category.questionCount > 0,
-                                        onClickPlay = {
-                                            navigateToGame(category.id)
-                                        },
-                                        isVisible = isVisible
-                                    )
+                            AnimatedCategoryCard(
+                                name = category.name,
+                                icon = category.image,
+                                enabled = category.questionCount > 0,
+                                onClickPlay = {
+                                    navigateToGame(category.id)
                                 }
                             )
                         }
@@ -134,18 +109,37 @@ fun CategoryOverviewScreen(
 }
 
 @Composable
+private fun NoCategoriesFound() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.no_categories_available),
+            modifier = Modifier.align(Alignment.Center),
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
+@Composable
 fun AnimatedCategoryCard(
     name: String,
     enabled: Boolean,
     onClickPlay: () -> Unit,
     modifier: Modifier = Modifier,
-    icon: ImageVector = Icons.Filled.QuestionMark,
-    isVisible: Boolean = true
+    icon: ImageVector = Icons.Filled.QuestionMark
 ) {
+    var isVisible by remember { mutableStateOf(false) }
+
+    LaunchedEffect(key1 = true) {
+        isVisible = true
+    }
+
     AnimatedVisibility(
         visible = isVisible,
         enter = slideIn(
-            // Slide in from left to right
             initialOffset = { fullSize -> IntOffset(-fullSize.width, 0) },
             animationSpec = tween(durationMillis = 300)
         )
@@ -159,6 +153,7 @@ fun AnimatedCategoryCard(
         )
     }
 }
+
 
 @Composable
 fun CategoryCard(
@@ -209,7 +204,7 @@ fun CategoryCard(
                     imageVector = Icons.Filled.PlayArrow,
                     contentDescription = null,
                     modifier = Modifier
-                        .size(30.dp)
+                        .size(MaterialTheme.spacing.large)
                         .align(Alignment.CenterVertically),
                     tint = contentColor
                 )
