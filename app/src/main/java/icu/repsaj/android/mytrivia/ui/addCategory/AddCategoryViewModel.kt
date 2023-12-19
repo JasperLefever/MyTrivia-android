@@ -15,7 +15,9 @@ import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.getIcon
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -35,6 +37,9 @@ class AddCategoryViewModel(
 
     private val _uiState = MutableStateFlow(AddCategoryUiState())
     val uiState = _uiState.asStateFlow()
+
+    private val _toastMessage = MutableSharedFlow<String>()
+    val toastMessage = _toastMessage.asSharedFlow()
 
     var apiState: AddCategoryApiState by mutableStateOf(AddCategoryApiState.Init)
         private set
@@ -58,6 +63,7 @@ class AddCategoryViewModel(
                     icon = getIcon(_uiState.value.selectedIcon!!),
                 )
                 categoryRepo.createCategory(category)
+                _toastMessage.emit(resourceProvider.getString(R.string.category_added_successfully))
                 apiState = AddCategoryApiState.Success
                 callback()
             } catch (e: RuntimeException) {

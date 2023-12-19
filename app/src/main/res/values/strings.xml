@@ -22,4 +22,5 @@
     <string name="unknown_error" />
     <string name="error">Error has occured</string>
     <string name="no_questions_found">No questions found for this category\n</string>
+    <string name="category_added_successfully">Category has been created!</string>
 </resources>
