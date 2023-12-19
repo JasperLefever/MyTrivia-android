@@ -14,8 +14,10 @@ import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.getIcon
-import icu.repsaj.android.mytrivia.model.iconMap
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.UUID
 
@@ -23,23 +25,23 @@ class AddCategoryViewModel(
     private val categoryRepo: ICategoryRepo,
     private val resourceProvider: ResourceProvider
 ) : ViewModel() {
-    var categoryName = mutableStateOf("")
-    var selectedIcon = mutableStateOf<ImageVector?>(null)
-    var icons = mutableStateOf(
-        iconMap.values.toList()
-    )
-    var errors: List<String> by mutableStateOf(emptyList())
+
+    private val _uiState = MutableStateFlow(AddCategoryUiState())
+    val uiState = _uiState.asStateFlow()
+
+    var apiState: AddCategoryApiState by mutableStateOf(AddCategoryApiState.Init)
+        private set
 
     fun addCategory(callback: () -> Unit) {
         try {
-            if (!isValid()) {
+            if (_uiState.value.isValid.not()) {
                 return
             }
             viewModelScope.launch {
                 val category = Category(
                     id = UUID.randomUUID(),
-                    name = categoryName.value,
-                    icon = getIcon(selectedIcon.value!!),
+                    name = _uiState.value.categoryName,
+                    icon = getIcon(_uiState.value.selectedIcon!!),
                 )
                 categoryRepo.createCategory(category)
             }
@@ -49,16 +51,56 @@ class AddCategoryViewModel(
         }
     }
 
-    fun isValid(): Boolean {
-        errors = emptyList()
-        if (categoryName.value.isBlank()) {
-            errors =
-                errors + listOf(resourceProvider.getString(R.string.category_name_cannot_be_empty))
+    fun setCategoryName(name: String) {
+        _uiState.update {
+            it.copy(categoryName = name.trim())
         }
-        if (selectedIcon == null) {
-            errors = errors + listOf(resourceProvider.getString(R.string.please_select_an_icon))
+        isValid()
+    }
+
+
+    fun setSelectedIcon(icon: ImageVector) {
+        _uiState.update {
+            it.copy(selectedIcon = icon)
         }
-        return categoryName.value.isNotBlank() && selectedIcon != null
+        isValid()
+    }
+
+
+    private fun validateCategoryName(): Boolean {
+        return if (_uiState.value.categoryName.isBlank()) {
+            _uiState.update {
+                it.copy(nameError = resourceProvider.getString(R.string.category_name_cannot_be_empty))
+            }
+            false
+        } else {
+            _uiState.update {
+                it.copy(nameError = "")
+            }
+            true
+        }
+    }
+
+    private fun validateIcon(): Boolean {
+        return if (_uiState.value.selectedIcon == null) {
+            _uiState.update {
+                it.copy(iconError = resourceProvider.getString(R.string.please_select_an_icon))
+            }
+            false
+        } else {
+            _uiState.update {
+                it.copy(iconError = "")
+            }
+            true
+        }
+    }
+
+    private fun isValid() {
+        _uiState.update {
+            it.copy(
+                isValid = validateCategoryName() && validateIcon()
+            )
+        }
     }
 
     companion object {

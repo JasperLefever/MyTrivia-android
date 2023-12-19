@@ -22,6 +22,8 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.model.iconMap
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 
 @Composable
@@ -37,12 +40,9 @@ fun AddCategoryView(
     viewModel: AddCategoryViewModel = viewModel(factory = AddCategoryViewModel.Factory),
     navigateUp: () -> Unit
 ) {
-    val categoryName = viewModel.categoryName
-    val selectedIcon = viewModel.selectedIcon
-    val icons = viewModel.icons
+    val uiState by viewModel.uiState.collectAsState()
+    val icons = iconMap.values.toList()
     val scrollState = rememberScrollState()
-    val isValid = viewModel.isValid()
-    val errors = viewModel.errors
 
     RecomposeChecker(viewName = "AddCategoryView")
 
@@ -64,8 +64,8 @@ fun AddCategoryView(
                 style = MaterialTheme.typography.labelMedium
             )
             OutlinedTextField(
-                value = categoryName.value,
-                onValueChange = { viewModel.categoryName.value = it },
+                value = uiState.categoryName,
+                onValueChange = { viewModel.setCategoryName(it) },
                 label = { Text(stringResource(R.string.category_name)) },
                 singleLine = true,
                 shape = RoundedCornerShape(8.dp),
@@ -73,6 +73,16 @@ fun AddCategoryView(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
                 ),
+                isError = uiState.nameError.isNotBlank(),
+                supportingText = {
+                    if (uiState.nameError.isNotBlank()) {
+                        Text(
+                            text = uiState.nameError,
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -85,11 +95,11 @@ fun AddCategoryView(
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                icons.value.forEach { icon ->
+                icons.forEach { icon ->
                     OutlinedButton(
-                        onClick = { viewModel.selectedIcon.value = icon },
+                        onClick = { viewModel.setSelectedIcon(icon) },
                         shape = RoundedCornerShape(50),
-                        border = if (icon == selectedIcon.value) {
+                        border = if (icon == uiState.selectedIcon) {
                             BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
                         } else null,
                         colors = ButtonDefaults.outlinedButtonColors(
@@ -101,6 +111,13 @@ fun AddCategoryView(
                     }
                 }
             }
+            if (uiState.iconError.isNotBlank()) {
+                Text(
+                    text = uiState.iconError,
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
 
@@ -108,7 +125,7 @@ fun AddCategoryView(
                 onClick = {
                     viewModel.addCategory(callback = navigateUp)
                 },
-                enabled = isValid,
+                enabled = uiState.isValid,
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -117,17 +134,6 @@ fun AddCategoryView(
                 Text(stringResource(R.string.add_category))
             }
 
-            if (errors.isNotEmpty()) {
-                Column {
-                    errors.forEach { error ->
-                        Text(
-                            text = error,
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                    }
-                }
-            }
         }
     }
 }
