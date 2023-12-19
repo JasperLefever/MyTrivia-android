@@ -15,7 +15,13 @@ import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
 import icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory
 import java.util.UUID
 
-
+/**
+ * Composable function that sets up the navigation graph for the application.
+ * It defines the navigation routes and associates them with corresponding screens.
+ *
+ * @param navController The NavHostController that controls the navigation.
+ * @param modifier The Modifier to be applied to the NavHost.
+ */
 @Composable
 fun NavComponent(
     navController: NavHostController,
