@@ -22,6 +22,7 @@ import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
 import icu.repsaj.android.mytrivia.ui.theme.spacing
@@ -51,7 +52,12 @@ fun CategoryOverviewScreen(
     RecomposeChecker(viewName = "CategoryOverviewScreen")
 
     when (apiState) {
-        is CategoryApiState.Loading -> CircularProgressIndicator()
+        is CategoryApiState.Loading -> {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+        }
+
         is CategoryApiState.Success -> {
             Box(modifier = modifier) {
                 LazyColumn(
@@ -116,7 +122,14 @@ fun CategoryOverviewScreen(
 
         }
 
-        is CategoryApiState.Error -> Text(text = "Error")
+        is CategoryApiState.Error -> {
+            ErrorDialog(
+                dialogTitle = stringResource(id = R.string.error),
+                dialogText = apiState.message,
+                onConfirmation = viewModel::refresh
+            )
+
+        }
     }
 }
 

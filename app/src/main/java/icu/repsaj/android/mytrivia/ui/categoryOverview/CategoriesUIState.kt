@@ -4,7 +4,7 @@ import icu.repsaj.android.mytrivia.model.Category
 
 sealed interface CategoryApiState {
     object Success : CategoryApiState
-    object Error : CategoryApiState
+    data class Error(val message: String) : CategoryApiState
     object Loading : CategoryApiState
 }
 

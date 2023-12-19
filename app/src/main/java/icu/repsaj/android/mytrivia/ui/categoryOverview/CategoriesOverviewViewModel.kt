@@ -8,17 +8,22 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.model.Category
+import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import java.io.IOException
+import java.sql.SQLException
 
-class CategoriesOverviewViewModel(private val categoryRepo: ICategoryRepo) :
+class CategoriesOverviewViewModel(
+    private val categoryRepo: ICategoryRepo,
+    private val resourceProvider: ResourceProvider
+) :
     ViewModel() {
 
     lateinit var uiListState: StateFlow<CategoryListState>
@@ -31,9 +36,24 @@ class CategoriesOverviewViewModel(private val categoryRepo: ICategoryRepo) :
     }
 
     private fun fetchCategories() {
+        viewModelScope.launch {
+            try {
+                categoryRepo.refresh()
+            } catch (e: RuntimeException) {
+                apiState = CategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
+            } catch (e: SQLException) {
+                apiState = CategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
+            } catch (e: Exception) {
+                apiState = CategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
+            }
+        }
         try {
-            viewModelScope.launch { categoryRepo.refresh() }
-
             uiListState = categoryRepo.getCategories().map { CategoryListState(it) }
                 .stateIn(
                     scope = viewModelScope,
@@ -41,30 +61,34 @@ class CategoriesOverviewViewModel(private val categoryRepo: ICategoryRepo) :
                     initialValue = CategoryListState(),
                 )
             apiState = CategoryApiState.Success
-        } catch (e: IOException) {
-            //TODO ERROR HANDLING
-            apiState = CategoryApiState.Error
+        } catch (e: Exception) {
+            apiState = CategoryApiState.Error(
+                message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+            )
         }
 
     }
 
     fun deleteCategory(category: Category) {
-        try {
-            viewModelScope.launch {
+        viewModelScope.launch {
+            try {
                 categoryRepo.deleteCategory(category)
+            } catch (e: RuntimeException) {
+                apiState = CategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
+            } catch (e: Exception) {
+                apiState = CategoryApiState.Error(
+                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
             }
-        } catch (e: IOException) {
-            //TODO ERROR HANDLING
-            apiState = CategoryApiState.Error
         }
     }
 
+
     fun refresh() {
-
         apiState = CategoryApiState.Loading
-
         fetchCategories()
-
     }
 
     companion object {
@@ -75,7 +99,11 @@ class CategoriesOverviewViewModel(private val categoryRepo: ICategoryRepo) :
                     val application =
                         (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TriviaApplication)
                     val categoryRepo = application.container.categoryRepo
-                    Instance = CategoriesOverviewViewModel(categoryRepo = categoryRepo)
+                    val resourceProvider = application.container.resourceProvider
+                    Instance = CategoriesOverviewViewModel(
+                        categoryRepo = categoryRepo,
+                        resourceProvider = resourceProvider
+                    )
                 }
                 Instance!!
             }
