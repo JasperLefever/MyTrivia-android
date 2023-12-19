@@ -10,6 +10,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import icu.repsaj.android.mytrivia.R
 
+/**
+ * A [FontFamily] that uses the Roboto font.
+ */
 val robotoFamily = FontFamily(
     Font(resId = R.font.robotothin, weight = FontWeight.Thin, style = FontStyle.Normal),
     Font(resId = R.font.robotothinitalic, weight = FontWeight.Thin, style = FontStyle.Italic),
@@ -25,7 +28,9 @@ val robotoFamily = FontFamily(
 )
 
 
-// Set of Material typography styles to start with
+/**
+ * A [Typography] that uses the Roboto font.
+ */
 val Typography = Typography(
     displayLarge = TextStyle(
         fontFamily = robotoFamily,

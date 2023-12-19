@@ -14,6 +14,9 @@ import icu.repsaj.android.mytrivia.ui.layout.TopBar
 import icu.repsaj.android.mytrivia.ui.navigation.NavComponent
 import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
+/**
+ * The root [Composable] function for this app.
+ */
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun TriviaApp(
