@@ -44,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
+import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
@@ -60,54 +61,69 @@ fun TriviaGameScreen(
     var animateQuestionChange by remember { mutableStateOf(false) }
 
     val category by viewModel.uiCategory.collectAsState()
+
     RecomposeChecker(viewName = "GameScreen")
 
-    Column(
-        modifier = modifier
-            .padding(MaterialTheme.spacing.medium)
-            .fillMaxHeight(),
-    ) {
-        if (apiState is QuestionsApiState.Loading) {
+    when (apiState) {
+        is QuestionsApiState.Error -> {
+            ErrorDialog(
+                onConfirmation = {
+                    navigateUp()
+                },
+                dialogTitle = stringResource(R.string.error),
+                dialogText = apiState.message,
+            )
+        }
+
+        is QuestionsApiState.Success -> {
+            Column(
+                modifier = modifier
+                    .padding(MaterialTheme.spacing.medium)
+                    .fillMaxHeight(),
+            ) {
+                CategoryTitle(currentCategory = category.name)
+
+                AnimatedGameCard(
+                    currentQuestion = viewModel.getCurrentQuestion(),
+                    currentQuestionIndex = gameUIState.currentQuestionIndex + 1,
+                    totalQuestions = viewModel.getAmountOfQuestions(),
+                    score = gameUIState.score,
+                    checkAnswer = viewModel::checkAnswer,
+                    isAnswered = gameUIState.isAnswered,
+                    animateQuestionChange = animateQuestionChange,
+                    onAnimationEnd = {
+                        animateQuestionChange = false
+                        viewModel.nextQuestion()
+                    }
+                )
+
+                if (viewModel.showScoreDialog()) {
+                    ScoreDialog(
+                        onConfirmation = {
+                            viewModel.saveHistoryItem()
+                            navigateUp()
+                        },
+                        dialogTitle = stringResource(R.string.game_over),
+                        dialogText = stringResource(R.string.final_score, gameUIState.score),
+                        icon = Icons.Filled.Check
+                    )
+                }
+                if (!viewModel.isLastQuestion()) {
+                    NextQuestion(
+                        nextQuestion = {
+                            if (!animateQuestionChange) {
+                                animateQuestionChange = true
+                            }
+                        },
+                        isEnabled = gameUIState.isAnswered
+                    )
+                }
+            }
+        }
+
+        is QuestionsApiState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
-            }
-        } else {
-            CategoryTitle(currentCategory = category.name)
-
-            AnimatedGameCard(
-                currentQuestion = viewModel.getCurrentQuestion(),
-                currentQuestionIndex = gameUIState.currentQuestionIndex + 1,
-                totalQuestions = viewModel.getAmountOfQuestions(),
-                score = gameUIState.score,
-                checkAnswer = viewModel::checkAnswer,
-                isAnswered = gameUIState.isAnswered,
-                animateQuestionChange = animateQuestionChange,
-                onAnimationEnd = {
-                    animateQuestionChange = false
-                    viewModel.nextQuestion()
-                }
-            )
-
-            if (viewModel.showScoreDialog()) {
-                ScoreDialog(
-                    onConfirmation = {
-                        viewModel.saveHistoryItem()
-                        navigateUp()
-                    },
-                    dialogTitle = stringResource(R.string.game_over),
-                    dialogText = stringResource(R.string.final_score, gameUIState.score),
-                    icon = Icons.Filled.Check
-                )
-            }
-            if (!viewModel.isLastQuestion()) {
-                NextQuestion(
-                    nextQuestion = {
-                        if (!animateQuestionChange) {
-                            animateQuestionChange = true
-                        }
-                    },
-                    isEnabled = gameUIState.isAnswered
-                )
             }
         }
     }
@@ -204,8 +220,6 @@ private fun GameCard(
     checkAnswer: (TriviaAnswer) -> Unit,
     isAnswered: Boolean
 ) {
-    var selectedAnswer by remember { mutableStateOf<String?>(null) }
-
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()

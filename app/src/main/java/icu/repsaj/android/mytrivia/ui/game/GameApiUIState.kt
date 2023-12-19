@@ -5,7 +5,7 @@ import icu.repsaj.android.mytrivia.model.TriviaQuestion
 
 sealed interface QuestionsApiState {
     object Success : QuestionsApiState
-    object Error : QuestionsApiState
+    data class Error(val message: String) : QuestionsApiState
     object Loading : QuestionsApiState
 }
 

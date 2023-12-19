@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.TriviaApplication
 import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.data.IGameHistoryRepo
@@ -16,6 +17,7 @@ import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.HistoryItem
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
+import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -32,7 +34,8 @@ class GameViewModel(
     val categoryId: UUID,
     private val questionRepo: IQuestionRepo,
     private val historyRepo: IGameHistoryRepo,
-    private val categoryRepo: ICategoryRepo
+    private val categoryRepo: ICategoryRepo,
+    private val resourceProvider: ResourceProvider
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(GameUIState())
@@ -108,11 +111,13 @@ class GameViewModel(
                     }
                     QuestionsApiState.Success
                 } else {
-                    QuestionsApiState.Error
+                    QuestionsApiState.Error(resourceProvider.getString(R.string.no_questions_found))
                 }
-            } catch (e: Exception) {
+            } catch (e: RuntimeException) {
                 e.printStackTrace()
-                QuestionsApiState.Error
+                QuestionsApiState.Error(
+                    e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
             }
         }
 
@@ -121,7 +126,6 @@ class GameViewModel(
     private fun getCategory() {
         viewModelScope.launch {
             try {
-
                 uiCategory = categoryRepo.getCategoryById(categoryId)
                     .map { it }
                     .stateIn(
@@ -129,9 +133,11 @@ class GameViewModel(
                         started = SharingStarted.WhileSubscribed(5_000L),
                         initialValue = Category(UUID.randomUUID(), "Loading", "loading", 0),
                     )
-
-            } catch (e: Exception) {
+            } catch (e: RuntimeException) {
                 e.printStackTrace()
+                apiState = QuestionsApiState.Error(
+                    e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
             }
         }
     }
@@ -145,11 +151,13 @@ class GameViewModel(
                 val questionRepo = application.container.questionRepo
                 val historyRepo = application.container.historyRepo
                 val categoryRepo = application.container.categoryRepo
+                val resourceProvider = application.container.resourceProvider
                 GameViewModel(
                     categoryId = categoryId,
                     questionRepo = questionRepo,
                     historyRepo = historyRepo,
-                    categoryRepo = categoryRepo
+                    categoryRepo = categoryRepo,
+                    resourceProvider = resourceProvider
                 )
             }
         }
