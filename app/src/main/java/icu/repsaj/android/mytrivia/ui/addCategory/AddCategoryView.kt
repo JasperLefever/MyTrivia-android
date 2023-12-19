@@ -40,6 +40,12 @@ import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.theme.spacing
 
+/**
+ * Composable function that displays the UI for adding a new category.
+ *
+ * @param viewModel The ViewModel that provides the state and handles logic.
+ * @param navigateUp A function to navigate back to the previous screen.
+ */
 @Composable
 fun AddCategoryView(
     viewModel: AddCategoryViewModel = viewModel(factory = AddCategoryViewModel.Factory),
@@ -112,6 +118,14 @@ fun AddCategoryView(
     }
 }
 
+/**
+ * Composable function that displays a text field for category name input.
+ *
+ * @param categoryName The current name entered in the text field.
+ * @param onCategoryNameChanged A lambda that is called when the text changes.
+ * @param error An error message to be displayed if the input is invalid.
+ * @param modifier The modifier to be applied to the text field.
+ */
 @Composable
 private fun CategoryNameInput(
     categoryName: String,
@@ -147,19 +161,28 @@ private fun CategoryNameInput(
     )
 }
 
+/**
+ * Composable function that displays a horizontal scrollable row of icons.
+ *
+ * @param icons A list of ImageVectors representing the icons that can be selected.
+ * @param onIconChanged A lambda that is called when an icon is selected.
+ * @param selectedIcon The currently selected icon.
+ * @param error An error message to be displayed if no icon is selected.
+ * @param modifier The modifier to be applied to the icon selector.
+ */
 @Composable
 private fun IconSelector(
     icons: List<ImageVector>,
     onIconChanged: (ImageVector) -> Unit,
-    selectedIcon: ImageVector? = null,
     error: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    selectedIcon: ImageVector? = null,
 ) {
     val scrollState = rememberScrollState()
 
     Text(stringResource(R.string.select_icon), style = MaterialTheme.typography.labelMedium)
     Row(
-        modifier = Modifier
+        modifier = modifier
             .horizontalScroll(scrollState)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.extraSmall)
