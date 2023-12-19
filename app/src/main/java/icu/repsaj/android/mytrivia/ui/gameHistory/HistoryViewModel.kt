@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
-import icu.repsaj.android.mytrivia.data.GameHistoryRepo
+import icu.repsaj.android.mytrivia.data.IGameHistoryRepo
 import icu.repsaj.android.mytrivia.model.HistoryItem
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class HistoryViewModel(private val historyRepo: GameHistoryRepo) : ViewModel() {
+class HistoryViewModel(private val historyRepo: IGameHistoryRepo) : ViewModel() {
 
     lateinit var uiListState: StateFlow<HistoryListState>
 

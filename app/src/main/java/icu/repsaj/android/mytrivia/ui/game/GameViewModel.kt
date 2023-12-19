@@ -9,8 +9,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
-import icu.repsaj.android.mytrivia.data.GameHistoryRepo
 import icu.repsaj.android.mytrivia.data.ICategoryRepo
+import icu.repsaj.android.mytrivia.data.IGameHistoryRepo
 import icu.repsaj.android.mytrivia.data.IQuestionRepo
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.HistoryItem
@@ -31,7 +31,7 @@ import java.util.UUID
 class GameViewModel(
     val categoryId: UUID,
     private val questionRepo: IQuestionRepo,
-    private val historyRepo: GameHistoryRepo,
+    private val historyRepo: IGameHistoryRepo,
     private val categoryRepo: ICategoryRepo
 ) : ViewModel() {
 

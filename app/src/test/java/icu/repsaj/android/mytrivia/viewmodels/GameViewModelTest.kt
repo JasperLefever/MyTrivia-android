@@ -1,7 +1,7 @@
 package icu.repsaj.android.mytrivia.viewmodels
 
-import icu.repsaj.android.mytrivia.data.GameHistoryRepo
 import icu.repsaj.android.mytrivia.data.ICategoryRepo
+import icu.repsaj.android.mytrivia.data.IGameHistoryRepo
 import icu.repsaj.android.mytrivia.data.IQuestionRepo
 import icu.repsaj.android.mytrivia.fakes.FakeDataSource
 import icu.repsaj.android.mytrivia.network.categroy.asDomainObject
@@ -42,7 +42,7 @@ class GameViewModelTest {
     private lateinit var questionRepo: IQuestionRepo
 
     @Mock
-    private lateinit var historyRepo: GameHistoryRepo
+    private lateinit var historyRepo: IGameHistoryRepo
 
     @Mock
     private lateinit var categoryRepo: ICategoryRepo
