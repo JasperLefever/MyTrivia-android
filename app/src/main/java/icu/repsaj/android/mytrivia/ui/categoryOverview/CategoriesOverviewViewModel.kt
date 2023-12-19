@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import java.sql.SQLException
 
 class CategoriesOverviewViewModel(
     private val categoryRepo: ICategoryRepo,
@@ -40,14 +39,6 @@ class CategoriesOverviewViewModel(
             try {
                 categoryRepo.refresh()
             } catch (e: RuntimeException) {
-                apiState = CategoryApiState.Error(
-                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
-                )
-            } catch (e: SQLException) {
-                apiState = CategoryApiState.Error(
-                    message = e.message ?: resourceProvider.getString(R.string.unknown_error)
-                )
-            } catch (e: Exception) {
                 apiState = CategoryApiState.Error(
                     message = e.message ?: resourceProvider.getString(R.string.unknown_error)
                 )

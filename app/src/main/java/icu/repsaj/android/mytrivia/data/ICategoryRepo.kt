@@ -104,6 +104,7 @@ class CachingCategoryRepository(
      * Creates a new category via the API. After a successful creation, it refreshes the local database.
      *
      * @param category The [Category] to be created remotely.
+     * @throws RuntimeException if an error occurs.
      */
     override suspend fun createCategory(category: Category) {
         try {
@@ -128,6 +129,7 @@ class CachingCategoryRepository(
      * Deletes a category via the API. After a successful deletion, it refreshes the local database.
      *
      * @param category The [Category] to be deleted.
+     * @throws RuntimeException if an error occurs.
      */
     override suspend fun deleteCategory(category: Category) {
         try {
@@ -153,7 +155,7 @@ class CachingCategoryRepository(
      * Refreshes the local category database by fetching the latest data from the API.
      * It clears the current data and repopulates it with the latest data.
      * In case of a network timeout, an appropriate action such as logging can be implemented.
-     *
+     * @throws RuntimeException if an error occurs.
      */
     override suspend fun refresh() {
         try {
