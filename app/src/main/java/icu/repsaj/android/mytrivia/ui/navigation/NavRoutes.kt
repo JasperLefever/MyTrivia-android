@@ -16,7 +16,10 @@ enum class NavRoutes(@StringRes val title: Int, val icon: ImageVector) {
     AddCategory(title = R.string.add_category, icon = Icons.Filled.Add);
 
     fun withArgs(vararg args: String): String {
-        return this.name + args.joinToString(separator = "/", prefix = "/")
+        return this.name + if (args.isEmpty()) "" else args.joinToString(
+            separator = "/",
+            prefix = "/"
+        )
     }
 
     companion object {

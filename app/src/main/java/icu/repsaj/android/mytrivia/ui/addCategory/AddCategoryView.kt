@@ -114,7 +114,7 @@ fun AddCategoryView(
                     .fillMaxWidth()
                     .height(50.dp)
             ) {
-                Text("Add Category")
+                Text(stringResource(R.string.add_category))
             }
 
             if (errors.isNotEmpty()) {
