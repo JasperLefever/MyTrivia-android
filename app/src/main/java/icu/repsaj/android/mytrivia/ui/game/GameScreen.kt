@@ -1,5 +1,6 @@
 package icu.repsaj.android.mytrivia.ui.game
 
+import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
@@ -39,9 +40,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
 import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
@@ -57,6 +60,9 @@ fun TriviaGameScreen(
 ) {
     val gameUIState by viewModel.uiState.collectAsState()
     val apiState = viewModel.apiState
+
+    val configuration = LocalConfiguration.current
+    val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     var animateQuestionChange by remember { mutableStateOf(false) }
 
@@ -76,49 +82,28 @@ fun TriviaGameScreen(
         }
 
         is QuestionsApiState.Success -> {
-            Column(
-                modifier = modifier
-                    .padding(MaterialTheme.spacing.medium)
-                    .fillMaxHeight(),
-            ) {
-                CategoryTitle(currentCategory = category.name)
-
-                AnimatedGameCard(
-                    currentQuestion = viewModel.getCurrentQuestion(),
-                    currentQuestionIndex = gameUIState.currentQuestionIndex + 1,
-                    totalQuestions = viewModel.getAmountOfQuestions(),
-                    score = gameUIState.score,
-                    checkAnswer = viewModel::checkAnswer,
-                    isAnswered = gameUIState.isAnswered,
+            if (isLandscape) {
+                TriviaGameScreenLandscape(
+                    viewModel = viewModel,
+                    gameUIState = gameUIState,
                     animateQuestionChange = animateQuestionChange,
-                    onAnimationEnd = {
-                        animateQuestionChange = false
-                        viewModel.nextQuestion()
-                    }
+                    setAnimateQuestionChange = { animateQuestionChange = it },
+                    category = category,
+                    navigateUp = navigateUp,
+                    modifier = modifier
                 )
-
-                if (viewModel.showScoreDialog()) {
-                    ScoreDialog(
-                        onConfirmation = {
-                            viewModel.saveHistoryItem()
-                            navigateUp()
-                        },
-                        dialogTitle = stringResource(R.string.game_over),
-                        dialogText = stringResource(R.string.final_score, gameUIState.score),
-                        icon = Icons.Filled.Check
-                    )
-                }
-                if (!viewModel.isLastQuestion()) {
-                    NextQuestion(
-                        nextQuestion = {
-                            if (!animateQuestionChange) {
-                                animateQuestionChange = true
-                            }
-                        },
-                        isEnabled = gameUIState.isAnswered
-                    )
-                }
+            } else {
+                TriviaGameScreenPortrait(
+                    viewModel = viewModel,
+                    gameUIState = gameUIState,
+                    animateQuestionChange = animateQuestionChange,
+                    setAnimateQuestionChange = { animateQuestionChange = it },
+                    category = category,
+                    navigateUp = navigateUp,
+                    modifier = modifier
+                )
             }
+
         }
 
         is QuestionsApiState.Loading -> {
@@ -126,6 +111,150 @@ fun TriviaGameScreen(
                 CircularProgressIndicator()
             }
         }
+    }
+}
+
+@Composable
+fun TriviaGameScreenPortrait(
+    viewModel: GameViewModel,
+    gameUIState: GameUIState,
+    animateQuestionChange: Boolean,
+    setAnimateQuestionChange: (Boolean) -> Unit,
+    category: Category,
+    navigateUp: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .padding(MaterialTheme.spacing.medium)
+            .fillMaxHeight(),
+    ) {
+        CategoryTitle(currentCategory = category.name)
+
+        AnimatedGameCard(
+            currentQuestion = viewModel.getCurrentQuestion(),
+            currentQuestionIndex = gameUIState.currentQuestionIndex + 1,
+            totalQuestions = viewModel.getAmountOfQuestions(),
+            score = gameUIState.score,
+            checkAnswer = viewModel::checkAnswer,
+            isAnswered = gameUIState.isAnswered,
+            animateQuestionChange = animateQuestionChange,
+            onAnimationEnd = {
+                setAnimateQuestionChange(false)
+                viewModel.nextQuestion()
+            }
+        )
+
+        if (viewModel.showScoreDialog()) {
+            ScoreDialog(
+                onConfirmation = {
+                    viewModel.saveHistoryItem()
+                    navigateUp()
+                },
+                dialogTitle = stringResource(R.string.game_over),
+                dialogText = stringResource(R.string.final_score, gameUIState.score),
+                icon = Icons.Filled.Check
+            )
+        }
+        if (!viewModel.isLastQuestion()) {
+            NextQuestion(
+                nextQuestion = {
+                    if (!animateQuestionChange) {
+                        setAnimateQuestionChange(true)
+                    }
+                },
+                isEnabled = gameUIState.isAnswered
+            )
+        }
+    }
+}
+
+@Composable
+fun TriviaGameScreenLandscape(
+    viewModel: GameViewModel,
+    gameUIState: GameUIState,
+    animateQuestionChange: Boolean,
+    setAnimateQuestionChange: (Boolean) -> Unit,
+    category: Category,
+    navigateUp: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .padding(MaterialTheme.spacing.medium)
+            .fillMaxHeight(),
+    ) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .padding(end = MaterialTheme.spacing.small)
+        ) {
+            CategoryTitle(currentCategory = category.name)
+
+            Question(question = viewModel.getCurrentQuestion().question)
+            Row {
+                ScoreCounter(score = gameUIState.score)
+                QuestionCounter(
+                    currentQuestion = gameUIState.currentQuestionIndex + 1,
+                    totalQuestions = viewModel.getAmountOfQuestions()
+                )
+            }
+
+            Spacer(modifier = Modifier.padding(MaterialTheme.spacing.medium))
+
+            if (viewModel.showScoreDialog()) {
+                ScoreDialog(
+                    onConfirmation = {
+                        viewModel.saveHistoryItem()
+                        navigateUp()
+                    },
+                    dialogTitle = stringResource(R.string.game_over),
+                    dialogText = stringResource(R.string.final_score, gameUIState.score),
+                    icon = Icons.Filled.Check
+                )
+            }
+            if (!viewModel.isLastQuestion()) {
+                NextQuestion(
+                    nextQuestion = {
+                        viewModel.nextQuestion()
+                    },
+                    isEnabled = gameUIState.isAnswered
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+        ) {
+
+            AnswerCardsLandscape(
+                answers = viewModel.getCurrentQuestion().answers,
+                isAnswered = gameUIState.isAnswered,
+                checkAnswer = viewModel::checkAnswer
+            )
+
+        }
+    }
+}
+
+@Composable
+fun AnswerCardsLandscape(
+    answers: List<TriviaAnswer>,
+    isAnswered: Boolean,
+    checkAnswer: (TriviaAnswer) -> Unit
+) {
+    answers.forEach { answer ->
+        AnswerCard(
+            answer = answer.answer,
+            isCorrect = answer.isCorrect,
+            onAnswerClick = {
+                checkAnswer(answer)
+            },
+            isAnswered = isAnswered
+        )
     }
 }
 
