@@ -53,7 +53,7 @@ fun CategoryOverviewScreen(
     when (apiState) {
         is CategoryApiState.Loading -> CircularProgressIndicator()
         is CategoryApiState.Success -> {
-            Box {
+            Box(modifier = modifier) {
                 LazyColumn(
                     modifier = Modifier
                         .padding(top = MaterialTheme.spacing.small)
@@ -149,11 +149,11 @@ fun AnimatedCategoryCard(
 
 @Composable
 fun CategoryCard(
-    name: String = "",
-    icon: ImageVector = Icons.Filled.QuestionMark,
+    name: String,
     enabled: Boolean,
-    onClickPlay: () -> Unit = {},
-    modifier: Modifier = Modifier
+    onClickPlay: () -> Unit,
+    modifier: Modifier = Modifier,
+    icon: ImageVector = Icons.Filled.QuestionMark
 ) {
     val contentColor = if (enabled) MaterialTheme.colorScheme.onSurface
     else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)

@@ -30,7 +30,7 @@ class CategoriesOverviewViewModel(private val categoryRepo: ICategoryRepo) :
         fetchCategories()
     }
 
-    fun fetchCategories() {
+    private fun fetchCategories() {
         try {
             viewModelScope.launch { categoryRepo.refresh() }
 

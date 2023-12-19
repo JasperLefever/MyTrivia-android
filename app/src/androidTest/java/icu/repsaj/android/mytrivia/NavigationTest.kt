@@ -18,7 +18,7 @@ import org.junit.Test
 class NavigationTest {
     @get:Rule
     val composeTestRule = createComposeRule()
-    lateinit var navController: TestNavHostController
+    private lateinit var navController: TestNavHostController
 
     private val category: String = "Music"
 

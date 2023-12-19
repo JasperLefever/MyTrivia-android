@@ -36,7 +36,7 @@ class GameViewModel(
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(GameUIState())
-    public val uiState = _uiState.asStateFlow();
+    val uiState = _uiState.asStateFlow()
 
     lateinit var uiCategory: StateFlow<Category>
 
@@ -99,20 +99,20 @@ class GameViewModel(
 
     fun fetchQuestions() {
         viewModelScope.launch {
-            try {
+            apiState = try {
                 val questionsFlow = questionRepo.getQuestions(categoryId)
                 if (questionsFlow != null) {
                     val questions = questionsFlow.toList().flatten()
                     _uiState.update { currentState ->
                         currentState.copy(questions = questions)
                     }
-                    apiState = QuestionsApiState.Success
+                    QuestionsApiState.Success
                 } else {
-                    apiState = QuestionsApiState.Error
+                    QuestionsApiState.Error
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-                apiState = QuestionsApiState.Error
+                QuestionsApiState.Error
             }
         }
 

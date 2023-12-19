@@ -24,7 +24,7 @@ fun BottomBar(
         mutableStateOf(listOf(NavRoutes.Categories, NavRoutes.History))
     }
 
-    NavigationBar {
+    NavigationBar(modifier = modifier) {
         items.forEach { item ->
             NavigationBarItem(
                 icon = {

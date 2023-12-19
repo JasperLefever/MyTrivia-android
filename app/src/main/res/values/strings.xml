@@ -4,9 +4,6 @@
     <string name="back_button">Go Back</string>
     <string name="game">Game</string>
     <string name="history">History</string>
-    <string name="quit_game">Quit Game</string>
-    <string name="confirm_quit_game">Are you sure you want to quit the game?</string>
-    <string name="dismiss">Dismiss</string>
     <string name="confirm">Confirm</string>
     <string name="gamescreen_question_counter">Question %1$s/%2$s</string>
     <string name="gamescreen_score">Score: %1$s</string>
@@ -15,13 +12,9 @@
     <string name="final_score">You scored %1$s points!</string>
     <string name="retry">Retry</string>
     <string name="no_history_items_available">No history items available</string>
-    <string name="delete_swipe">delete</string>
-    <string name="item_removed">Item removed</string>
     <string name="add_category">Add Category</string>
-    <string name="please_fill_out_all_fields">Please fill out all fields</string>
     <string name="category_name_cannot_be_empty">Category name cannot be empty</string>
     <string name="please_select_an_icon">Please select an icon</string>
-    <string name="add_question">Add Question</string>
     <string name="select_icon">SELECT ICON</string>
     <string name="category_name">Category Name</string>
     <string name="category_information">CATEGORY INFORMATION</string>

@@ -49,7 +49,7 @@ import icu.repsaj.android.mytrivia.ui.theme.spacing
 import kotlinx.coroutines.delay
 
 @Composable
-public fun TriviaGameScreen(
+fun TriviaGameScreen(
     navigateUp: () -> Unit,
     viewModel: GameViewModel,
     modifier: Modifier = Modifier
@@ -63,7 +63,7 @@ public fun TriviaGameScreen(
     RecomposeChecker(viewName = "GameScreen")
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .padding(MaterialTheme.spacing.medium)
             .fillMaxHeight(),
     ) {
@@ -261,7 +261,8 @@ fun Question(
     Text(
         text = question,
         style = MaterialTheme.typography.titleLarge,
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Center,
+        modifier = modifier
     )
 }
 
@@ -345,7 +346,7 @@ fun QuestionCounter(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = Modifier
+        modifier = modifier
     ) {
         Text(
             text = stringResource(

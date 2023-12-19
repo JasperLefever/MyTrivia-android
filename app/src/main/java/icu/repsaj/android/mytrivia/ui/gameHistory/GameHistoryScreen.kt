@@ -150,12 +150,11 @@ fun HistoryItemCard(
                 text = stringResource(id = R.string.gamescreen_score, score),
                 style = MaterialTheme.typography.bodyLarge,
             )
-        }
+        }, modifier = modifier
     )
     Divider()
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HistoryItem(
     historyItem: HistoryItem,
@@ -169,7 +168,8 @@ fun HistoryItem(
                 ranking = item.id!!,
                 category = item.category,
                 score = item.score,
-                date = item.date
+                date = item.date,
+                modifier = modifier
             )
         },
         onDismiss = onRemove

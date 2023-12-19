@@ -1,10 +1,8 @@
 package icu.repsaj.android.mytrivia.fakes
 
-import icu.repsaj.android.mytrivia.network.Metadata
 import icu.repsaj.android.mytrivia.network.categroy.ApiCategory
 import icu.repsaj.android.mytrivia.network.question.ApiAnswer
 import icu.repsaj.android.mytrivia.network.question.ApiQuestion
-import icu.repsaj.android.mytrivia.network.question.QuestionResponse
 import java.util.UUID
 
 object FakeDataSource {
@@ -43,10 +41,5 @@ object FakeDataSource {
             ),
             category = category,
         ),
-    )
-
-    val questionResponse = QuestionResponse(
-        metadata = Metadata(page = 1, per = 10, total = 3),
-        items = questions,
     )
 }

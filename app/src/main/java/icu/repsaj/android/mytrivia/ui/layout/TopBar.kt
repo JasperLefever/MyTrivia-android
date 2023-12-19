@@ -21,7 +21,7 @@ import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-public fun TopBar(
+fun TopBar(
     currentScreen: NavRoutes,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
