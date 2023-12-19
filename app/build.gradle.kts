@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
     id("com.google.devtools.ksp")
+    id("org.jetbrains.dokka") version "1.9.10"
 }
 
 android {
@@ -64,6 +65,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("eu.bambooapps:compose-material3-pullrefresh:1.0.0")
     implementation("androidx.compose.material3:material3-window-size-class")
+    dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:1.9.10")
 
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
