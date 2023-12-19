@@ -11,4 +11,5 @@ project first. (the app works without but there wont be any data ;) )
 ## Documentation
 
 Documentation in html can be found in the documentation folder under html.
+
 Documentation in markdown can be found [here](./documentation/markdown/index.md)
