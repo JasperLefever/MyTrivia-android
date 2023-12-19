@@ -11,7 +11,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.TriviaApplication
-import icu.repsaj.android.mytrivia.data.CategoryRepo
+import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.getIcon
 import icu.repsaj.android.mytrivia.model.iconMap
@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import java.util.UUID
 
 class AddCategoryViewModel(
-    private val categoryRepo: CategoryRepo,
+    private val categoryRepo: ICategoryRepo,
     private val resourceProvider: ResourceProvider
 ) : ViewModel() {
     var categoryName = mutableStateOf("")

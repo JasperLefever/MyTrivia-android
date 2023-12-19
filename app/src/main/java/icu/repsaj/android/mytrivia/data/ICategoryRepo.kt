@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.map
 import java.net.SocketTimeoutException
 import java.util.UUID
 
-interface CategoryRepo {
+interface ICategoryRepo {
     fun getCategories(): Flow<List<Category>>
 
     fun getCategoryById(id: UUID): Flow<Category>
@@ -31,7 +31,7 @@ interface CategoryRepo {
 class CachingCategoryRepository(
     private val categoryDao: CategoryDao,
     private val categoryApi: ICategoryApiService
-) : CategoryRepo {
+) : ICategoryRepo {
     override fun getCategories(): Flow<List<Category>> {
         return categoryDao.getAll().map {
             it.asDomainObjects()

@@ -8,14 +8,13 @@ import kotlinx.coroutines.flow.Flow
 import java.util.UUID
 
 
-interface QuestionRepo {
+interface IQuestionRepo {
     fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>
-
 }
 
 class ApiQuestionRepo(
     private val questionApiService: IQuestionApiService
-) : QuestionRepo {
+) : IQuestionRepo {
     override fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>> {
         return questionApiService.getQuestionsAsFlow(categoryId = categoryId).asDomainObjects()
     }

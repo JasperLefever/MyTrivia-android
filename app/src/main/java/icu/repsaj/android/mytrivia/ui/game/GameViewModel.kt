@@ -9,9 +9,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
-import icu.repsaj.android.mytrivia.data.CategoryRepo
 import icu.repsaj.android.mytrivia.data.GameHistoryRepo
-import icu.repsaj.android.mytrivia.data.QuestionRepo
+import icu.repsaj.android.mytrivia.data.ICategoryRepo
+import icu.repsaj.android.mytrivia.data.IQuestionRepo
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.model.HistoryItem
 import icu.repsaj.android.mytrivia.model.TriviaAnswer
@@ -30,9 +30,9 @@ import java.util.UUID
 
 class GameViewModel(
     val categoryId: UUID,
-    private val questionRepo: QuestionRepo,
+    private val questionRepo: IQuestionRepo,
     private val historyRepo: GameHistoryRepo,
-    private val categoryRepo: CategoryRepo
+    private val categoryRepo: ICategoryRepo
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(GameUIState())
@@ -97,22 +97,25 @@ class GameViewModel(
         }
     }
 
-    private fun fetchQuestions() {
+    fun fetchQuestions() {
         viewModelScope.launch {
             try {
-                val questions = questionRepo.getQuestions(categoryId).toList().flatten()
-
-                _uiState.update { currentState ->
-                    currentState.copy(questions = questions)
+                val questionsFlow = questionRepo.getQuestions(categoryId)
+                if (questionsFlow != null) {
+                    val questions = questionsFlow.toList().flatten()
+                    _uiState.update { currentState ->
+                        currentState.copy(questions = questions)
+                    }
+                    apiState = QuestionsApiState.Success
+                } else {
+                    apiState = QuestionsApiState.Error
                 }
-
-                apiState = QuestionsApiState.Success
             } catch (e: Exception) {
                 e.printStackTrace()
-
                 apiState = QuestionsApiState.Error
             }
         }
+
     }
 
     private fun getCategory() {

@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.TriviaApplication
-import icu.repsaj.android.mytrivia.data.CategoryRepo
+import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.model.Category
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class CategoriesOverviewViewModel(private val categoryRepo: CategoryRepo) :
+class CategoriesOverviewViewModel(private val categoryRepo: ICategoryRepo) :
     ViewModel() {
 
     lateinit var uiListState: StateFlow<CategoryListState>

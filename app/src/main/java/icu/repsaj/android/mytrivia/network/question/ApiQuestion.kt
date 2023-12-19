@@ -29,6 +29,14 @@ data class ApiAnswer(
     val questionId: UUID
 )
 
+fun ApiAnswer.asDomainObject(): TriviaAnswer {
+    return TriviaAnswer(
+        id = this.id,
+        answer = this.answerText,
+        isCorrect = this.isCorrect
+    )
+}
+
 
 @Serializable
 data class QuestionResponse(

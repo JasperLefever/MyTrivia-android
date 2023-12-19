@@ -46,3 +46,12 @@ fun List<ApiCategory>.asDomainObjects(): List<Category> {
         )
     }
 }
+
+fun ApiCategory.asDomainObject(): Category {
+    return Category(
+        id = this.id,
+        name = this.name,
+        icon = this.icon,
+        questionCount = this.questionCount
+    )
+}

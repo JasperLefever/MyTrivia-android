@@ -12,9 +12,9 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
 interface AppContainer {
-    val categoryRepo: CategoryRepo
+    val categoryRepo: ICategoryRepo
     val historyRepo: GameHistoryRepo
-    val questionRepo: QuestionRepo
+    val questionRepo: IQuestionRepo
     val resourceProvider: ResourceProvider
 }
 
@@ -36,7 +36,7 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
         retrofit.create(IQuestionApiService::class.java)
     }
 
-    override val categoryRepo: CategoryRepo by lazy {
+    override val categoryRepo: ICategoryRepo by lazy {
         CachingCategoryRepository(
             TriviaDb.getDatabase(context = context).categoryDao(),
             categoryApiService
@@ -49,7 +49,7 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
         )
     }
 
-    override val questionRepo: QuestionRepo by lazy {
+    override val questionRepo: IQuestionRepo by lazy {
         ApiQuestionRepo(questionApiService)
     }
 
