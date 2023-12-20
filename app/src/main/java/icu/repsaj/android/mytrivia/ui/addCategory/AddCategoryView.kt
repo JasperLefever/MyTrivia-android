@@ -168,7 +168,7 @@ private fun CategoryNameInput(
                 )
             }
         },
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
     )
 }
 

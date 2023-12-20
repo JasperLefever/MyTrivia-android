@@ -89,13 +89,13 @@ fun CategoryOverviewScreen(
                                 onDismiss = { deletedCategory ->
                                     viewModel.deleteCategory(deletedCategory)
                                 },
-                                itemContent = { category ->
+                                itemContent = { category1 ->
                                     AnimatedCategoryCard(
-                                        name = category.name,
-                                        icon = category.image,
-                                        enabled = category.questionCount > 0,
+                                        name = category1.name,
+                                        icon = category1.image,
+                                        enabled = category1.questionCount > 0,
                                         onClickPlay = {
-                                            navigateToGame(category.id)
+                                            navigateToGame(category1.id)
                                         }
                                     )
                                 }

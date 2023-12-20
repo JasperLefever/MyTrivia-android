@@ -18,7 +18,7 @@ interface IQuestionRepo {
      * @param categoryId The UUID of the category for which questions are to be retrieved.
      * @return A [Flow] emitting a list of [TriviaQuestion] for the specified category.
      */
-    fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>
+    suspend fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>>
 }
 
 /**
@@ -37,7 +37,7 @@ class ApiQuestionRepo(
      * @param categoryId The UUID of the category for which questions are to be fetched.
      * @return A [Flow] emitting a list of [TriviaQuestion]s for the specified category.
      */
-    override fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>> {
+    override suspend fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>> {
         return questionApiService.getQuestionsAsFlow(categoryId = categoryId).asDomainObjects()
     }
 }
