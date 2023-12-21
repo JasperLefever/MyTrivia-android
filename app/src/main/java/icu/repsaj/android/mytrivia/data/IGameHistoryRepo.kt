@@ -16,7 +16,7 @@ interface IGameHistoryRepo {
      *
      * @return A [Flow] emitting a list of [HistoryItem], representing the game history.
      */
-    suspend fun getGameHistory(): Flow<List<HistoryItem>>
+    fun getGameHistory(): Flow<List<HistoryItem>>
 
     /**
      * Inserts a new [HistoryItem] into the game history.
@@ -47,7 +47,7 @@ class GameHistoryRepository(
      *
      * @return A [Flow] emitting a list of [HistoryItem]s.
      */
-    override suspend fun getGameHistory(): Flow<List<HistoryItem>> {
+    override fun getGameHistory(): Flow<List<HistoryItem>> {
         return historyDao.getAll().map {
             it.asDomainObjects()
         }

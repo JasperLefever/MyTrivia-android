@@ -34,15 +34,15 @@ class HistoryViewModel(private val historyRepo: IGameHistoryRepo) : ViewModel() 
      */
     fun fetchHistory() {
         try {
-            viewModelScope.launch {
-                uiListState = historyRepo.getGameHistory().map { HistoryListState(it) }
-                    .stateIn(
-                        scope = viewModelScope,
-                        started = SharingStarted.WhileSubscribed(5_000L),
-                        initialValue = HistoryListState(),
-                    )
-                repoState = HistoryRepoState.Success
-            }
+
+            uiListState = historyRepo.getGameHistory().map { HistoryListState(it) }
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5_000L),
+                    initialValue = HistoryListState(),
+                )
+            repoState = HistoryRepoState.Success
+
         } catch (e: IOException) {
             repoState = HistoryRepoState.Error(e.message ?: "Unknown error")
         }
