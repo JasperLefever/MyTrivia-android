@@ -9,6 +9,7 @@ import icu.repsaj.android.mytrivia.network.question.asDomainObject
 import icu.repsaj.android.mytrivia.network.question.asDomainObjects
 import icu.repsaj.android.mytrivia.ui.game.GameViewModel
 import icu.repsaj.android.mytrivia.ui.game.QuestionsApiState
+import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -47,6 +48,9 @@ class GameViewModelTest {
     @Mock
     private lateinit var categoryRepo: ICategoryRepo
 
+    @Mock
+    private lateinit var resourceProvider: ResourceProvider
+
     private lateinit var viewModel: GameViewModel
 
     private val categoryId = FakeDataSource.category.id
@@ -58,7 +62,8 @@ class GameViewModelTest {
     @Before
     fun setUp() {
         `when`(categoryRepo.getCategoryById(categoryId)).thenReturn(flowOf(FakeDataSource.category.asDomainObject()))
-        viewModel = GameViewModel(categoryId, questionRepo, historyRepo, categoryRepo)
+        viewModel =
+            GameViewModel(categoryId, questionRepo, historyRepo, categoryRepo, resourceProvider)
     }
 
     @Test
@@ -101,7 +106,7 @@ class GameViewModelTest {
     fun `handle api error state correctly`() = testCoroutineRule.runBlockingTest {
         `when`(questionRepo.getQuestions(categoryId)).thenThrow(RuntimeException("API Error"))
         viewModel.fetchQuestions()
-        assertEquals(QuestionsApiState.Error, viewModel.apiState)
+        assertEquals(QuestionsApiState.Error("API Error"), viewModel.apiState)
     }
 }
 
