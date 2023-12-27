@@ -10,6 +10,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import icu.repsaj.android.mytrivia.R
 import icu.repsaj.android.mytrivia.TriviaApplication
+import icu.repsaj.android.mytrivia.data.ApiNotAvailableException
 import icu.repsaj.android.mytrivia.data.ICategoryRepo
 import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
@@ -34,43 +35,49 @@ class CategoriesOverviewViewModel(
 
     lateinit var uiListState: StateFlow<CategoryListState>
 
+    var isUsingLocalData: Boolean by mutableStateOf(false)
+        private set
 
     var apiState: CategoryApiState by mutableStateOf(CategoryApiState.Loading)
         private set
 
     init {
+        updateCategoriesList()
         fetchCategories()
     }
 
-    /**
-     * Fetches the categories from the repository.
-     * If the fetch is successful, the UI state is updated with the new categories.
-     * If the fetch fails, the UI state is updated with an error message.
-     */
     private fun fetchCategories() {
         viewModelScope.launch {
             try {
                 categoryRepo.refresh()
+                isUsingLocalData = false
+                updateCategoriesList()
+            } catch (e: ApiNotAvailableException) {
+                // Load from local database when API is unavailable
+                isUsingLocalData = true
+                updateCategoriesList()
             } catch (e: RuntimeException) {
                 apiState = CategoryApiState.Error(
                     message = e.message ?: resourceProvider.getString(R.string.unknown_error)
                 )
             }
         }
+    }
+
+    private fun updateCategoriesList() {
         try {
             uiListState = categoryRepo.getCategories().map { CategoryListState(it) }
                 .stateIn(
                     scope = viewModelScope,
-                    started = SharingStarted.WhileSubscribed(5_000L),
-                    initialValue = CategoryListState(),
+                    started = SharingStarted.WhileSubscribed(5000),
+                    initialValue = CategoryListState(emptyList())
                 )
             apiState = CategoryApiState.Success
-        } catch (e: Exception) {
+        } catch (e: RuntimeException) {
             apiState = CategoryApiState.Error(
                 message = e.message ?: resourceProvider.getString(R.string.unknown_error)
             )
         }
-
     }
 
     /**

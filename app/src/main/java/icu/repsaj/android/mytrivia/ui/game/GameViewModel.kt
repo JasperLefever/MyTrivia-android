@@ -139,24 +139,30 @@ class GameViewModel(
      * If the fetch fails, the UI state is updated with an error message.
      */
     fun fetchQuestions() {
-        viewModelScope.launch {
-            apiState = try {
+        try {
+            viewModelScope.launch {
                 val questionsFlow = questionRepo.getQuestions(categoryId)
                 if (questionsFlow != null) {
                     val questions = questionsFlow.toList().flatten()
                     _uiState.update { currentState ->
                         currentState.copy(questions = questions)
                     }
-                    QuestionsApiState.Success
+                    apiState = QuestionsApiState.Success
                 } else {
-                    QuestionsApiState.Error(resourceProvider.getString(R.string.no_questions_found))
+                    apiState =
+                        QuestionsApiState.Error(resourceProvider.getString(R.string.no_questions_found))
                 }
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                QuestionsApiState.Error(
-                    e.message ?: resourceProvider.getString(R.string.unknown_error)
-                )
             }
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
+            apiState = QuestionsApiState.Error(
+                e.message ?: resourceProvider.getString(R.string.unknown_error)
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
+            apiState = QuestionsApiState.Error(
+                e.message ?: resourceProvider.getString(R.string.unknown_error)
+            )
         }
 
     }
@@ -167,22 +173,21 @@ class GameViewModel(
      * If the fetch fails, the UI state is updated with an error message.
      */
     private fun getCategory() {
-        viewModelScope.launch {
-            try {
-                uiCategory = categoryRepo.getCategoryById(categoryId)
-                    .map { it }
-                    .stateIn(
-                        scope = viewModelScope,
-                        started = SharingStarted.WhileSubscribed(5_000L),
-                        initialValue = Category(UUID.randomUUID(), "Loading", "loading", 0),
-                    )
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                apiState = QuestionsApiState.Error(
-                    e.message ?: resourceProvider.getString(R.string.unknown_error)
+        try {
+            uiCategory = categoryRepo.getCategoryById(categoryId)
+                .map { it }
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5_000L),
+                    initialValue = Category(UUID.randomUUID(), "Loading", "loading", 0),
                 )
-            }
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
+            apiState = QuestionsApiState.Error(
+                e.message ?: resourceProvider.getString(R.string.unknown_error)
+            )
         }
+
     }
 
 

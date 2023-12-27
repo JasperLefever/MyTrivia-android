@@ -171,7 +171,7 @@ class CachingCategoryRepository(
                 }
             }
         } catch (e: ApiNotAvailableException) {
-            throw RuntimeException("API is not available")
+            throw e
         } catch (e: IOException) {
             throw RuntimeException("Network error during refresh: ${e.message}", e)
         } catch (e: SQLException) {

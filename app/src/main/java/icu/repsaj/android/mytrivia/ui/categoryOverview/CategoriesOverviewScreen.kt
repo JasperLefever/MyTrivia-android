@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -41,6 +42,7 @@ import eu.bambooapps.material3.pullrefresh.PullRefreshIndicator
 import eu.bambooapps.material3.pullrefresh.pullRefresh
 import eu.bambooapps.material3.pullrefresh.rememberPullRefreshState
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.model.Category
 import icu.repsaj.android.mytrivia.ui.compontents.ErrorDialog
 import icu.repsaj.android.mytrivia.ui.compontents.RecomposeChecker
 import icu.repsaj.android.mytrivia.ui.compontents.SwipeToDelete
@@ -63,6 +65,7 @@ fun CategoryOverviewScreen(
 ) {
     val categoryListState by viewModel.uiListState.collectAsState()
     val apiState = viewModel.apiState
+    val isUsingLocal = viewModel.isUsingLocalData
 
     //everything to keep the refresh state
     val isRefreshing by remember {
@@ -99,11 +102,27 @@ fun CategoryOverviewScreen(
                             NoCategoriesFound()
                         }
                     } else {
+                        item {
+                            if (isUsingLocal) {
+                                Text(
+                                    text = stringResource(id = R.string.using_local_data),
+                                    modifier = Modifier
+                                        .padding(
+                                            horizontal = MaterialTheme.spacing.medium,
+                                            vertical = MaterialTheme.spacing.extraSmall
+                                        )
+                                        .fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                            }
+                        }
                         items(
                             items = categoryListState.categoryList,
                             key = { category -> category.id }
                         ) { category ->
-                            SwipeToDelete(
+                            SwipeToDelete<Category>(
                                 item = category,
                                 onDismiss = { deletedCategory ->
                                     viewModel.deleteCategory(deletedCategory)
