@@ -4,6 +4,7 @@ import android.content.Context
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import icu.repsaj.android.mytrivia.data.database.TriviaDb
 import icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService
+import icu.repsaj.android.mytrivia.network.health.IHealthApiService
 import icu.repsaj.android.mytrivia.network.question.IQuestionApiService
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl
@@ -19,6 +20,7 @@ interface AppContainer {
     val historyRepo: IGameHistoryRepo
     val questionRepo: IQuestionRepo
     val resourceProvider: ResourceProvider
+    val healthRepo: IHealthRepo
 }
 
 /**
@@ -51,6 +53,13 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
     }
 
     /**
+     * Lazily initialized instance of [IHealthApiService] for making network requests related to health.
+     */
+    private val healthApiService: IHealthApiService by lazy {
+        retrofit.create(IHealthApiService::class.java)
+    }
+
+    /**
      * Lazily initialized instance of [ICategoryRepo], which provides a caching layer for category data.
      */
     override val categoryRepo: ICategoryRepo by lazy {
@@ -77,9 +86,18 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
     }
 
     /**
+     * Lazily initialized instance of [IHealthRepo], which manages health-related data through an API.
+     */
+    override val healthRepo: IHealthRepo by lazy {
+        APIHealthRepo(healthService = healthApiService)
+    }
+
+    /**
      * Lazily initialized instance of [ResourceProvider], responsible for providing access to app resources.
      */
     override val resourceProvider: ResourceProvider by lazy {
         ResourceProviderImpl(context)
     }
+
+
 }

@@ -1,6 +1,5 @@
 package icu.repsaj.android.mytrivia.ui.compontents
 
-import NetworkConnectionState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -12,8 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import icu.repsaj.android.mytrivia.R
+import icu.repsaj.android.mytrivia.network.NetworkConnectionState
+import icu.repsaj.android.mytrivia.network.rememberConnectivityState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import rememberConnectivityState
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @Composable
