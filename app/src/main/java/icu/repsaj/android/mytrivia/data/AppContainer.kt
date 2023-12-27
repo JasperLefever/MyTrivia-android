@@ -60,12 +60,19 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
     }
 
     /**
+     * Lazily initialized instance of [IHealthRepo], which manages health-related data through an API.
+     */
+    override val healthRepo: IHealthRepo by lazy {
+        APIHealthRepo(healthService = healthApiService)
+    }
+
+    /**
      * Lazily initialized instance of [ICategoryRepo], which provides a caching layer for category data.
      */
     override val categoryRepo: ICategoryRepo by lazy {
         CachingCategoryRepository(
             TriviaDb.getDatabase(context = context).categoryDao(),
-            categoryApiService
+            categoryApiService, healthRepo
         )
     }
 
@@ -83,13 +90,6 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
      */
     override val questionRepo: IQuestionRepo by lazy {
         ApiQuestionRepo(questionApiService)
-    }
-
-    /**
-     * Lazily initialized instance of [IHealthRepo], which manages health-related data through an API.
-     */
-    override val healthRepo: IHealthRepo by lazy {
-        APIHealthRepo(healthService = healthApiService)
     }
 
     /**

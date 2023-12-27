@@ -69,7 +69,8 @@ interface ICategoryRepo {
  */
 class CachingCategoryRepository(
     private val categoryDao: CategoryDao,
-    private val categoryApi: ICategoryApiService
+    private val categoryApi: ICategoryApiService,
+    private val healthRepo: IHealthRepo
 ) : ICategoryRepo {
 
     /**
@@ -78,6 +79,7 @@ class CachingCategoryRepository(
      * @return A [Flow] emitting a list of [Category]s.
      */
     override fun getCategories(): Flow<List<Category>> {
+
         return categoryDao.getAll().map { it.asDomainObjects() }
     }
 
@@ -159,17 +161,20 @@ class CachingCategoryRepository(
      */
     override suspend fun refresh() {
         try {
+            if (healthRepo.ping().not()) {
+                throw ApiNotAvailableException("API is not available")
+            }
             categoryApi.getCategoriesAsFlow().asDomainObjects().collect {
                 categoryDao.clear()
                 for (category in it) {
                     categoryDao.insert(category.asDbEntity())
                 }
             }
+        } catch (e: ApiNotAvailableException) {
+            throw RuntimeException("API is not available")
         } catch (e: IOException) {
-            // Handle network errors
             throw RuntimeException("Network error during refresh: ${e.message}", e)
         } catch (e: SQLException) {
-            // Handle database errors
             throw RuntimeException("Database error during refresh: ${e.message}", e)
         } catch (e: Exception) {
             // Handle other unexpected errors
@@ -177,3 +182,5 @@ class CachingCategoryRepository(
         }
     }
 }
+
+class ApiNotAvailableException(message: String) : Exception(message)

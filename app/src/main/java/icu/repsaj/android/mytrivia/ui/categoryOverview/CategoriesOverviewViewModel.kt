@@ -34,6 +34,7 @@ class CategoriesOverviewViewModel(
 
     lateinit var uiListState: StateFlow<CategoryListState>
 
+
     var apiState: CategoryApiState by mutableStateOf(CategoryApiState.Loading)
         private set
 
