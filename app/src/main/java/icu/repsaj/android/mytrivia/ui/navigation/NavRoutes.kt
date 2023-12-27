@@ -44,9 +44,9 @@ enum class NavRoutes(@StringRes val title: Int, val icon: ImageVector) {
          * @return The corresponding [NavRoutes] value.
          */
         fun getNavRouteFromRoute(route: String?): NavRoutes {
-            val baseRoute = route?.substringBefore("/") ?: NavRoutes.Categories.name
+            val baseRoute = route?.substringBefore("/") ?: Categories.name
 
-            return NavRoutes.values().find { it.name == baseRoute } ?: NavRoutes.Categories
+            return NavRoutes.values().find { it.name == baseRoute } ?: Categories
         }
     }
 }
