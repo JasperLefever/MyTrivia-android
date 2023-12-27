@@ -4,13 +4,17 @@ import android.content.Context
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import icu.repsaj.android.mytrivia.data.database.TriviaDb
 import icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService
+import icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory
 import icu.repsaj.android.mytrivia.network.health.IHealthApiService
 import icu.repsaj.android.mytrivia.network.question.IQuestionApiService
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProvider
 import icu.repsaj.android.mytrivia.ui.providers.ResourceProviderImpl
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+
 
 /**
  * Defines the main components needed throughout the application.
@@ -31,11 +35,22 @@ interface AppContainer {
 class DefaultAppContainer(private val context: Context) : AppContainer {
 
     private val baseUrl = "http://10.0.2.2:8080"
+
+
+    val logging = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    val client = OkHttpClient.Builder()
+        .addInterceptor(logging)
+        .build()
     private val retrofit = Retrofit.Builder()
+        .addConverterFactory(ToStringConverterFactory())
         .addConverterFactory(
             Json.asConverterFactory("application/json".toMediaType()),
         )
         .baseUrl(baseUrl)
+        .client(client)
         .build()
 
     /**

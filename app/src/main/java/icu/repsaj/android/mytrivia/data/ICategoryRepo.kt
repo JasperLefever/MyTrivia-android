@@ -161,7 +161,7 @@ class CachingCategoryRepository(
      */
     override suspend fun refresh() {
         try {
-            if (healthRepo.ping().not()) {
+            if (!healthRepo.ping()) {
                 throw ApiNotAvailableException("API is not available")
             }
             categoryApi.getCategoriesAsFlow().asDomainObjects().collect {

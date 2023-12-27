@@ -1,5 +1,6 @@
 package icu.repsaj.android.mytrivia.data
 
+import android.util.Log
 import icu.repsaj.android.mytrivia.network.health.IHealthApiService
 
 /**
@@ -32,13 +33,16 @@ class APIHealthRepo(
      * @return A boolean indicating whether the API is running.
      */
     override suspend fun ping(): Boolean {
-        return try {
+        val res = try {
             val response = healthService.ping()
-            response.isSuccessful && response.body()?.let {
-                it.contains("pong")
-            } ?: false
+            response.isSuccessful && response.body() == "pong"
         } catch (e: Exception) {
+            Log.e("APIHealthRepo", "Ping failed")
             false
         }
+
+        Log.d("APIHealthRepo", "Ping result: $res")
+
+        return res
     }
 }

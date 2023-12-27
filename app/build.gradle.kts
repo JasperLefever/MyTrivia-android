@@ -74,7 +74,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("eu.bambooapps:compose-material3-pullrefresh:1.0.0")
     implementation("androidx.compose.material3:material3-window-size-class")
-
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
     //extra icons
