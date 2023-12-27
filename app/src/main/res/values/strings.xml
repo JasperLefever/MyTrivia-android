@@ -23,4 +23,5 @@
     <string name="error">Error has occured</string>
     <string name="no_questions_found">No questions found for this category\n</string>
     <string name="category_added_successfully">Category has been created!</string>
+    <string name="without_internet_connection_you_can_t_perform_this_action">Without internet connection you can\'t perform this action</string>
 </resources>

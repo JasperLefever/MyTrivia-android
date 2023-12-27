@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryView
 import icu.repsaj.android.mytrivia.ui.categoryOverview.CategoryOverviewScreen
+import icu.repsaj.android.mytrivia.ui.compontents.NoConnectionScreen
 import icu.repsaj.android.mytrivia.ui.game.GameViewModel
 import icu.repsaj.android.mytrivia.ui.game.TriviaGameScreen
 import icu.repsaj.android.mytrivia.ui.gameHistory.GameHistory
@@ -43,27 +44,30 @@ fun NavComponent(
             route = NavRoutes.Game.withArgs("{categoryId}"),
             arguments = listOf(navArgument("categoryId") { type = NavType.StringType })
         ) { backstackEntry ->
-            TriviaGameScreen(
-                navigateUp = {
-                    navController.popBackStack()
-                },
-                viewModel = viewModel(
-                    factory = GameViewModel.factory(
-                        categoryId = UUID.fromString(backstackEntry.arguments?.getString("categoryId"))
+            NoConnectionScreen {
+                TriviaGameScreen(
+                    navigateUp = {
+                        navController.popBackStack()
+                    },
+                    viewModel = viewModel(
+                        factory = GameViewModel.factory(
+                            categoryId = UUID.fromString(backstackEntry.arguments?.getString("categoryId"))
+                        )
                     )
                 )
-            )
-
+            }
         }
         composable(route = NavRoutes.History.name) {
             GameHistory()
         }
         composable(route = NavRoutes.AddCategory.name) {
-            AddCategoryView(
-                navigateUp = {
-                    navController.navigateUp()
-                }
-            )
+            NoConnectionScreen {
+                AddCategoryView(
+                    navigateUp = {
+                        navController.navigateUp()
+                    }
+                )
+            }
         }
     }
 }
