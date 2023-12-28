@@ -22,38 +22,6 @@ Documentation in markdown can be found [here](./documentation/markdown/index.md)
 - Offline mode for categories
 - History of played games -> saved locally
 
-## Screenshots
-
-### Category overview
-
-![img.png](assets/ui/img.png)
-
-#### When no internet connection or server is down
-
-![img_8.png](assets/ui/img_8.png)
-
-### Add category
-
-![img_1.png](assets/ui/img_1.png)
-
-![img_2.png](assets/ui/img_2.png)
-
-![img_3.png](assets/ui/img_3.png)
-
-![img_9.png](assets/ui/img_9.png)
-
-### Game
-
-![img_4.png](assets/ui/img_4.png)
-
-![img_5.png](assets/ui/img_5.png)
-
-![img_6.png](assets/ui/img_6.png)
-
-### History
-
-![img_7.png](assets/ui/img_7.png)
-
 ## Tests
 
 ### DAO tests
@@ -87,3 +55,36 @@ Documentation in markdown can be found [here](./documentation/markdown/index.md)
 #### NavRoutes
 
 ![img_2.png](assets/tests/img_2.png)
+
+## Screenshots
+
+### Category overview
+
+![img.png](assets/ui/img.png)
+
+#### When no internet connection or server is down
+
+![img_8.png](assets/ui/img_8.png)
+
+### Add category
+
+![img_1.png](assets/ui/img_1.png)
+
+![img_2.png](assets/ui/img_2.png)
+
+![img_3.png](assets/ui/img_3.png)
+
+![img_9.png](assets/ui/img_9.png)
+
+### Game
+
+![img_4.png](assets/ui/img_4.png)
+
+![img_5.png](assets/ui/img_5.png)
+
+![img_6.png](assets/ui/img_6.png)
+
+### History
+
+![img_7.png](assets/ui/img_7.png)
+
