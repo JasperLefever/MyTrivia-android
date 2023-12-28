@@ -4,7 +4,6 @@ import androidx.activity.ComponentActivity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.ComposeNavigator
@@ -69,7 +68,7 @@ class NavigationTest {
 
         composeTestRule.waitForIdle()
         composeTestRule
-            .onNodeWithText("History")
+            .onNodeWithStringIdDescription(R.string.history)
             .assertDoesNotExist()
     }
 
@@ -81,7 +80,7 @@ class NavigationTest {
 
         composeTestRule.waitForIdle()
         composeTestRule
-            .onNodeWithText("Add Category")
+            .onNodeWithStringIdDescription(R.string.add_category)
             .assertDoesNotExist()
     }
 
@@ -93,13 +92,14 @@ class NavigationTest {
 
         composeTestRule.waitForIdle()
         composeTestRule
-            .onNodeWithContentDescription("Go Back")
+            .onNodeWithStringIdDescription(R.string.back_button)
             .assertIsDisplayed()
     }
 
     @Test
     fun navigateToAddCategoryScreen_navigatesCorrectly() {
-        composeTestRule.onNodeWithContentDescription("Add Category").performClick()
+        composeTestRule.onNodeWithStringIdDescription(R.string.add_category)
+            .performClick()
 
         composeTestRule.waitForIdle()
         assertEquals(
@@ -111,19 +111,19 @@ class NavigationTest {
     @Test
     fun navigateToAddCategoryScreen_correctView() {
         composeTestRule
-            .onNodeWithContentDescription("Add Category")
+            .onNodeWithStringIdDescription(R.string.add_category)
             .performClick()
 
         composeTestRule.waitForIdle()
         composeTestRule
-            .onNodeWithText("CATEGORY INFORMATION")
+            .onNodeWithStringId(R.string.category_information)
             .assertIsDisplayed()
     }
 
     @Test
     fun navigateToHistoryScreen_navigatesCorrectly() {
         composeTestRule
-            .onNodeWithContentDescription("History")
+            .onNodeWithStringIdDescription(R.string.history)
             .performClick()
 
         composeTestRule.waitForIdle()

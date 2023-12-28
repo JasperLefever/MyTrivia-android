@@ -3,21 +3,17 @@ package icu.repsaj.android.mytrivia
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import icu.repsaj.android.mytrivia.ui.TriviaApp
-import org.junit.Assert.*
+import icu.repsaj.android.mytrivia.ui.navigation.NavRoutes
+import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Rule
-import org.junit.runner.RunWith
+import org.junit.Test
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-@RunWith(AndroidJUnit4::class)
+
 class AddCategoryUITests {
 
     @get:Rule
@@ -33,6 +29,20 @@ class AddCategoryUITests {
                 navController = navController,
             )
         }
+    }
+
+    @Test
+    fun navigateToAddCategoryScreen_navigatesCorrectly() {
+        composeTestRule
+            .onNodeWithStringIdDescription(R.string.history)
+            .performClick()
+
+        composeTestRule.waitForIdle()
+
+        assertEquals(
+            NavRoutes.AddCategory.name,
+            NavRoutes.getNavRouteFromRoute(navController.currentBackStackEntry?.destination?.route).name
+        )
     }
 
 
