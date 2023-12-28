@@ -51,6 +51,8 @@ class NavigationTest {
             .onNodeWithText(category)
             .performClick()
 
+        composeTestRule.waitForIdle()
+
         assertEquals(
             NavRoutes.Game.name,
             NavRoutes.getNavRouteFromRoute(navController.currentBackStackEntry?.destination?.route).name
@@ -63,6 +65,8 @@ class NavigationTest {
             .onNodeWithText(category)
             .performClick()
 
+
+        composeTestRule.waitForIdle()
         composeTestRule
             .onNodeWithText("History")
             .assertDoesNotExist()
@@ -74,6 +78,7 @@ class NavigationTest {
             .onNodeWithText(category)
             .performClick()
 
+        composeTestRule.waitForIdle()
         composeTestRule
             .onNodeWithText("Add Category")
             .assertDoesNotExist()
@@ -85,6 +90,7 @@ class NavigationTest {
             .onNodeWithText(category)
             .performClick()
 
+        composeTestRule.waitForIdle()
         composeTestRule
             .onNodeWithContentDescription("Go Back")
             .assertIsDisplayed()
@@ -94,6 +100,7 @@ class NavigationTest {
     fun navigateToAddCategoryScreen_navigatesCorrectly() {
         composeTestRule.onNodeWithContentDescription("Add Category").performClick()
 
+        composeTestRule.waitForIdle()
         assertEquals(
             NavRoutes.AddCategory.name,
             navController.currentBackStackEntry?.destination?.route
@@ -106,6 +113,7 @@ class NavigationTest {
             .onNodeWithContentDescription("Add Category")
             .performClick()
 
+        composeTestRule.waitForIdle()
         composeTestRule
             .onNodeWithText("CATEGORY INFORMATION")
             .assertIsDisplayed()
@@ -117,6 +125,7 @@ class NavigationTest {
             .onNodeWithContentDescription("History")
             .performClick()
 
+        composeTestRule.waitForIdle()
         assertEquals(
             NavRoutes.History.name,
             navController.currentBackStackEntry?.destination?.route
