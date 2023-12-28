@@ -20,6 +20,12 @@ specified category.
 
 androidJvm
 
-|            |                                                                 |
-|------------|-----------------------------------------------------------------|
+| | |
+|---|---|
 | categoryId | The UUID of the category for which questions are to be fetched. |
+
+#### Throws
+
+| | |
+|---|---|
+| [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html) | if an error occurs during the network request. |

@@ -18,6 +18,6 @@ specified ID.
 
 androidJvm
 
-|     |                           |
-|-----|---------------------------|
-| id  | The UUID of the category. |
+|    |                           |
+|----|---------------------------|
+| id | The UUID of the category. |

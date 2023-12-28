@@ -42,16 +42,22 @@ $dokka.location:icu.repsaj.android.mytrivia.data.database/TriviaDb/TriviaDb/#/Po
 $dokka.location:icu.repsaj.android.mytrivia.data.database/TriviaDb/categoryDao/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data.database/-trivia-db/category-dao.md
 $dokka.location:icu.repsaj.android.mytrivia.data.database/TriviaDb/gameHistoryDao/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data.database/-trivia-db/game-history-dao.md
 $dokka.location:icu.repsaj.android.mytrivia.data////PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/index.md
+$dokka.location:icu.repsaj.android.mytrivia.data/APIHealthRepo///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-a-p-i-health-repo/index.md
+$dokka.location:icu.repsaj.android.mytrivia.data/APIHealthRepo/APIHealthRepo/#icu.repsaj.android.mytrivia.network.health.IHealthApiService/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-a-p-i-health-repo/-a-p-i-health-repo.md
+$dokka.location:icu.repsaj.android.mytrivia.data/APIHealthRepo/ping/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-a-p-i-health-repo/ping.md
+$dokka.location:icu.repsaj.android.mytrivia.data/ApiNotAvailableException///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-api-not-available-exception/index.md
+$dokka.location:icu.repsaj.android.mytrivia.data/ApiNotAvailableException/ApiNotAvailableException/#kotlin.String/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-api-not-available-exception/-api-not-available-exception.md
 $dokka.location:icu.repsaj.android.mytrivia.data/ApiQuestionRepo///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-api-question-repo/index.md
 $dokka.location:icu.repsaj.android.mytrivia.data/ApiQuestionRepo/ApiQuestionRepo/#icu.repsaj.android.mytrivia.network.question.IQuestionApiService/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-api-question-repo/-api-question-repo.md
 $dokka.location:icu.repsaj.android.mytrivia.data/ApiQuestionRepo/getQuestions/#java.util.UUID/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-api-question-repo/get-questions.md
 $dokka.location:icu.repsaj.android.mytrivia.data/AppContainer///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-app-container/index.md
 $dokka.location:icu.repsaj.android.mytrivia.data/AppContainer/categoryRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-app-container/category-repo.md
+$dokka.location:icu.repsaj.android.mytrivia.data/AppContainer/healthRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-app-container/health-repo.md
 $dokka.location:icu.repsaj.android.mytrivia.data/AppContainer/historyRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-app-container/history-repo.md
 $dokka.location:icu.repsaj.android.mytrivia.data/AppContainer/questionRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-app-container/question-repo.md
 $dokka.location:icu.repsaj.android.mytrivia.data/AppContainer/resourceProvider/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-app-container/resource-provider.md
 $dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-caching-category-repository/index.md
-$dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository/CachingCategoryRepository/#icu.repsaj.android.mytrivia.data.database.CategoryDao#icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-caching-category-repository/-caching-category-repository.md
+$dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository/CachingCategoryRepository/#icu.repsaj.android.mytrivia.data.database.CategoryDao#icu.repsaj.android.mytrivia.network.categroy.ICategoryApiService#icu.repsaj.android.mytrivia.data.IHealthRepo/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-caching-category-repository/-caching-category-repository.md
 $dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository/createCategory/#icu.repsaj.android.mytrivia.model.Category/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-caching-category-repository/create-category.md
 $dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository/deleteCategory/#icu.repsaj.android.mytrivia.model.Category/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-caching-category-repository/delete-category.md
 $dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository/getCategories/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-caching-category-repository/get-categories.md
@@ -61,7 +67,10 @@ $dokka.location:icu.repsaj.android.mytrivia.data/CachingCategoryRepository/refre
 $dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/index.md
 $dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/DefaultAppContainer/#android.content.Context/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/-default-app-container.md
 $dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/categoryRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/category-repo.md
+$dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/client/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/client.md
+$dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/healthRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/health-repo.md
 $dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/historyRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/history-repo.md
+$dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/logging/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/logging.md
 $dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/questionRepo/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/question-repo.md
 $dokka.location:icu.repsaj.android.mytrivia.data/DefaultAppContainer/resourceProvider/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-default-app-container/resource-provider.md
 $dokka.location:icu.repsaj.android.mytrivia.data/GameHistoryRepository///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-game-history-repository/index.md
@@ -80,6 +89,8 @@ $dokka.location:icu.repsaj.android.mytrivia.data/IGameHistoryRepo///PointingToDe
 $dokka.location:icu.repsaj.android.mytrivia.data/IGameHistoryRepo/deleteHistoryItem/#icu.repsaj.android.mytrivia.model.HistoryItem/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/delete-history-item.md
 $dokka.location:icu.repsaj.android.mytrivia.data/IGameHistoryRepo/getGameHistory/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/get-game-history.md
 $dokka.location:icu.repsaj.android.mytrivia.data/IGameHistoryRepo/insertHistoryItem/#icu.repsaj.android.mytrivia.model.HistoryItem/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-game-history-repo/insert-history-item.md
+$dokka.location:icu.repsaj.android.mytrivia.data/IHealthRepo///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-health-repo/index.md
+$dokka.location:icu.repsaj.android.mytrivia.data/IHealthRepo/ping/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-health-repo/ping.md
 $dokka.location:icu.repsaj.android.mytrivia.data/IQuestionRepo///PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-question-repo/index.md
 $dokka.location:icu.repsaj.android.mytrivia.data/IQuestionRepo/getQuestions/#java.util.UUID/PointingToDeclaration/app/icu.repsaj.android.mytrivia.data/-i-question-repo/get-questions.md
 $dokka.location:icu.repsaj.android.mytrivia.model////PointingToDeclaration/app/icu.repsaj.android.mytrivia.model/index.md
@@ -133,6 +144,13 @@ $dokka.location:icu.repsaj.android.mytrivia.network.categroy/ICategoryApiService
 $dokka.location:icu.repsaj.android.mytrivia.network.categroy/ICategoryApiService/createCategory/#icu.repsaj.android.mytrivia.network.categroy.CreateCategory/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/create-category.md
 $dokka.location:icu.repsaj.android.mytrivia.network.categroy/ICategoryApiService/deleteCategory/#java.util.UUID/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/delete-category.md
 $dokka.location:icu.repsaj.android.mytrivia.network.categroy/ICategoryApiService/getCategories/#kotlin.Int#kotlin.Int/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/get-categories.md
+$dokka.location:icu.repsaj.android.mytrivia.network.convertors////PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.convertors/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network.convertors/ToStringConverterFactory///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.convertors/-to-string-converter-factory/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network.convertors/ToStringConverterFactory/ToStringConverterFactory/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.convertors/-to-string-converter-factory/-to-string-converter-factory.md
+$dokka.location:icu.repsaj.android.mytrivia.network.convertors/ToStringConverterFactory/responseBodyConverter/#java.lang.reflect.Type#kotlin.Array[kotlin.Annotation]#retrofit2.Retrofit/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.convertors/-to-string-converter-factory/response-body-converter.md
+$dokka.location:icu.repsaj.android.mytrivia.network.health////PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.health/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network.health/IHealthApiService///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.health/-i-health-api-service/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network.health/IHealthApiService/ping/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.health/-i-health-api-service/ping.md
 $dokka.location:icu.repsaj.android.mytrivia.network.question////PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.question/index.md
 $dokka.location:icu.repsaj.android.mytrivia.network.question//asDomainObject/icu.repsaj.android.mytrivia.network.question.ApiAnswer#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.question/as-domain-object.md
 $dokka.location:icu.repsaj.android.mytrivia.network.question//asDomainObjects/kotlin.collections.List[icu.repsaj.android.mytrivia.network.question.ApiQuestion]#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.question/as-domain-objects.md
@@ -157,11 +175,15 @@ $dokka.location:icu.repsaj.android.mytrivia.network.question/QuestionResponse/Qu
 $dokka.location:icu.repsaj.android.mytrivia.network.question/QuestionResponse/items/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.question/-question-response/items.md
 $dokka.location:icu.repsaj.android.mytrivia.network.question/QuestionResponse/metadata/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network.question/-question-response/metadata.md
 $dokka.location:icu.repsaj.android.mytrivia.network////PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network//rememberConnectivityState/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/remember-connectivity-state.md
 $dokka.location:icu.repsaj.android.mytrivia.network/Metadata///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-metadata/index.md
 $dokka.location:icu.repsaj.android.mytrivia.network/Metadata/Metadata/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-metadata/-metadata.md
 $dokka.location:icu.repsaj.android.mytrivia.network/Metadata/page/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-metadata/page.md
 $dokka.location:icu.repsaj.android.mytrivia.network/Metadata/per/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-metadata/per.md
 $dokka.location:icu.repsaj.android.mytrivia.network/Metadata/total/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-metadata/total.md
+$dokka.location:icu.repsaj.android.mytrivia.network/NetworkConnectionState.Available///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-network-connection-state/-available/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network/NetworkConnectionState.Unavailable///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-network-connection-state/-unavailable/index.md
+$dokka.location:icu.repsaj.android.mytrivia.network/NetworkConnectionState///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-network-connection-state/index.md
 $dokka.location:icu.repsaj.android.mytrivia.network/UUIDSerializer///PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/index.md
 $dokka.location:icu.repsaj.android.mytrivia.network/UUIDSerializer/descriptor/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/descriptor.md
 $dokka.location:icu.repsaj.android.mytrivia.network/UUIDSerializer/deserialize/#kotlinx.serialization.encoding.Decoder/PointingToDeclaration/app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/deserialize.md
@@ -192,6 +214,7 @@ $dokka.location:icu.repsaj.android.mytrivia.ui.addCategory/AddCategoryViewModel/
 $dokka.location:icu.repsaj.android.mytrivia.ui.addCategory/AddCategoryViewModel/clear/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/clear.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.addCategory/AddCategoryViewModel/setCategoryName/#kotlin.String/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/set-category-name.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.addCategory/AddCategoryViewModel/setSelectedIcon/#androidx.compose.ui.graphics.vector.ImageVector/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/set-selected-icon.md
+$dokka.location:icu.repsaj.android.mytrivia.ui.addCategory/AddCategoryViewModel/toastMessage/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/toast-message.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.addCategory/AddCategoryViewModel/uiState/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/ui-state.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview////PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/index.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview//AnimatedCategoryCard/#kotlin.String#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.vector.ImageVector/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-animated-category-card.md
@@ -203,6 +226,7 @@ $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOvervi
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOverviewViewModel/CategoriesOverviewViewModel/#icu.repsaj.android.mytrivia.data.ICategoryRepo#icu.repsaj.android.mytrivia.ui.providers.ResourceProvider/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/-categories-overview-view-model.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOverviewViewModel/apiState/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/api-state.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOverviewViewModel/deleteCategory/#icu.repsaj.android.mytrivia.model.Category/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/delete-category.md
+$dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOverviewViewModel/isUsingLocalData/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/is-using-local-data.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOverviewViewModel/refresh/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/refresh.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoriesOverviewViewModel/uiListState/#/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/ui-list-state.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoryApiState.Error///PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.categoryOverview/-category-api-state/-error/index.md
@@ -217,6 +241,7 @@ $dokka.location:icu.repsaj.android.mytrivia.ui.categoryOverview/CategoryListStat
 $dokka.location:icu.repsaj.android.mytrivia.ui.compontents////PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/index.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.compontents//DismissBackground/#androidx.compose.material3.DismissState/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/-dismiss-background.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.compontents//ErrorDialog/#kotlin.String#kotlin.String#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.vector.ImageVector/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/-error-dialog.md
+$dokka.location:icu.repsaj.android.mytrivia.ui.compontents//NoConnectionScreen/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/-no-connection-screen.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.compontents//RecomposeChecker/#kotlin.String/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/-recompose-checker.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.compontents//SwipeToDelete/#TypeParam(bounds=[kotlin.Any?])#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/-swipe-to-delete.md
 $dokka.location:icu.repsaj.android.mytrivia.ui.compontents//formatDateTime/#java.util.Date/PointingToDeclaration/app/icu.repsaj.android.mytrivia.ui.compontents/format-date-time.md
@@ -393,6 +418,8 @@ icu.repsaj.android.mytrivia.data.database.entities
 icu.repsaj.android.mytrivia.model
 icu.repsaj.android.mytrivia.network
 icu.repsaj.android.mytrivia.network.categroy
+icu.repsaj.android.mytrivia.network.convertors
+icu.repsaj.android.mytrivia.network.health
 icu.repsaj.android.mytrivia.network.question
 icu.repsaj.android.mytrivia.ui
 icu.repsaj.android.mytrivia.ui.addCategory

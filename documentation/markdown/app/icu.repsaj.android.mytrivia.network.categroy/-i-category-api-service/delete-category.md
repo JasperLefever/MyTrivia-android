@@ -20,6 +20,6 @@ A empty Response object.
 
 androidJvm
 
-|     |                                         |
-|-----|-----------------------------------------|
-| id  | The UUID of the category to be deleted. |
+|    |                                         |
+|----|-----------------------------------------|
+| id | The UUID of the category to be deleted. |

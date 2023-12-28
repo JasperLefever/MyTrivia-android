@@ -290,6 +290,26 @@
     ]
   },
   {
+    "name": "abstract suspend fun ping(): Boolean",
+    "description": "icu.repsaj.android.mytrivia.data.IHealthRepo.ping",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-health-repo/ping.html",
+    "searchKeys": [
+      "ping",
+      "abstract suspend fun ping(): Boolean",
+      "icu.repsaj.android.mytrivia.data.IHealthRepo.ping"
+    ]
+  },
+  {
+    "name": "abstract suspend fun ping(): Response<String>",
+    "description": "icu.repsaj.android.mytrivia.network.health.IHealthApiService.ping",
+    "location": "app/icu.repsaj.android.mytrivia.network.health/-i-health-api-service/ping.html",
+    "searchKeys": [
+      "ping",
+      "abstract suspend fun ping(): Response<String>",
+      "icu.repsaj.android.mytrivia.network.health.IHealthApiService.ping"
+    ]
+  },
+  {
     "name": "abstract suspend fun refresh()",
     "description": "icu.repsaj.android.mytrivia.data.ICategoryRepo.refresh",
     "location": "app/icu.repsaj.android.mytrivia.data/-i-category-repo/refresh.html",
@@ -307,6 +327,16 @@
       "categoryRepo",
       "abstract val categoryRepo: ICategoryRepo",
       "icu.repsaj.android.mytrivia.data.AppContainer.categoryRepo"
+    ]
+  },
+  {
+    "name": "abstract val healthRepo: IHealthRepo",
+    "description": "icu.repsaj.android.mytrivia.data.AppContainer.healthRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-app-container/health-repo.html",
+    "searchKeys": [
+      "healthRepo",
+      "abstract val healthRepo: IHealthRepo",
+      "icu.repsaj.android.mytrivia.data.AppContainer.healthRepo"
     ]
   },
   {
@@ -340,6 +370,16 @@
     ]
   },
   {
+    "name": "class APIHealthRepo(healthService: IHealthApiService) : IHealthRepo",
+    "description": "icu.repsaj.android.mytrivia.data.APIHealthRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-a-p-i-health-repo/index.html",
+    "searchKeys": [
+      "APIHealthRepo",
+      "class APIHealthRepo(healthService: IHealthApiService) : IHealthRepo",
+      "icu.repsaj.android.mytrivia.data.APIHealthRepo"
+    ]
+  },
+  {
     "name": "class AddCategoryViewModel(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
     "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel",
     "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/index.html",
@@ -347,6 +387,16 @@
       "AddCategoryViewModel",
       "class AddCategoryViewModel(categoryRepo: ICategoryRepo, resourceProvider: ResourceProvider) : ViewModel",
       "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel"
+    ]
+  },
+  {
+    "name": "class ApiNotAvailableException(message: String) : Exception",
+    "description": "icu.repsaj.android.mytrivia.data.ApiNotAvailableException",
+    "location": "app/icu.repsaj.android.mytrivia.data/-api-not-available-exception/index.html",
+    "searchKeys": [
+      "ApiNotAvailableException",
+      "class ApiNotAvailableException(message: String) : Exception",
+      "icu.repsaj.android.mytrivia.data.ApiNotAvailableException"
     ]
   },
   {
@@ -360,12 +410,12 @@
     ]
   },
   {
-    "name": "class CachingCategoryRepository(categoryDao: CategoryDao, categoryApi: ICategoryApiService) : ICategoryRepo",
+    "name": "class CachingCategoryRepository(categoryDao: CategoryDao, categoryApi: ICategoryApiService, healthRepo: IHealthRepo) : ICategoryRepo",
     "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository",
     "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/index.html",
     "searchKeys": [
       "CachingCategoryRepository",
-      "class CachingCategoryRepository(categoryDao: CategoryDao, categoryApi: ICategoryApiService) : ICategoryRepo",
+      "class CachingCategoryRepository(categoryDao: CategoryDao, categoryApi: ICategoryApiService, healthRepo: IHealthRepo) : ICategoryRepo",
       "icu.repsaj.android.mytrivia.data.CachingCategoryRepository"
     ]
   },
@@ -450,6 +500,16 @@
     ]
   },
   {
+    "name": "class ToStringConverterFactory : Converter.Factory",
+    "description": "icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory",
+    "location": "app/icu.repsaj.android.mytrivia.network.convertors/-to-string-converter-factory/index.html",
+    "searchKeys": [
+      "ToStringConverterFactory",
+      "class ToStringConverterFactory : Converter.Factory",
+      "icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory"
+    ]
+  },
+  {
     "name": "class TriviaApplication : Application",
     "description": "icu.repsaj.android.mytrivia.TriviaApplication",
     "location": "app/icu.repsaj.android.mytrivia/-trivia-application/index.html",
@@ -500,12 +560,22 @@
     ]
   },
   {
-    "name": "constructor(categoryDao: CategoryDao, categoryApi: ICategoryApiService)",
+    "name": "constructor()",
+    "description": "icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory.ToStringConverterFactory",
+    "location": "app/icu.repsaj.android.mytrivia.network.convertors/-to-string-converter-factory/-to-string-converter-factory.html",
+    "searchKeys": [
+      "ToStringConverterFactory",
+      "constructor()",
+      "icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory.ToStringConverterFactory"
+    ]
+  },
+  {
+    "name": "constructor(categoryDao: CategoryDao, categoryApi: ICategoryApiService, healthRepo: IHealthRepo)",
     "description": "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.CachingCategoryRepository",
     "location": "app/icu.repsaj.android.mytrivia.data/-caching-category-repository/-caching-category-repository.html",
     "searchKeys": [
       "CachingCategoryRepository",
-      "constructor(categoryDao: CategoryDao, categoryApi: ICategoryApiService)",
+      "constructor(categoryDao: CategoryDao, categoryApi: ICategoryApiService, healthRepo: IHealthRepo)",
       "icu.repsaj.android.mytrivia.data.CachingCategoryRepository.CachingCategoryRepository"
     ]
   },
@@ -587,6 +657,16 @@
       "Spacing",
       "constructor(default: Dp = 0.dp, extraSmall: Dp = 4.dp, small: Dp = 8.dp, medium: Dp = 16.dp, large: Dp = 32.dp, extraLarge: Dp = 64.dp)",
       "icu.repsaj.android.mytrivia.ui.theme.Spacing.Spacing"
+    ]
+  },
+  {
+    "name": "constructor(healthService: IHealthApiService)",
+    "description": "icu.repsaj.android.mytrivia.data.APIHealthRepo.APIHealthRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-a-p-i-health-repo/-a-p-i-health-repo.html",
+    "searchKeys": [
+      "APIHealthRepo",
+      "constructor(healthService: IHealthApiService)",
+      "icu.repsaj.android.mytrivia.data.APIHealthRepo.APIHealthRepo"
     ]
   },
   {
@@ -707,6 +787,16 @@
       "ApiQuestion",
       "constructor(id: UUID, questionText: String, answers: List<ApiAnswer> = listOf(), category: ApiCategory)",
       "icu.repsaj.android.mytrivia.network.question.ApiQuestion.ApiQuestion"
+    ]
+  },
+  {
+    "name": "constructor(message: String)",
+    "description": "icu.repsaj.android.mytrivia.data.ApiNotAvailableException.ApiNotAvailableException",
+    "location": "app/icu.repsaj.android.mytrivia.data/-api-not-available-exception/-api-not-available-exception.html",
+    "searchKeys": [
+      "ApiNotAvailableException",
+      "constructor(message: String)",
+      "icu.repsaj.android.mytrivia.data.ApiNotAvailableException.ApiNotAvailableException"
     ]
   },
   {
@@ -1350,6 +1440,16 @@
     ]
   },
   {
+    "name": "fun NoConnectionScreen(child: () -> Unit)",
+    "description": "icu.repsaj.android.mytrivia.ui.compontents.NoConnectionScreen",
+    "location": "app/icu.repsaj.android.mytrivia.ui.compontents/-no-connection-screen.html",
+    "searchKeys": [
+      "NoConnectionScreen",
+      "fun NoConnectionScreen(child: () -> Unit)",
+      "icu.repsaj.android.mytrivia.ui.compontents.NoConnectionScreen"
+    ]
+  },
+  {
     "name": "fun Question(question: String, modifier: Modifier = Modifier)",
     "description": "icu.repsaj.android.mytrivia.ui.game.Question",
     "location": "app/icu.repsaj.android.mytrivia.ui.game/-question.html",
@@ -1640,6 +1740,16 @@
     ]
   },
   {
+    "name": "fun rememberConnectivityState(): State<NetworkConnectionState>",
+    "description": "icu.repsaj.android.mytrivia.network.rememberConnectivityState",
+    "location": "app/icu.repsaj.android.mytrivia.network/remember-connectivity-state.html",
+    "searchKeys": [
+      "rememberConnectivityState",
+      "fun rememberConnectivityState(): State<NetworkConnectionState>",
+      "icu.repsaj.android.mytrivia.network.rememberConnectivityState"
+    ]
+  },
+  {
     "name": "fun saveHistoryItem()",
     "description": "icu.repsaj.android.mytrivia.ui.game.GameViewModel.saveHistoryItem",
     "location": "app/icu.repsaj.android.mytrivia.ui.game/-game-view-model/save-history-item.html",
@@ -1810,6 +1920,26 @@
     ]
   },
   {
+    "name": "interface IHealthApiService",
+    "description": "icu.repsaj.android.mytrivia.network.health.IHealthApiService",
+    "location": "app/icu.repsaj.android.mytrivia.network.health/-i-health-api-service/index.html",
+    "searchKeys": [
+      "IHealthApiService",
+      "interface IHealthApiService",
+      "icu.repsaj.android.mytrivia.network.health.IHealthApiService"
+    ]
+  },
+  {
+    "name": "interface IHealthRepo",
+    "description": "icu.repsaj.android.mytrivia.data.IHealthRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-i-health-repo/index.html",
+    "searchKeys": [
+      "IHealthRepo",
+      "interface IHealthRepo",
+      "icu.repsaj.android.mytrivia.data.IHealthRepo"
+    ]
+  },
+  {
     "name": "interface IQuestionApiService",
     "description": "icu.repsaj.android.mytrivia.network.question.IQuestionApiService",
     "location": "app/icu.repsaj.android.mytrivia.network.question/-i-question-api-service/index.html",
@@ -1827,6 +1957,16 @@
       "IQuestionRepo",
       "interface IQuestionRepo",
       "icu.repsaj.android.mytrivia.data.IQuestionRepo"
+    ]
+  },
+  {
+    "name": "interface NetworkConnectionState",
+    "description": "icu.repsaj.android.mytrivia.network.NetworkConnectionState",
+    "location": "app/icu.repsaj.android.mytrivia.network/-network-connection-state/index.html",
+    "searchKeys": [
+      "NetworkConnectionState",
+      "interface NetworkConnectionState",
+      "icu.repsaj.android.mytrivia.network.NetworkConnectionState"
     ]
   },
   {
@@ -1887,6 +2027,16 @@
       "uiListState",
       "lateinit var uiListState: StateFlow<HistoryListState>",
       "icu.repsaj.android.mytrivia.ui.gameHistory.HistoryViewModel.uiListState"
+    ]
+  },
+  {
+    "name": "object Available : NetworkConnectionState",
+    "description": "icu.repsaj.android.mytrivia.network.NetworkConnectionState.Available",
+    "location": "app/icu.repsaj.android.mytrivia.network/-network-connection-state/-available/index.html",
+    "searchKeys": [
+      "Available",
+      "object Available : NetworkConnectionState",
+      "icu.repsaj.android.mytrivia.network.NetworkConnectionState.Available"
     ]
   },
   {
@@ -2050,6 +2200,16 @@
     ]
   },
   {
+    "name": "object Unavailable : NetworkConnectionState",
+    "description": "icu.repsaj.android.mytrivia.network.NetworkConnectionState.Unavailable",
+    "location": "app/icu.repsaj.android.mytrivia.network/-network-connection-state/-unavailable/index.html",
+    "searchKeys": [
+      "Unavailable",
+      "object Unavailable : NetworkConnectionState",
+      "icu.repsaj.android.mytrivia.network.NetworkConnectionState.Unavailable"
+    ]
+  },
+  {
     "name": "open override fun deserialize(decoder: Decoder): UUID",
     "description": "icu.repsaj.android.mytrivia.network.UUIDSerializer.deserialize",
     "location": "app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/deserialize.html",
@@ -2120,6 +2280,16 @@
     ]
   },
   {
+    "name": "open override fun responseBodyConverter(type: Type, annotations: Array<Annotation>, retrofit: Retrofit): Converter<ResponseBody, *>?",
+    "description": "icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory.responseBodyConverter",
+    "location": "app/icu.repsaj.android.mytrivia.network.convertors/-to-string-converter-factory/response-body-converter.html",
+    "searchKeys": [
+      "responseBodyConverter",
+      "open override fun responseBodyConverter(type: Type, annotations: Array<Annotation>, retrofit: Retrofit): Converter<ResponseBody, *>?",
+      "icu.repsaj.android.mytrivia.network.convertors.ToStringConverterFactory.responseBodyConverter"
+    ]
+  },
+  {
     "name": "open override fun serialize(encoder: Encoder, value: UUID)",
     "description": "icu.repsaj.android.mytrivia.network.UUIDSerializer.serialize",
     "location": "app/icu.repsaj.android.mytrivia.network/-u-u-i-d-serializer/serialize.html",
@@ -2147,6 +2317,16 @@
       "descriptor",
       "open override val descriptor: SerialDescriptor",
       "icu.repsaj.android.mytrivia.network.UUIDSerializer.descriptor"
+    ]
+  },
+  {
+    "name": "open override val healthRepo: IHealthRepo",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.healthRepo",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/health-repo.html",
+    "searchKeys": [
+      "healthRepo",
+      "open override val healthRepo: IHealthRepo",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.healthRepo"
     ]
   },
   {
@@ -2227,6 +2407,16 @@
       "insertHistoryItem",
       "open suspend override fun insertHistoryItem(item: HistoryItem)",
       "icu.repsaj.android.mytrivia.data.GameHistoryRepository.insertHistoryItem"
+    ]
+  },
+  {
+    "name": "open suspend override fun ping(): Boolean",
+    "description": "icu.repsaj.android.mytrivia.data.APIHealthRepo.ping",
+    "location": "app/icu.repsaj.android.mytrivia.data/-a-p-i-health-repo/ping.html",
+    "searchKeys": [
+      "ping",
+      "open suspend override fun ping(): Boolean",
+      "icu.repsaj.android.mytrivia.data.APIHealthRepo.ping"
     ]
   },
   {
@@ -2367,6 +2557,16 @@
       "categoryName",
       "val categoryName: String",
       "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryUiState.categoryName"
+    ]
+  },
+  {
+    "name": "val client: OkHttpClient",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.client",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/client.html",
+    "searchKeys": [
+      "client",
+      "val client: OkHttpClient",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.client"
     ]
   },
   {
@@ -2627,6 +2827,16 @@
       "large",
       "val large: Dp",
       "icu.repsaj.android.mytrivia.ui.theme.Spacing.large"
+    ]
+  },
+  {
+    "name": "val logging: HttpLoggingInterceptor",
+    "description": "icu.repsaj.android.mytrivia.data.DefaultAppContainer.logging",
+    "location": "app/icu.repsaj.android.mytrivia.data/-default-app-container/logging.html",
+    "searchKeys": [
+      "logging",
+      "val logging: HttpLoggingInterceptor",
+      "icu.repsaj.android.mytrivia.data.DefaultAppContainer.logging"
     ]
   },
   {
@@ -3470,6 +3680,16 @@
     ]
   },
   {
+    "name": "val toastMessage: SharedFlow<String>",
+    "description": "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.toastMessage",
+    "location": "app/icu.repsaj.android.mytrivia.ui.addCategory/-add-category-view-model/toast-message.html",
+    "searchKeys": [
+      "toastMessage",
+      "val toastMessage: SharedFlow<String>",
+      "icu.repsaj.android.mytrivia.ui.addCategory.AddCategoryViewModel.toastMessage"
+    ]
+  },
+  {
     "name": "val total: Int",
     "description": "icu.repsaj.android.mytrivia.network.Metadata.total",
     "location": "app/icu.repsaj.android.mytrivia.network/-metadata/total.html",
@@ -3617,6 +3837,16 @@
       "isCorrect",
       "var isCorrect: Boolean",
       "icu.repsaj.android.mytrivia.model.TriviaAnswer.isCorrect"
+    ]
+  },
+  {
+    "name": "var isUsingLocalData: Boolean",
+    "description": "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.isUsingLocalData",
+    "location": "app/icu.repsaj.android.mytrivia.ui.categoryOverview/-categories-overview-view-model/is-using-local-data.html",
+    "searchKeys": [
+      "isUsingLocalData",
+      "var isUsingLocalData: Boolean",
+      "icu.repsaj.android.mytrivia.ui.categoryOverview.CategoriesOverviewViewModel.isUsingLocalData"
     ]
   },
   {

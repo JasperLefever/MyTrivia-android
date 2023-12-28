@@ -5,15 +5,16 @@
 [androidJvm]\
 class [CachingCategoryRepository](index.md)(
 categoryDao: [CategoryDao](../../icu.repsaj.android.mytrivia.data.database/-category-dao/index.md),
-categoryApi: [ICategoryApiService](../../icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/index.md)) : [ICategoryRepo](../-i-category-repo/index.md)
+categoryApi: [ICategoryApiService](../../icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/index.md),
+healthRepo: [IHealthRepo](../-i-health-repo/index.md)) : [ICategoryRepo](../-i-category-repo/index.md)
 
 A repository implementation that caches categories locally and updates them from a remote API.
 
 ## Constructors
 
-|                                                              |                                                                                                                                                                                                                                                          |
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [CachingCategoryRepository](-caching-category-repository.md) | [androidJvm]<br>constructor(categoryDao: [CategoryDao](../../icu.repsaj.android.mytrivia.data.database/-category-dao/index.md), categoryApi: [ICategoryApiService](../../icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/index.md)) |
+|                                                              |                                                                                                                                                                                                                                                                                                                 |
+|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [CachingCategoryRepository](-caching-category-repository.md) | [androidJvm]<br>constructor(categoryDao: [CategoryDao](../../icu.repsaj.android.mytrivia.data.database/-category-dao/index.md), categoryApi: [ICategoryApiService](../../icu.repsaj.android.mytrivia.network.categroy/-i-category-api-service/index.md), healthRepo: [IHealthRepo](../-i-health-repo/index.md)) |
 
 ## Functions
 

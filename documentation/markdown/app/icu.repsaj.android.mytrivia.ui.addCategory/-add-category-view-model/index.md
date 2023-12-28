@@ -24,10 +24,11 @@ adding a new category.
 
 ## Properties
 
-| Name                     | Summary                                                                                                               |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| [apiState](api-state.md) | [androidJvm]<br>var [apiState](api-state.md): [AddCategoryApiState](../-add-category-api-state/index.md)              |
-| [uiState](ui-state.md)   | [androidJvm]<br>val [uiState](ui-state.md): StateFlow&lt;[AddCategoryUiState](../-add-category-ui-state/index.md)&gt; |
+| Name                             | Summary                                                                                                                                                  |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [apiState](api-state.md)         | [androidJvm]<br>var [apiState](api-state.md): [AddCategoryApiState](../-add-category-api-state/index.md)                                                 |
+| [toastMessage](toast-message.md) | [androidJvm]<br>val [toastMessage](toast-message.md): SharedFlow&lt;[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)&gt; |
+| [uiState](ui-state.md)           | [androidJvm]<br>val [uiState](ui-state.md): StateFlow&lt;[AddCategoryUiState](../-add-category-ui-state/index.md)&gt;                                    |
 
 ## Functions
 

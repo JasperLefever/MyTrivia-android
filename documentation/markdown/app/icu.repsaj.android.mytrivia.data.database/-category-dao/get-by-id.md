@@ -20,6 +20,6 @@ item with the specified ID.
 
 androidJvm
 
-|     |                                       |
-|-----|---------------------------------------|
-| id  | The UUID of the category to retrieve. |
+|    |                                       |
+|----|---------------------------------------|
+| id | The UUID of the category to retrieve. |

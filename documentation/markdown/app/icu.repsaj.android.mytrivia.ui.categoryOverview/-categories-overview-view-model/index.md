@@ -24,10 +24,11 @@ for the screen.
 
 ## Properties
 
-| Name                            | Summary                                                                                                                              |
-|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| [apiState](api-state.md)        | [androidJvm]<br>var [apiState](api-state.md): [CategoryApiState](../-category-api-state/index.md)                                    |
-| [uiListState](ui-list-state.md) | [androidJvm]<br>lateinit var [uiListState](ui-list-state.md): StateFlow&lt;[CategoryListState](../-category-list-state/index.md)&gt; |
+| Name                                       | Summary                                                                                                                                            |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [apiState](api-state.md)                   | [androidJvm]<br>var [apiState](api-state.md): [CategoryApiState](../-category-api-state/index.md)                                                  |
+| [isUsingLocalData](is-using-local-data.md) | [androidJvm]<br>var [isUsingLocalData](is-using-local-data.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [uiListState](ui-list-state.md)            | [androidJvm]<br>lateinit var [uiListState](ui-list-state.md): StateFlow&lt;[CategoryListState](../-category-list-state/index.md)&gt;               |
 
 ## Functions
 

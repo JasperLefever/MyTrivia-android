@@ -16,6 +16,6 @@ The string data associated with the resource, stripped of styled text informatio
 
 androidJvm
 
-|     |                                 |
-|-----|---------------------------------|
-| id  | The resource ID for the string. |
+|    |                                 |
+|----|---------------------------------|
+| id | The resource ID for the string. |
