@@ -41,5 +41,19 @@ object FakeDataSource {
             ),
             category = category,
         ),
+        ApiQuestion(
+            id = UUID.fromString("4c5ca6e5-a67a-4765-b2be-370a70f2d89e"),
+            questionText = "What is the capital of Australia? 2",
+            answers = listOf(
+                ApiAnswer(
+                    id = UUID.randomUUID(),
+                    answerText = "Sydney",
+                    isCorrect = false,
+                    questionId = UUID.fromString("4c5ca6e5-a67a-4755-b2be-370a70f2d89e")
+                ),
+                incorrectAnswer, correctAnswer
+            ),
+            category = category,
+        ),
     )
 }
