@@ -16,6 +16,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+//Testen doen soms moeilijk omdat de input te snel wordt gegeven. rerunnen van de test kan helpen.
 class NavigationTest {
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
