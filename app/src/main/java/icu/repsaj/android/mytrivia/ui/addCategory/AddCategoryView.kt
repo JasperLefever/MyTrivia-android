@@ -34,6 +34,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -112,6 +114,7 @@ fun AddCategoryView(
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
 
+            val contentDescriptionButton = stringResource(R.string.add_category_button)
             Button(
                 onClick = {
                     viewModel.addCategory(callback = navigateUp)
@@ -121,6 +124,9 @@ fun AddCategoryView(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)
+                    .semantics {
+                        contentDescription = contentDescriptionButton
+                    }
             ) {
                 Text(stringResource(R.string.add_category))
             }
@@ -209,7 +215,11 @@ private fun IconSelector(
                 colors = ButtonDefaults.outlinedButtonColors(
                     containerColor = Color.Transparent
                 ),
-                modifier = Modifier.padding(horizontal = MaterialTheme.spacing.extraSmall)
+                modifier = Modifier
+                    .padding(horizontal = MaterialTheme.spacing.extraSmall)
+                    .semantics {
+                        contentDescription = icon.toString()
+                    }
             ) {
                 Icon(imageVector = icon, contentDescription = null)
             }

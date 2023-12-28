@@ -136,7 +136,6 @@ class CachingCategoryRepository(
     override suspend fun deleteCategory(category: Category) {
         try {
             categoryApi.deleteCategory(category.id)
-            refresh()
         } catch (e: IOException) {
             // Handle network errors
             throw RuntimeException(
