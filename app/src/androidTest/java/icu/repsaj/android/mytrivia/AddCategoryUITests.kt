@@ -90,6 +90,7 @@ class AddCategoryUITests {
 
         composeTestRule.waitForIdle()
 
+        // delete after test
         composeTestRule.onNodeWithText("TestCategory").performTouchInput {
             swipeLeft()
         }
