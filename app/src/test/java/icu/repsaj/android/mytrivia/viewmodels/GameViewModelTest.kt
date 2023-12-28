@@ -179,7 +179,6 @@ class GameViewModelTest {
     fun `fetchQuestions sets error state on exception`() = runTest {
         val runtimeException = RuntimeException("Test exception")
         `when`(questionRepo.getQuestions(any())).thenThrow(runtimeException)
-        `when`(resourceProvider.getString(any())).thenReturn("Unknown error")
 
         viewModel.fetchQuestions()
         advanceUntilIdle()
