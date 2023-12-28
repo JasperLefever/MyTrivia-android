@@ -139,8 +139,8 @@ class GameViewModel(
      * If the fetch fails, the UI state is updated with an error message.
      */
     fun fetchQuestions() {
-        try {
-            viewModelScope.launch {
+        viewModelScope.launch {
+            try {
                 val questionsFlow = questionRepo.getQuestions(categoryId)
                 if (questionsFlow != null) {
                     val questions = questionsFlow.toList().flatten()
@@ -152,17 +152,12 @@ class GameViewModel(
                     apiState =
                         QuestionsApiState.Error(resourceProvider.getString(R.string.no_questions_found))
                 }
+            } catch (e: RuntimeException) {
+                e.printStackTrace()
+                apiState = QuestionsApiState.Error(
+                    e.message ?: resourceProvider.getString(R.string.unknown_error)
+                )
             }
-        } catch (e: RuntimeException) {
-            e.printStackTrace()
-            apiState = QuestionsApiState.Error(
-                e.message ?: resourceProvider.getString(R.string.unknown_error)
-            )
-        } catch (e: Exception) {
-            e.printStackTrace()
-            apiState = QuestionsApiState.Error(
-                e.message ?: resourceProvider.getString(R.string.unknown_error)
-            )
         }
 
     }

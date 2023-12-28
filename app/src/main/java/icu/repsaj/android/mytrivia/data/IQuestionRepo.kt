@@ -1,5 +1,6 @@
 package icu.repsaj.android.mytrivia.data
 
+import android.util.Log
 import icu.repsaj.android.mytrivia.model.TriviaQuestion
 import icu.repsaj.android.mytrivia.network.question.IQuestionApiService
 import icu.repsaj.android.mytrivia.network.question.asDomainObjects
@@ -41,6 +42,7 @@ class ApiQuestionRepo(
      */
     override fun getQuestions(categoryId: UUID): Flow<List<TriviaQuestion>> {
         try {
+            Log.d("ApiQuestionRepo", "Fetching questions for category $categoryId")
             return questionApiService.getQuestionsAsFlow(categoryId = categoryId).asDomainObjects()
         } catch (e: IOException) {
             // Handle network errors

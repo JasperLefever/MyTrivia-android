@@ -46,6 +46,11 @@ class CategoriesOverviewViewModel(
         fetchCategories()
     }
 
+    /**
+     * Refreshes the categories from the repository.
+     * If the refresh is successful, the UI state is updated with the new categories.
+     * If the refresh fails, the UI state is updated with an error message.
+     */
     private fun fetchCategories() {
         viewModelScope.launch {
             try {
@@ -64,6 +69,11 @@ class CategoriesOverviewViewModel(
         }
     }
 
+    /**
+     * Updates the UI state with the latest categories from the repository.
+     * If the update is successful, the UI state is updated with the new categories.
+     * If the update fails, the UI state is updated with an error message.
+     */
     private fun updateCategoriesList() {
         try {
             uiListState = categoryRepo.getCategories().map { CategoryListState(it) }

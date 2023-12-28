@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.io.IOException
 import java.util.UUID
 
 /**
@@ -44,5 +45,9 @@ fun IQuestionApiService.getQuestionsAsFlow(
     page: Int = 1,
     perPage: Int = 10
 ): Flow<List<ApiQuestion>> = flow {
-    emit(getQuestions(categoryId, page, perPage).items)
+    try {
+        emit(getQuestions(categoryId, page, perPage).items)
+    } catch (e: IOException) {
+        throw RuntimeException("Unexpected error during refresh: ${e.message}", e)
+    }
 }
