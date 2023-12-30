@@ -24,7 +24,6 @@
     <string name="no_questions_found">No questions found for this category\n</string>
     <string name="category_added_successfully">Category has been created!</string>
     <string name="without_internet_connection_you_can_t_perform_this_action">Without internet connection you can\'t perform this action</string>
-    <string name="no_internet_connection">No connection</string>
     <string name="using_local_data">Offline data</string>
     <string name="add_category_button">Add Category Button</string>
 </resources>
